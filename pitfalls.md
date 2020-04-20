@@ -1,14 +1,14 @@
 # Drawbacks and Pitfalls
 
-As with every sophisticated system, there are drawbacks and pitfalls. You should be aware of them.
-This chapter will educate you how to avoid common mistakes. Do not put your affiliate success at stake.
+As with every sophisticated system, Adspect has its drawbacks and pitfalls. You should be aware of them.
+This chapter will educate you how to avoid common mistakes lest you put your affiliate success at stake.
 
-## Standing Out
+## Do Not Stand Out!
 
-Most ad networks have a routine practice of reviewing all running campaigns every once in a while.
+Most ad networks have a routine practice of reviewing all advertising campaigns every once in a while.
 Apart from helping you pass the initial review after launching a new campaign, the first and foremost
 task of any cloaking service is to protect your running campaigns from these recurring reviews.
-Adspect does this very efficiently, proven by many successful ad campaigns in different networks.
+Adspect does this very efficiently, proven by many successful campaigns in different ad networks.
 
 But there's a catch: if your advertising activity stands out compared to an average advertiser as
 perceived by a particular network, it will eventually attract attention of their policy-enforcing team,
@@ -17,11 +17,11 @@ We can guarantee solid protection from routine reviews, but no service can prote
 investigators driven by suspicion.
 
 Remember: *do not stand out!* If you slip somehow and put network staff on alert, then you're done.
-There's no coming back from that one. Common preventive guidelines:
+There's no coming back from that one. Here are some common preventive guidelines:
 
 * Do not run ridiculous amounts of traffic from a single account. High volume indicates consistent
   profitability and thereby raises interest in the nature of your campaigns.
-* Keep the number of active campaigns per account low. More campaigns = more things to inspect.
+* Keep the number of active campaigns per account low. More campaigns = more things to inspect and uncover.
 * Always use a tracker. Continuous affiliate campaigns run without any tracking prompts an observer
   to wonder how it is possible to sustain them on profitable level.
 * Always use tracking parameters with macros supported by the network. This tip is related to the one
@@ -40,8 +40,8 @@ latency problem.
 
 We highly recommend to keep your redirect chains as short as possible. Host your own landing pages with
 file-based display mechanism instead of redirects to external URLs ([detailed here](streams.html#money-page).)
-Put tracker either before or after our `index.php` file, but not at both sides. Place your tracker
-geographically close to your target country or region, if possible.
+Put tracker either before or after our `index.php` file in the traffic flow, but not at both sides.
+Place your tracker geographically close to your target country or region, if possible.
 
 On a side note, we are developing a self-hosted filtering solution that will allow our clients to cut
 network latency by performing real-time filtering right at their tracker side, i.e. without having
@@ -55,7 +55,7 @@ false positives is the lowest on the market, sometimes dramatically lower compar
 Some solutions on the market yield lower amounts of filtered traffic than Adspect, but that is in fact
 their fault and not an achievement--they let malicious visitors slip through. Such misclassifications
 are called false negatives and can be easily proved on click-by-click analysis of decisions. Adspect
-provides decision logs in the form of [raw CSV reports](streams.html#money-page).
+provides decision logs in the form of [raw CSV reports](reporting.html#raw-reports).
 
 ## False Negatives
 
@@ -63,6 +63,8 @@ False negatives occur when a filter fails to detect a malicious visitor, letting
 the very reason why affiliate campaign cloaking fails every once in a while. False positives stem from
 the practical impossibility to detect and filter out every malicious visitor. Any and all measures taken
 can be circumvented, given enough determination and proper technical expertise. What we described in
-the [Standing Out](pitfalls.html#standing-out) paragraph above is how such determination occurs in
+the [Do Not Stand Out!](pitfalls.html#do-not-stand-out) paragraph above is how such determination occurs in
 the heads of those who you are protecting from; and be sure that they do have all the technical skills
-needed. Remember: *false negatives and their consequences result from drawing attention!*
+needed.
+
+Remember: *false negatives and their consequences result from drawing attention!*

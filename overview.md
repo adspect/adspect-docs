@@ -1,15 +1,15 @@
 # Overview
 
-Adspect is an easy-to-use cloud-based service for protecting affiliate campaigns (offers, landing pages) from
-"bad" traffic. By bad traffic we mean:
+Adspect is an easy-to-use cloud-based service for protecting affiliate campaigns (CPA offers, landing pages)
+from "bad" traffic. By bad traffic we mean:
 
-* click fraud, ubiquitous in display ads and popunder;
+* [click fraud](https://en.wikipedia.org/wiki/Click_fraud), ubiquitous in display ads and popunder;
 * moderators and policy teams of ad networks;
-* spy services;
+* spy services used by competitors to steal your creatives and landing pages;
 * [content scrapers](https://en.wikipedia.org/wiki/Web_scraping);
 * [credential stuffing bots](https://en.wikipedia.org/wiki/Credential_stuffing);
 * bots of antivirus companies;
-* and other similar flavors of unwanted visitors.
+* and other flavors of unwanted or outright hostile visitors.
 
 This is done via a special `index.php` file that you place in your landing page directory or elsewhere accessible
 via HTTP. This file acts as an entry point for web traffic and is wired to our servers that do the filtering.
@@ -38,11 +38,11 @@ but cURL is supported by almost every PHP build out there.
 
 The common workflow with Adspect for affiliate marketing campaigns consists of the following steps:
 
-1. Create an Adspect stream for your campaign and place it in "On Review" mode.
+1. [Create an Adspect stream](streams.html) for your campaign and place it in "On Review" mode.
 2. Download an `index.php` file associated with that stream.
 3. Place `index.php` into the root directory of your landing page or host it standalone.
 4. Create an ad campaign using the link to the `index.php` file.
 5. Wait for campaign approval to switch the stream into "Filtering" mode.
-6. Run traffic and explore statistics in the "Reports" section.
+6. Run traffic and explore statistics in the [Reporting section](reporting.html).
 
 We will describe caveats of these steps in detail in the next chapters.

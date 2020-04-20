@@ -2,26 +2,25 @@
 
 Traffic management in Adspect is organized in terms of streams. A stream is a traffic channel that is managed
 as a whole, much like a campaign in an ad network or a scheme in TDS. We recommend that you create one stream
-per GEO to make obtaining per-GEO statistics easier. It is also a good idea to match streams with ad campaigns
-on one-to-one basis to maintain consistency and clarity across your traffic sources and Adspect.
+per GEO to make obtaining per-GEO statistics easier.
 
-Streams are managed in the "Streams" section of the clients area. Use the "New Stream"
-button to create new streams. Please be advised that the total number of streams per account is limited to 50.
-However, this limit is not strict and may be increased or even lifted altogether; please contact us if you need
-more streams.
+Streams are managed in the "Streams" section of the clients area. Use the "New Stream" button to create new streams.
+Please be advised that the total number of streams per account is limited to 50. If there's no "New Stream" button,
+then you have reached your streams limit. However, this limit is not rigid and may be increased or even lifted
+altogether; please contact us if you need more streams.
 
 Each stream has its own `index.php` file wired to it. Therefore different `index.php` files are not interchangeable.
 The actual difference is in the stream ID that is encoded inside the file. That is the only volatile information
 encoded in `index.php`, so you don't need to re-download new `index.php` file versions each time you change
-stream settings, letting you editing streams transparently and on the fly.
+stream settings. You can edit streams on the fly at any time.
 
-Streams have several settings that control their operation. These settings may be changed at any time as was pointed
-out above. Below we will visit each stream setting in detail.
+Below we will visit each stream setting in detail.
 
 ## Name
 
-Stream name is just a human-readable identifier that lets you distinguish between different streams. We recommend
-you to name streams after traffic source and ad campaign in that source. Stream name is limited to 255 characters.
+Stream name is just a human-readable identifier that lets you distinguish between different streams. It is a good
+idea to match stream names with ad campaigns on one-to-one basis to maintain consistency and clarity across your
+traffic sources and Adspect.
 
 ## Filter Mode
 

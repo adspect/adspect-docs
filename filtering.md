@@ -1,8 +1,8 @@
 # Traffic Filtering
 
-There are several approaches to detecting and filtering unwanted visitors in web traffic, each traditionally
-employed by vendors in its own niche. In this chapter we will touch upon the basics of all of the major
-techniques of automatic filtering and explain what makes Adspect innovative and unique on the market.
+There are several approaches to detecting and filtering unwanted visitors in web traffic. In this chapter we
+will touch upon the basics of all of the major techniques of automatic filtering and explain what makes Adspect
+innovative and unique on the market.
 
 ## Blacklisting
 
@@ -51,7 +51,7 @@ to bring high-end fraud protection into the realm of affiliate marketing.
 ## Machine Learning
 
 Machine learning (ML) is a broad term colloquially referring to making computers learn and then use what they
-learned to do their task. With respect to traffic protection, machine learning is used to analyze the features
+have learned to do their task. With respect to traffic protection, machine learning is used to analyze the features
 of each visitor to classify them as either legitimate or malicious. This can be done with great precision, given
 enough information to teach the learning model.
 
