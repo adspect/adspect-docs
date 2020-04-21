@@ -1,8 +1,7 @@
 # Configuring Streams
 
 Traffic management in Adspect is organized in terms of streams. A stream is a traffic channel that is managed
-as a whole, much like a campaign in an ad network or a scheme in TDS. We recommend that you create one stream
-per GEO to make obtaining per-GEO statistics easier.
+as a whole, much like a campaign in an ad network or a scheme in TDS.
 
 Streams are managed in the "Streams" section of the clients area. Use the "New Stream" button to create new streams.
 Please be advised that the total number of streams per account is limited to 50. If there's no "New Stream" button,
@@ -12,7 +11,8 @@ altogether; please contact us if you need more streams.
 Each stream has its own `index.php` file wired to it. Therefore different `index.php` files are not interchangeable.
 The actual difference is in the stream ID that is encoded inside the file. That is the only volatile information
 encoded in `index.php`, so you don't need to re-download new `index.php` file versions each time you change
-stream settings. You can edit streams on the fly at any time.
+stream settings. You can edit streams on the fly at any time. `index.php` file may be downloaded by clicking the
+cloud-shaped button on the right side of the streams list.
 
 Below we will visit each stream setting in detail.
 
@@ -20,14 +20,16 @@ Below we will visit each stream setting in detail.
 
 Stream name is just a human-readable identifier that lets you distinguish between different streams. It is a good
 idea to match stream names with ad campaigns on one-to-one basis to maintain consistency and clarity across your
-traffic sources and Adspect.
+traffic sources and Adspect. We also recommend that you create one stream per GEO (country) to make obtaining per-GEO
+statistics easier.
 
 ## Filter Mode
 
 This is the mode that streams currently operates in. There are four modes:
 
-* "Filtering" -- this is primary working mode in which we actively inspect every click coming in
-  the stream and filter legitimate visitors from robots, moderators, click fraud and other unwanted types of traffic.
+* "Filtering" -- this is primary working mode in which we actively inspect every click coming in the stream and filter
+  legitimate visitors from moderators, click fraud, and other unwanted types of traffic. All filtering technologies
+  of Adspect, including [VLA](vla.html), work only in this mode.
 
 * "On review" -- this mode is meant to be used when ad campaign that points to the stream is on
   review by ad network moderators. Every visitor in this mode will be directed to the white page. There are additional
@@ -37,20 +39,20 @@ This is the mode that streams currently operates in. There are four modes:
   testing accessibility of the money page.
 
 * "All white" -- auxiliary mode in which all visitors are directed to the white page. Useful for
-  testing accessibility of the money page. It is also a good idea to put streams into this mode whenever campaigns
+  testing accessibility of the white page. It is also a good idea to put streams into this mode whenever campaigns
   are paused in ad networks, to prevent unauthorized access to your landing pages or offers during inactivity periods.
 
-"On review" is the default mode when creating a new stream. You **should** always use it when sending
+"On review" is the default mode when creating a new stream. You *should* always use it when sending
 campaigns to moderation. After a campaign is approved, you should change its stream mode to "Filtering"
 before actual traffic starts coming.
 
 ## Money Page
 
-This is your actual landing page or offer that you indend to advertise.  The "money" word is intended
+This is your actual landing page or offer that you indend to advertise. The "money" word is intended
 to indicate that this is the page that makes your revenue funnel.
 
 There are two types of values that may be specified: page file name or an URL. Page file name is the advised way
-of specifying money page--it is the name of an HTML or PHP file of your real landing page that **must** be
+of specifying money page--it is the name of an HTML or PHP file of your real landing page that *must* be
 located in the same directory as where you put `index.php` after stream creation, i.e. in the root directory of
 your landing page.
 
@@ -58,7 +60,7 @@ The file name should not be easily guessable because it lets determined moderato
 the URL of your real landing page. Pick a random file name. There's the "Randomize" button to the right
 for your convenience.
 
-**Do not** name your money page `index.html`! Apart from being easily guessable (and thereby trivially uncloakable),
+*Do not* name your money page `index.html`! Apart from being easily guessable (and thereby trivially uncloakable),
 this file may be chosen by your web server instead of `index.php` if you omit the file name in the campaign URL.
 The exact behavior depends on web server configuration as may not be relied upon.
 
