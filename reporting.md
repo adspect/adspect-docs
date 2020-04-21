@@ -12,6 +12,7 @@ Raw reports are per-click, that is, they contain information on every click that
 Adspect. They are available for download in the [CSV format](https://en.wikipedia.org/wiki/Comma-separated_values)
 via the "Get CSV" button menu. There you have two options: get full report or only for those visitors that were
 filtered by Adspect because of triggering one of more checks. Report will be limited by the selected date range.
+Downloaded CSV files may then be imported into Microsoft Excel or similar spreadsheet software.
 
 Please do not select too broad date ranges as it will lead to the formation of huge CSV files and additional strain
 on our servers. We limit the total number of rows that will be included in report, and this limit is subject to
@@ -49,7 +50,7 @@ The list of statistical columns, explained:
   traffic. Please note that this also includes all visitors when the stream works in the "All money" mode.
 
 * White hits -- how many visitors have or would have been shown the white page. This metric is calculated as
-  clicks &minus; money hits and includes those dumb bots that would have been show the white page if they were
+  clicks minus money hits and includes those dumb bots that would have been show the white page if they were
   able to execute JavaScript (there's a fallback "meta refresh" mechanism to deal with them.)
 
 * Tech. loss -- technical loss, which is the number of visitors that failed to produce a fingerprint. As mentioned
@@ -62,4 +63,5 @@ The list of statistical columns, explained:
 
 * Quality -- percentage of money hits in the whole click volume. This is the the best metric for evaluating
   traffic quality as a whole and may be used to compare different traffic sources, publishers, ad spots, etc.
-  Especially useful with grouping by sub ID for compiling blacklists of bot-ridden zones.
+  Especially useful with grouping by sub ID for compiling blacklists of bot-ridden zones, as described in
+  a [dedicated parapgraph](use-cases.html#detecting-bot-zones).

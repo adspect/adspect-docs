@@ -62,7 +62,9 @@ for your convenience.
 
 *Do not* name your money page `index.html`! Apart from being easily guessable (and thereby trivially uncloakable),
 this file may be chosen by your web server instead of `index.php` if you omit the file name in the campaign URL.
-The exact behavior depends on web server configuration as may not be relied upon.
+For instance, `https://example.com/lander/` may be understood as `https://example.com/lander/index.html` instead of
+`https://example.com/lander/index.php`. The exact behavior depends on web server configuration and should not
+be relied upon.
 
 To put it all together: if you have a landing page directory and the actual landing page file inside named `index.php`
 (as is most often the case), then you should first generate a random file name using the "Randomize"
@@ -114,13 +116,13 @@ https://cpanetwork.test/offer?id=1234&utm_medium=cpc&utm_content=mycampaign
 ## VLA
 
 VLA stands for "Virtual Learning Appliance", the trademark of the machine learning system at the heart of Adspect.
-It is discussed in detail in the [VLA chapter](vla.md). We recommend that you enable VLA for all of your streams.
+It is discussed in detail in the [VLA chapter](vla.html). We recommend that you enable VLA for all of your streams.
 95% is a good VLA precision value to begin with.
 
 ## Sub ID
 
-Sub ID refers to an URL parameter that you want to use for per-subaccount reports, available in the "Reporting"
-section by selecting the "Sub ID" grouping (please refer to the [Reporting](reporting.md) chapter for details.)
+Sub ID refers to an URL parameter that you want to use for per-subaccount reports, available in the Reporting
+section by selecting the "Sub ID" grouping. Please refer to the [Reporting](reporting.html) chapter for details.
 
 The concept is best described by example. Suppose your ad network has a notion of zones for segregating different
 publishers or ad placements into numbered groups. You would use some form of macro, e.g. `{zoneid}`, to put zone
