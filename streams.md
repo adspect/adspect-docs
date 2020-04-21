@@ -48,7 +48,7 @@ before actual traffic starts coming.
 
 ## Money Page
 
-This is your actual landing page or offer that you indend to advertise. The "money" word is intended
+This is your actual landing page or offer that you intend to advertise. The "money" word is intended
 to indicate that this is the page that makes your revenue funnel.
 
 There are two types of values that may be specified: page file name or an URL. Page file name is the advised way
@@ -124,7 +124,7 @@ It is discussed in detail in the [VLA chapter](vla.html). We recommend that you 
 Sub ID refers to an URL parameter that you want to use for per-subaccount reports, available in the Reporting
 section by selecting the "Sub ID" grouping. Please refer to the [Reporting](reporting.html) chapter for details.
 
-The concept is best described by example. Suppose your ad network has a notion of zones for segregating different
+The concept is best described by example. Suppose your ad network has a notion of zones for dividing different
 publishers or ad placements into numbered groups. You would use some form of macro, e.g. `{zoneid}`, to put zone
 identifiers into your click URL. Your campaign tracking link might look like this:
 

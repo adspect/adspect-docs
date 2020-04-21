@@ -9,7 +9,7 @@ they emerge. We believe that VLA is our strongest weapon in the race of arms of 
 as it is able to see well beyond what we initially put into it. What a human analyst may overlook will
 never escape the mathematically strict scrutiny of a carefully programmed machine.
 
-Whereas fingerprint checks yield a nigh 100% confidence in that a given fingerprint belongs to a bot
+Whereas fingerprint checks yield a close to 100% confidence in that a given fingerprint belongs to a bot
 (moderator, spy service, etc.), VLA is inherently probabilistic in nature. The real deal here is that
 fingerprint checks encompass only those threats that we already know of while VLA detects previously
 unknown dangers. It takes a fingerprint, inspects every feature encoded in it, and yields a confidence
