@@ -48,8 +48,8 @@ before actual traffic starts coming.
 
 ## Money Page
 
-This is your actual landing page or offer that you intend to advertise. The "money" word is intended
-to indicate that this is the page that makes your revenue funnel.
+This is your actual landing page or offer that you are going to advertise. The "money" word is intended
+to indicate that this is the page that makes you money.
 
 There are two types of values that may be specified: page file name or an URL. Page file name is the advised way
 of specifying money page--it is the name of an HTML or PHP file of your real landing page that *must* be

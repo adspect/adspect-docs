@@ -65,3 +65,6 @@ The list of statistical columns, explained:
   traffic quality as a whole and may be used to compare different traffic sources, publishers, ad spots, etc.
   Especially useful with grouping by sub ID for compiling blacklists of bot-ridden zones, as described in
   a [dedicated parapgraph](use-cases.html#detecting-bot-zones).
+
+There's also the "CSV" button in the bottom left corner of the report box. You can use it to download CSV versions
+of aggregate reports for further analysis, printing, or sharing.
