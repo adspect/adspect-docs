@@ -18,6 +18,25 @@ Please do not select too broad date ranges as it will lead to the formation of h
 on our servers. We limit the total number of rows that will be included in report, and this limit is subject to
 change at the sole discretion of our systems administrators.
 
+## Raw Report Columns
+
+Raw reports can have either one or two rows per each click. The first row corresponds to serving of our
+fingerprint collector script for the client browser to execute. The second row, if present, corresponds to
+fingerprint scanning and making the decision: allow or block. The second row may be missing if the visitor failed
+to produce or submit a fingerprint.
+
+Raw reports consist of the following columns:
+
+* timestamp -- date and time of the event;
+* stream_id -- ID of the stream that the event happened in;
+* sub_id -- sub ID of the click;
+* click_id -- unique ID of the click;
+* sequence -- click processing stage: 0 for fingerprint collecting, 1 for fingerprint scan;
+* certainty -- [VLA confidence](vla.md) in that the click is dangerous;
+* precision -- [VLA precision](streams.md#vla) configured at the time of the click;
+* valid -- 1 if the click has been allowed through, 0 otherwise (meaningful only if sequence = 1);
+* tags -- list of mnemonic tags each identify a check that the click has failed.
+
 ## Aggregate Reports
 
 Aggregate reports are produced by splitting raw reports into groups and summing metrics on per-group basis.

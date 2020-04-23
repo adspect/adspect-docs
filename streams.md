@@ -29,7 +29,7 @@ This is the mode that streams currently operates in. There are four modes:
 
 * "Filtering" -- this is primary working mode in which we actively inspect every click coming in the stream and filter
   legitimate visitors from moderators, click fraud, and other unwanted types of traffic. All filtering technologies
-  of Adspect, including [VLA](vla.html), work only in this mode.
+  of Adspect, including [VLA](vla.md), work only in this mode.
 
 * "On review" -- this mode is meant to be used when ad campaign that points to the stream is on
   review by ad network moderators. Every visitor in this mode will be directed to the white page. There are additional
@@ -116,13 +116,13 @@ https://cpanetwork.test/offer?id=1234&utm_medium=cpc&utm_content=mycampaign
 ## VLA
 
 VLA stands for "Virtual Learning Appliance", the trademark of the machine learning system at the heart of Adspect.
-It is discussed in detail in the [VLA chapter](vla.html). We recommend that you enable VLA for all of your streams.
+It is discussed in detail in the [VLA chapter](vla.md). We recommend that you enable VLA for all of your streams.
 95% is a good VLA precision value to begin with.
 
 ## Sub ID
 
 Sub ID refers to an URL parameter that you want to use for per-subaccount reports, available in the Reporting
-section by selecting the "Sub ID" grouping. Please refer to the [Reporting](reporting.html) chapter for details.
+section by selecting the "Sub ID" grouping. Please refer to the [Reporting](reporting.md) chapter for details.
 
 The concept is best described by example. Suppose your ad network has a notion of zones for dividing different
 publishers or ad placements into numbered groups. You would use some form of macro, e.g. `{zoneid}`, to put zone
