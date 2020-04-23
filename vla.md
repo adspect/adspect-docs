@@ -1,6 +1,6 @@
-# VLA
+# VLA™
 
-VLA stands for "Virtual Learning Appliance." It is the trademark of our machine learning technology
+VLA™ stands for "Virtual Learning Appliance." It is the trademark of our machine learning technology
 that powers the most advanced filtering capabilities of Adspect. In simple terms, it is a self-adapting
 mathematical machine that observes incoming traffic and finds suspicious recurring patterns in its
 fingerprints (thousands of features in every fingerprint) that indicate moderators, fraud, and other

@@ -56,7 +56,7 @@ of each visitor to classify them as either legitimate or malicious. This can be 
 enough information to teach the learning model.
 
 Machine learning makes a perfect solution for inspecting fingerprints. Adspect is powered by a proprietary
-machine learning technology called VLA, constantly trained to detect features of bad traffic well beyond
+machine learning technology called VLA™, constantly trained to detect features of bad traffic well beyond
 the criteria initially built into it. Please refer to the [VLA chapter](vla.md) for a detailed discussion.
 
 Machine learning is the rocket science used by very few companies on the market, all of them being the big whales
