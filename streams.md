@@ -5,8 +5,8 @@ as a whole, much like a campaign in an ad network or a scheme in TDS.
 
 Streams are managed in the "Streams" section of the clients area. Use the "New Stream" button to create new streams.
 Please be advised that the total number of streams per account is limited to 50. If there's no "New Stream" button,
-then you have reached your streams limit. However, this limit is not rigid and may be increased or even lifted
-altogether; please contact us if you need more streams.
+then you have reached your streams limit. Please contact us if you need more streams, and we will resolve your issue
+individually.
 
 Each stream has its own `index.php` file wired to it. Therefore different `index.php` files are not interchangeable.
 The actual difference is in the stream ID that is encoded inside the file. That is the only volatile information
