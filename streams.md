@@ -60,11 +60,8 @@ The file name should not be easily guessable because it lets determined moderato
 the URL of your real landing page. Pick a random file name. There's the "Randomize" button to the right
 for your convenience.
 
-*Do not* name your money page `index.html`! Apart from being easily guessable (and thereby trivially uncloakable),
-this file may be chosen by your web server instead of `index.php` if you omit the file name in the campaign URL.
-For instance, `https://example.com/lander/` may be understood as `https://example.com/lander/index.html` instead of
-`https://example.com/lander/index.php`. The exact behavior depends on web server configuration and should not
-be relied upon.
+*Do not* name your money page `index.html` or `index.htm`! Apart from being easily guessable (i.e. trivially uncloakable),
+those file names may be in conflict with your existing web server configuration, leading to unforeseen problems.
 
 To put it all together: if you have a landing page directory and the actual landing page file inside named `index.php`
 (as is most often the case), then you should first generate a random file name using the "Randomize"
