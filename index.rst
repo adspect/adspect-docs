@@ -11,4 +11,5 @@ Adspect Documentation
    use-cases
    streams
    reporting
+   tips
    pitfalls
