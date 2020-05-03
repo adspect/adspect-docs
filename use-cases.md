@@ -34,3 +34,12 @@ you a whitelist; conversely, sources with quality below 80% will be your blackli
 method invaluable for determining converting traffic sources in display ads and popunder without spending
 fortunes on filtering sources by sheer CR (conversion rate.) Filter out bot-ridden sources first, then filter
 the rest by CR as you would normally do.
+
+## Hiding Traffic Sources
+
+Many affiliate networks have internal media buying teams that would be all too happy to discover your traffic
+sources and use this information to steal your campaigns. Therefore you would normally want to hide your sources
+from affiliate networks, or any other parties, for that matter. Adspect does this for you by removing
+the [Referer HTTP request header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer)
+from all clicks, making sure that observers on the traffic redirect chain will not see the source of your traffic
+in web server logs.
