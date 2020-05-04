@@ -15,7 +15,7 @@ visitors in a mix without providing any option to split them. Such networks exis
 networks that have both [WebPush](https://developer.mozilla.org/en-US/docs/Web/API/Push_API) subscribers
 and subscribers for in-app or [PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
 notifications. You would like to split these traffic types and send them to different affiliate offers:
-`https://example.com/browser-offer` for browser-based visitors and `https://example.com/inapp-offer`
+`https://example.com/webpush-offer` for WebPush-based visitors and `https://example.com/inapp-offer`
 for mobile app-based visitors.
 
 You can accomplish this by chaining two streams that have different settings for mobile app-based
@@ -25,7 +25,7 @@ letting legitimate app-based visitors through to the separate offer.
 
 Here are the relevant settings of the entryway stream A:
 
-* Money page: `https://example.com/browser-offer`
+* Money page: `https://example.com/webpush-offer`
 * White page: `index-b.php`
 * Allow traffic from mobile apps: *disabled*
 
@@ -82,4 +82,4 @@ Adspect at the rear side of the cloaker chain and create a special setup with tw
   their filtering techniques and make Adspect more comprehensive and precise. You should always enable the
   “Blacklist all IP addresses in “Review” mode” setting as described in the section above in order to populate
   the IP address blacklist automatically. Set both money and white pages of the stream to the real white
-  page that you intend to cloak with.
+  page that you intend to cloak with. Leave the stream in “Review” mode.
