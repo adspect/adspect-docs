@@ -23,6 +23,8 @@ visitors. The first stream A accepts incoming clicks and filters out app-based o
 The second stream B is attached to the first one as its white page and filters out bots and moderators,
 letting legitimate app-based visitors through to the separate offer.
 
+![Traffic flow chart](_static/chaining-en.png "Traffic flow chart")
+
 Here are the relevant settings of the entryway stream A:
 
 * Money page: `https://example.com/webpush-offer`
