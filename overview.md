@@ -17,6 +17,8 @@ Depending on filtering decision a visitor may be directed to your actual page or
 that is, a page that contains no sensitive content. In other words, Adspect acts as an intermediary stage in your
 traffic flow, actively filtering unwanted traffic from legitimate visitors.
 
+![Traffic flow chart](_static/flow-en.png "Traffic flow chart")
+
 ## index.php
 
 `index.php` is a PHP script that serves the purpose of a bridge between your premises and our backend servers.
