@@ -19,6 +19,8 @@ traffic flow, actively filtering unwanted traffic from legitimate visitors.
 
 ![Traffic flow chart](_static/flow-en.png "Traffic flow chart")
 
+A single `index.php` file may be used for several offers or landing pages at the same time.
+
 ## index.php
 
 `index.php` is a PHP script that serves the purpose of a bridge between your premises and our backend servers.
