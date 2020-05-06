@@ -19,7 +19,7 @@ traffic flow, actively filtering unwanted traffic from legitimate visitors.
 
 ![Traffic flow chart](_static/flow-en.png "Traffic flow chart")
 
-Several copies of the same `index.php` file may be used protecting for several offers or landing pages without
+Several copies of the same `index.php` file may be used for protecting several offers or landing pages without
 interfering with each other.
 
 ## index.php
