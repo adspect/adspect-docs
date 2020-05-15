@@ -11,7 +11,21 @@ from "bad" traffic. By bad traffic we mean:
 * bots of antivirus companies;
 * and other flavors of unwanted or outright hostile visitors.
 
-This is done via a special `index.php` file that you place in your landing page directory or elsewhere accessible
+We work with all traffic sources, both existing and to come. The list of supported networks includes:
+
+* Google Ads
+* Microsoft Advertising (Bing Ads)
+* Facebook
+* Instagram
+* VK
+* Yandex Advertising Network
+* ExoClick
+* Taboola
+* MGID
+* PropellerAds
+* TrafficStars
+
+Filtering is done via a special `index.php` file that you place in your landing page directory or elsewhere accessible
 via HTTP. This file acts as an entry point for web traffic and is wired to our servers that do the filtering.
 Depending on filtering decision a visitor may be directed to your actual page or to a "white page",
 that is, a page that contains no sensitive content. In other words, Adspect acts as an intermediary stage in your

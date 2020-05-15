@@ -199,7 +199,7 @@ collecting code.)
 ```
 
 This regex will match user agents that are exactly "Mozilla/5.0", blocking visitors without concrete browser,
-engine, and platform information, which is very uncommon and suspicious.
+HTML engine, and platform information, which is very uncommon and suspicious.
 
 All of the expressions above can be combined using logical "or" (i.e. to match the first expression *or* the second
 *or* the third) this way:
