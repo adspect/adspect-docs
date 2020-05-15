@@ -173,8 +173,9 @@ Regular expression matching is case-sensitive. By default, the search is done in
 you may use [anchors](https://www.pcre.org/original/doc/html/pcrepattern.html#SEC6) to bind matching to the start
 or the end of the string (see examples below.)
 
-PCRE syntax is very rich and powerful and is out of scope of this document. Regular expressions can be combined
-to create arbitrarily complex patterns, but please note that the current implementation is limited by 1023 characters.
+PCRE syntax is very rich and powerful and is well out of scope of this document. Regular expressions can be combined
+using various syntax constructs to create arbitrarily complex patterns, but please note that the current implementation
+limits regular expression length by 1023 characters.
 
 Some examples:
 
@@ -197,8 +198,15 @@ collecting code.)
 ^Mozilla/5[.]0$
 ```
 
-This regex will match any user agent that is exactly "Mozilla/5.0", blocking visitors without concrete browser,
-engine, and platform information, which is very uncommon.
+This regex will match user agents that are exactly "Mozilla/5.0", blocking visitors without concrete browser,
+engine, and platform information, which is very uncommon and suspicious.
+
+All of the expressions above can be combined using logical "or" (i.e. to match the first expression *or* the second
+*or* the third) this way:
+
+```
+Firefox|Nexus|Miui|^Mozilla/4[.]0|^Mozilla/5[.]0$
+```
 
 **Please be careful! Improperly formed regular expression can lead to erroneous matching and filtering of
 vast amounts of legitimate traffic. Use this setting only if you know what you are doing.**
