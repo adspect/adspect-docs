@@ -9,6 +9,12 @@ they emerge. We believe that VLA is our strongest weapon in the race of arms of 
 as it is able to see well beyond what we initially put into it. What a human analyst may overlook will
 never escape the mathematically strict scrutiny of a carefully programmed machine.
 
+The concept behind machine learning is best described by analogy. Suppose a policeman at an airport
+is instructed to detain all passengers with a specific tattoo as they are known to be part of a dangerous
+gang. The policeman detained ten such persons during the last month, each time noticing that they all
+were also wearing T-shirts with the same symbol as on their tattoo. Now, the policeman will also stop
+people wearing those T-shirts under the same suspicion, regardless of whether they have the tattoo.
+
 Whereas fingerprint checks yield a close to 100% confidence in that a given fingerprint belongs to a bot
 (moderator, spy service, etc.), VLA is inherently probabilistic in nature. The real deal here is that
 fingerprint checks encompass only those threats that we already know of while VLA detects previously

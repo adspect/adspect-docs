@@ -113,8 +113,7 @@ https://cpanetwork.test/offer?id=1234&utm_medium=cpc&utm_content=mycampaign
 ## VLA™
 
 VLA™ stands for "Virtual Learning Appliance", the trademark of the machine learning system at the heart of Adspect.
-It is discussed in detail in the [VLA chapter](vla.md). We recommend that you enable VLA for all of your streams.
-95% is a good VLA precision value to begin with.
+It is discussed in detail in the [VLA chapter](vla.md). 95% is a good VLA precision value to begin with.
 
 ## Sub ID
 
