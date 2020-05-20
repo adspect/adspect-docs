@@ -11,7 +11,7 @@ from "bad" traffic. By bad traffic we mean:
 * bots of antivirus companies;
 * and other flavors of unwanted or outright hostile visitors.
 
-We work with all traffic sources, both existing and to come. The list of supported networks includes:
+We work with all traffic sources, both existing and to come. The list of supported ad networks includes:
 
 * Google Ads
 * Microsoft Advertising (Bing Ads)

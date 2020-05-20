@@ -57,8 +57,7 @@ located in the same directory as where you put `index.php` after stream creation
 your landing page.
 
 The file name should not be easily guessable because it lets determined moderators or competitors figure out
-the URL of your real landing page. Pick a random file name. There's the "Randomize" button to the right
-for your convenience.
+the URL of your real landing page. Pick a random long file name.
 
 *Do not* name your money page `index.html` or `index.htm`! Apart from being easily guessable (i.e. trivially uncloakable),
 those file names may be in conflict with your existing web server configuration, leading to unforeseen problems.
