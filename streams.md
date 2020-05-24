@@ -210,6 +210,21 @@ Firefox|Nexus|Miui|^Mozilla/4[.]0|^Mozilla/5[.]0$
 **Please be careful! Improperly formed regular expression can lead to erroneous matching and filtering of
 vast amounts of legitimate traffic. Use this setting only if you know what you are doing.**
 
+## Referer Filter
+
+This setting works similarly to the user agent filter described above, but deals with [HTTP referer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer)
+instead. It also takes a Perl-compatible regular expression and filters out all visitors whose referers match it.
+Regular expression matching is case-sensitive.
+
+One common use case is filtering empty or non-existent referers. This can be achieved with the following regex:
+
+```
+^$
+```
+
+**Please be careful! Improperly formed regular expression can lead to erroneous matching and filtering of
+vast amounts of legitimate traffic. Use this setting only if you know what you are doing.**
+
 ## IP Blacklist
 
 This is the list of IP addresses that should always be shown the white page. Both IPv4 and IPv6 addresses are
