@@ -11,7 +11,9 @@ from "bad" traffic. By bad traffic we mean:
 * bots of antivirus companies;
 * and other flavors of unwanted or outright hostile visitors.
 
-We work with all traffic sources, both existing and to come. The list of supported ad networks includes:
+We work with all traffic sources, both existing and those that will appear in future--our filtering algorithms
+are perfectly universal and equally efficient across all possible origins of traffic. We support all the largest
+advertising networks, including:
 
 * Google Ads
 * Microsoft Advertising (Bing Ads)
@@ -24,6 +26,17 @@ We work with all traffic sources, both existing and to come. The list of support
 * MGID
 * PropellerAds
 * TrafficStars
+* and hundreds of others
+
+We protect your landing pages and offers from various antivirus, security, and ad scoring companies, including:
+
+* GeoEdge
+* Adscore
+* Google Safe Browsing
+* Kaspersky Labs
+* Avast
+* Forcepoint
+* and many others
 
 Filtering is done via a special `index.php` file that you place in your landing page directory or elsewhere accessible
 via HTTP. This file acts as an entry point for web traffic and is wired to our servers that do the filtering.
