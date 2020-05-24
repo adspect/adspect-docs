@@ -63,10 +63,9 @@ the URL of your real landing page. Pick a random long file name.
 those file names may be in conflict with your existing web server configuration, leading to unforeseen problems.
 
 To put it all together: if you have a landing page directory and the actual landing page file inside named `index.php`
-(as is most often the case), then you should first generate a random file name using the "Randomize"
-button, e.g. `re3NBX1XtH.php`, then rename `index.php` to `re3NBX1XtH.php`, and in the end put our special `index.php`
-file next to `re3NBX1XtH.php` in the same directory after stream creation. Our `index.php` will then display the real
-file `re3NBX1XtH.php` to approved visitors.
+(as is most often the case), then you should first rename that `index.php` file to something hard-to-guess like `re3NBX1XtH.php`,
+then put our special `index.php` file next to `re3NBX1XtH.php` in the same directory after stream creation.
+Our `index.php` will then display the real file `re3NBX1XtH.php` to approved visitors.
 
 Alternatively, you may use an URL instead, for instance a direct offer URL taken from an affiliate network.
 This may be optimal for some campaigns, however, external URL implies an additional HTTP redirect, with associated
@@ -75,7 +74,7 @@ latency and traffic loss considerations, especially on low-quality ad formats li
 You may also use various non-HTTP URLs to achieve specialized tasks on your visitors' devices.
 Some of the more common examples:
 
-* `mailto:user@example.com` URL will open up a default e-mail program in compose mode;
+* `mailto:user@example.com` will open up a default e-mail program in compose mode;
 * `tel:+08001234567` will dial the number on mobile devices and some desktops with installed telephony software;
 * `market://details?id=app` will bring the visitor to a particular app's page in Google Play.
 
