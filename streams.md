@@ -72,6 +72,15 @@ Alternatively, you may use an URL instead, for instance a direct offer URL taken
 This may be optimal for some campaigns, however, external URL implies an additional HTTP redirect, with associated
 latency and traffic loss considerations, especially on low-quality ad formats like popunder.
 
+You may also use various non-HTTP URLs to achieve specialized tasks on your visitors' devices.
+Some of the more common examples:
+
+* `mailto:user@example.com` URL will open up a default e-mail program in compose mode;
+* `tel:+08001234567` will dial the number on mobile devices and some desktops with installed telephony software;
+* `market://details?id=app` will bring the visitor to a particular app's page in Google Play.
+
+This is particularly useful with the so called "deep links" that link to mobile in-app content.
+
 ## White Page
 
 This is the safe page to show to moderators, robots, scrapers, etc. It should not contain any sensitive content
