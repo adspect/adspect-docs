@@ -60,6 +60,8 @@ The list of statistical columns, explained:
 
 * Clicks -- the total number of clicks that accessed the `index.php` file.
 
+* Uniques -- approximate number of unique visitors are per uniqueness of their IP addresses.
+
 * Fingerprints -- the number of visitors that successfully executed our JavaScript fingerprint collector code and
   submitted their fingerprints for analysis. This figure may be lower than the total number of clicks for various
   reasons, most often it being the inability of dumb click bots to run JavaScript.
