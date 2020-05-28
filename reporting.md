@@ -28,11 +28,12 @@ to produce or submit a fingerprint.
 Raw reports consist of the following columns:
 
 * timestamp -- date and time of the event;
+* ip_address -- IP address of the visitor (IPv4 addresses are represented via
+  [IPv4-to-IPv6 mapping](https://en.wikipedia.org/wiki/IPv6#IPv4-mapped_IPv6_addresses));
 * stream_id -- ID of the stream that the event happened in;
 * sub_id -- [sub ID](streams.md#sub-id) of the click;
 * click_id -- [unique ID](streams.md#click-id) of the click;
 * sequence -- click processing stage: 0 for fingerprint collecting, 1 for fingerprint scan;
-* certainty -- [VLA confidence](vla.md) in that the click is dangerous;
 * valid -- 1 if the click has been allowed through, 0 otherwise (meaningful only if sequence = 1);
 * tags -- list of mnemonic tags each identify a check that the click has failed.
 
