@@ -235,8 +235,18 @@ vast amounts of legitimate traffic. Use this setting only if you know what you a
 
 ## IP Blacklist
 
-This is the list of IP addresses that should always be shown the white page. Both IPv4 and IPv6 addresses are
-supported, but CIDR notation of address ranges is *not*.
+This is the list of IP addresses and/or IP address ranges that should always be shown the white page. Both IPv4 and IPv6
+addresses are supported, as well as CIDR and range notations. Examples:
+
+* 192.0.2.1
+* 192.0.2.0/24
+* 192.0.2.0–192.0.2.255
+* 2001:db8::1
+* 2001:db8::/112
+* 2001:db8::-2001:db8::ffff
+
+Individual entries should be delimited by newlines or whitespaces. Please note that the system will automatically
+merge adjacent or overlapping ranges in order to optimize storage space and lookup speed.
 
 ## Blacklist All IP Addresses In "Review" Mode
 
