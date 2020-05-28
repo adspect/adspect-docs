@@ -51,6 +51,9 @@ and then by stream on each date. You may combine grouping criteria in any way yo
 Press the "Get Report" button to produce an aggregate report in the form of a table that will be displayed to you
 right below the report settings panel.
 
+In addition to browsing reports in our clients area you can also download them in the CSV format using the gray "CSV"
+button in the bottom left corner of the report window.
+
 ## Aggregate Report Columns
 
 Each aggregate report consists of the grouping columns on the left site followed by a number of statistical columns.
