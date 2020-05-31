@@ -11,7 +11,7 @@ blogs, or in Telegram groups, and we will find a mutually profitable agreement.
 The referral fee is credited to your account balance. Each time an invoice is created, funds on your
 balance are used first and deducted from the total amount that remains to be paid. This means that if
 you have enough funds on your balance, then you may use them to purchase a subscription wholly. For each
-subscription, you will receive a referral fee receipt in the Invoices section of the members area.
+credited fee, you will receive a referral fee receipt in the Invoices section of the members area.
 
 You may find your referral link at the bottom of your profile, along with a list of your referral clients.
 Use that link to promote Adspect, and each new member registered by it will be accounted as your referral.
