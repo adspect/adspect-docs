@@ -72,11 +72,11 @@ but cURL is supported by almost every PHP build out there.
 
 The common workflow with Adspect for affiliate marketing campaigns consists of the following steps:
 
-1. [Create an Adspect stream](streams.html) for your campaign and place it in "On Review" mode.
+1. [Create an Adspect stream](streams.md) for your campaign and place it in "On Review" mode.
 2. Download an `index.php` file associated with that stream.
 3. Place `index.php` into the root directory of your landing page or host it standalone.
 4. Create an ad campaign using the link to the `index.php` file.
 5. Wait for campaign approval to switch the stream into "Filtering" mode.
-6. Run traffic and explore statistics in the [Reporting section](reporting.html).
+6. Run traffic and explore statistics in the [Reporting section](reporting.md).
 
 We will describe caveats of these steps in detail in the next chapters.
