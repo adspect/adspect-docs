@@ -20,7 +20,7 @@ advertising networks, including:
 * Facebook
 * Instagram
 * VK
-* Yandex Advertising Network
+* Yandex.Direct
 * myTarget
 * ZeroPark
 * ExoClick

@@ -42,7 +42,7 @@ out information about some of them that can be used as proofs of bot traffic (e.
 networks) or for debug purposes:
 
 * `REVIEW`, `MONEY`, `WHITE` -- decision made by customer via stream mode;
-* `IP`, `IP1`, `ZIPBL` -- IP address blacklisted by us: proxies, VPN and hosting providers, antivirus companies,
+* `IP`, `IP1` -- IP address blacklisted by us: proxies, VPN and hosting providers, antivirus companies,
   ad scoring companies, security companies, known moderator origins, etc;
 * `IPSLB`, `IPSB` -- IP address blacklisted by the stream blacklist;
 * `TOR` -- visitors that come from known [Tor](https://www.torproject.org/) exit nodes;
