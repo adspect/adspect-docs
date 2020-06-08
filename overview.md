@@ -1,7 +1,7 @@
 # Overview
 
-Adspect is an easy-to-use cloud-based service for protecting affiliate campaigns (CPA offers, landing pages)
-from "bad" traffic. By bad traffic we mean:
+[Adspect](https://www.adspect.ai/) is an easy-to-use cloud-based service for protecting affiliate campaigns
+(CPA offers, landing pages) from "bad" traffic. By bad traffic we mean:
 
 * [click fraud](https://en.wikipedia.org/wiki/Click_fraud), ubiquitous in display ads and popunder;
 * moderators and policy teams of ad networks;
