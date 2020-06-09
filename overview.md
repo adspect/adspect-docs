@@ -40,6 +40,8 @@ We protect your landing pages and offers from various antivirus, security, and a
 * Forcepoint
 * and many others
 
+You may find additional information in our [FAQ](https://www.adspect.dev/faq).
+
 Filtering is done via a special `index.php` file that you place in your landing page directory or elsewhere accessible
 via HTTP. This file acts as an entry point for web traffic and is wired to our servers that do the filtering.
 Depending on filtering decision a visitor may be directed to your actual page or to a "white page",
