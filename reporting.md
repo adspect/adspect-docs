@@ -31,8 +31,12 @@ Raw reports consist of the following columns:
 * ip_address -- IP address of the visitor in IPv6 format (IPv4 addresses are represented via standard
   [IPv4-to-IPv6 mapping](https://en.wikipedia.org/wiki/IPv6#IPv4-mapped_IPv6_addresses));
 * stream_id -- ID of the stream that the event happened in;
-* sub_id -- [sub ID](streams.md#sub-id) of the click;
-* click_id -- [unique ID](streams.md#click-id) of the click;
+* country_code -- [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the visitor;
+* os -- name and release of the visitor's operating system;
+* browser -- name of the visitor's browser;
+* cost -- cost of the click, if passed via URL parameter;
+* sub_id -- [sub ID](streams.md#sub-id) of the click, if passed via URL parameter;
+* click_id -- [unique ID](streams.md#click-id) of the click, if passed via URL parameter;
 * sequence -- click processing stage: 0 for fingerprint collecting, 1 for fingerprint scan;
 * valid -- 1 if the click has been allowed through, 0 otherwise (meaningful only if sequence = 1);
 * tags -- list of mnemonic tags, mostly for internal use, that represent particular filtering reasons.
@@ -43,7 +47,7 @@ networks) or for debug purposes:
 
 * `REVIEW`, `MONEY`, `WHITE` -- decision made by customer via stream mode;
 * `GEO`, `OS`, `BROWSER` -- decision made by customer via stream targeting;
-* `IP`, `IP1` -- IP address blacklisted by us: proxies, VPN and hosting providers, antivirus companies,
+* `IP`, `IP*` -- IP address blacklisted by us: proxies, VPN and hosting providers, antivirus companies,
   ad scoring companies, security companies, known moderator origins, etc;
 * `IPSLB`, `IPSB` -- IP address blacklisted by the stream blacklist;
 * `TOR` -- visitors that come from known [Tor](https://www.torproject.org/) exit nodes;
@@ -82,7 +86,7 @@ The list of statistical columns, explained:
 
 * Uniques -- approximate number of unique visitors are per uniqueness of their IP addresses.
 
-* Fingerprints -- the number of visitors that successfully executed our JavaScript fingerprint collector code and
+* FP -- the number of visitors that successfully executed our JavaScript fingerprint collector code and
   submitted their fingerprints for analysis. This figure may be lower than the total number of clicks for various
   reasons, most often it being the inability of dumb click bots to run JavaScript.
 
@@ -93,13 +97,24 @@ The list of statistical columns, explained:
   clicks minus money hits and includes those dumb bots that would have been show the white page if they were
   able to execute JavaScript (there's a fallback "meta refresh" mechanism to deal with them.)
 
-* Tech. loss -- technical loss, which is the number of visitors that failed to produce a fingerprint. As mentioned
+* GIVT -- [general invalid traffic](https://insider.integralads.com/givt-vs-sivt-invalid-traffic/), which is
+  computed as the number of visitors that failed to produce a fingerprint. As mentioned
   above, these are often dumb bots with limited JavaScript support. Another common reason is network latency,
   especially evident in traffic with slow connection rates when visitors manage to close the tab or window before
-  their fingerprint is submitted.
+  their fingerprint is submitted. Currently, this column also accounts all clicks received when a stream was in
+  All money, All white, or On review mode with disabled fingerprint collection because fingerprint scanning is not
+  performed in these modes. We plan to change this logic in future to make this column reflect real GIVT more
+  precisely and transparently.
 
-* Filtered -- the number of fingerprints that Adspect consciously filtered out as bad traffic. This may serve as
+* SIVT -- [sophisticated invalid traffic](https://insider.integralads.com/givt-vs-sivt-invalid-traffic/), that is,
+  the number of fingerprints that Adspect consciously filtered out as bad traffic. This may serve as
   a rough traffic quality metric with respect to the more advanced types of click fraud that get more spread today.
+  This metric also includes visitors blocked by manual stream filters (country, OS, browser, regular expressions,
+  IP address blacklist.)
+
+* Cost -- total traffic cost computed as a sum of costs of each click, if passed via URL parameter.
+
+* Bots cost -- cost of the traffic that was directed to the white page, which is the precise metric of your budget loss.
 
 * Quality -- percentage of money hits in the whole click volume. This is the the best metric for evaluating
   traffic quality as a whole and may be used to compare different traffic sources, publishers, ad spots, etc.
