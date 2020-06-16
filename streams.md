@@ -3,16 +3,20 @@
 Traffic management in Adspect is organized in terms of streams. A stream is a traffic channel that is managed
 as a whole, much like a campaign in an ad network or a scheme in TDS.
 
-Streams are managed in the "Streams" section of the clients area. Use the "New Stream" button to create new streams.
-Please be advised that the total number of streams per account is limited to 50. If there's no "New Stream" button,
+Streams are managed in the Streams section of the clients area. Use the New Stream button to create new streams.
+Please be advised that the total number of streams per account is limited to 50. If there's no New Stream button,
 then you have reached your streams limit. Please contact us if you need more streams, and we will resolve your issue
 individually.
 
-Each stream has its own `index.php` file wired to it. Therefore different `index.php` files are not interchangeable.
-The actual difference is in the stream ID that is encoded inside the file. That is the only volatile information
-encoded in `index.php`, so you don't need to re-download new `index.php` file versions each time you change
-stream settings. You can edit streams on the fly at any time. `index.php` file may be downloaded by clicking the
-cloud-shaped button on the right side of the streams list.
+Each stream has its own `index.php` and `adspect.php` files wired to it that have the stream ID encoded inside.
+However, you may override that encoded stream ID and send a click to a different stream by putting the destination
+full stream ID into the `__sid` URL parameter, e.g:
+
+```
+https://example.com/index.php?__sid=1ea85c7c-b977-6804-8e69-00162501c2b4
+```
+
+Click the short stream ID in the streams list to copy the full stream ID into clipboard.
 
 Below we will visit each stream setting in detail.
 
@@ -27,23 +31,23 @@ statistics easier.
 
 This is the mode that streams currently operates in. There are four modes:
 
-* "Filtering" -- this is primary working mode in which we actively inspect every click coming in the stream and filter
+* **Filtering** -- this is primary working mode in which we actively inspect every click coming in the stream and filter
   legitimate visitors from moderators, click fraud, and other unwanted types of traffic. All filtering technologies
   of Adspect, including [VLA™](vla.md), work only in this mode.
 
-* "On review" -- this mode is meant to be used when ad campaign that points to the stream is on
+* **On review** -- this mode is meant to be used when ad campaign that points to the stream is on
   review by ad network moderators. Every visitor in this mode will be directed to the white page. There are additional
   settings that apply in this mode, they will be described below.
 
-* "All money" -- auxiliary mode in which all visitors are directed to the money page. Useful for
+* **All money** -- auxiliary mode in which all visitors are directed to the money page. Useful for
   testing accessibility of the money page.
 
-* "All white" -- auxiliary mode in which all visitors are directed to the white page. Useful for
+* **All white** -- auxiliary mode in which all visitors are directed to the white page. Useful for
   testing accessibility of the white page. It is also a good idea to put streams into this mode whenever campaigns
   are paused in ad networks, to prevent unauthorized access to your landing pages or offers during inactivity periods.
 
-"On review" is the default mode when creating a new stream. You *should* always use it when sending
-campaigns to moderation. After a campaign is approved, you should change its stream mode to "Filtering"
+On review is the default mode when creating a new stream. You *should* always use it when sending
+campaigns to moderation. After a campaign is approved, you should change its stream mode to Filtering
 before actual traffic starts coming.
 
 ## Money Page
@@ -119,13 +123,13 @@ https://cpanetwork.test/offer?id=1234&utm_medium=cpc&utm_content=mycampaign
 
 ## VLA™
 
-VLA™ stands for "Virtual Learning Appliance", the trademark of the machine learning system at the heart of Adspect.
+VLA™ stands for Virtual Learning Appliance, the trademark of the machine learning system at the heart of Adspect.
 It is discussed in detail in the [VLA chapter](vla.md). 95% is a good VLA precision value to begin with.
 
 ## Sub ID
 
 Sub ID refers to an URL parameter that you want to use for per-subaccount reports, available in the Reporting
-section by selecting the "Sub ID" grouping. Please refer to the [Reporting](reporting.md) chapter for details.
+section by selecting the Sub ID grouping. Please refer to the [Reporting](reporting.md) chapter for details.
 
 The concept is best described by example. Suppose your ad network has a notion of zones for dividing different
 publishers or ad placements into numbered groups. You would use some form of macro, e.g. `{zoneid}`, to put zone
@@ -137,8 +141,8 @@ https://tracker.test/lander/index.php?subid={zoneid}
 
 For each click, the ad network will replace the `{zoneid}` macro with an actual identifier which can then be taken
 out of the click link and tracked individually. In this example, `subid` is name of the parameter used to track
-zone IDs. If you specify `subid` for the "Sub ID" stream setting, then you will be able to pull per-zone reports
-in the "Reporting" section of the clients area as mentioned above. This may come in very handy for building
+zone IDs. If you specify `subid` for the Sub ID stream setting, then you will be able to pull per-zone reports
+in the Reporting section of the clients area as mentioned above. This may come in very handy for building
 blacklists of bot-ridden publishers, zones, placements, etc.
 
 Sub ID may also be anything else: GEO, hardware platform, OS version, any URL-trackable parameter. You can also
@@ -153,7 +157,7 @@ In the example above each subaccount will be a combination of a zone and a devic
 ## Click ID
 
 Click ID works the same way as Sub ID, but for tracking unique click identifiers often supplied by ad networks
-or affiliate trackers. If the "Click ID" setting is specified, click IDs are taken out of that link parameter and
+or affiliate trackers. If the Click ID setting is specified, click IDs are taken out of that link parameter and
 recorded in statistics along with other click data. This allows you to find and examine individual clicks in raw
 CSV reports. One use case would be compiling lists of bot clicks as a proof of click fraud.
 
@@ -165,10 +169,10 @@ providing equally higher chance of busting moderators.
 
 **We recommend to enable this mode when working with Facebook or Google Ads.**
 
-## Collect Fingerprints In "Review" Mode
+## Collect Fingerprints In Review Mode
 
 This setting controls whether Adspect should collect fingerprints of incoming visitors when the stream is in
-"Review" mode, or just display the white page without any advanced processing. This makes a difference with the more
+Review mode, or just display the white page without any advanced processing. This makes a difference with the more
 strict ad networks and their approval robots that may find our JavaScript fingerprint collector code suspicious.
 
 On the other side, collecting and examining fingerprints of moderators helps VLA refine its knowledge about them.
@@ -263,11 +267,11 @@ addresses are supported, as well as CIDR and range notations. Examples:
 Individual entries should be delimited by newlines or whitespaces. Please note that the system will automatically
 merge adjacent or overlapping ranges in order to optimize storage space and lookup speed.
 
-## Blacklist All IP Addresses In "Review" Mode
+## Blacklist All IP Addresses In Review Mode
 
 If enabled, this setting instructs Adspect to add IP addresses of all incoming visitors to the IP blacklist if
-the stream is in "Review" mode. Since the "Review" mode is meant to be used only when your ad campaigns are under
+the stream is in Review mode. Since the Review mode is meant to be used only when your ad campaigns are under
 review by moderators, it is safe to assume that every visitor in this mode is a moderator and should be barred.
 We recommend you to always enable this setting, but pay attention to the moment your campaign is approved,
-to switch the stream mode to "Filtering" in time lest you blacklist IP addresses of legitimate visitors when
+to switch the stream mode to Filtering in time lest you blacklist IP addresses of legitimate visitors when
 your campaign goes live.
