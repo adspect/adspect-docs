@@ -42,18 +42,52 @@ We protect your landing pages and offers from various antivirus, security, and a
 
 You may find additional information in our [FAQ](https://www.adspect.dev/faq).
 
-Filtering is done via a special `index.php` file that you place in your landing page directory or elsewhere accessible
-via HTTP. This file acts as an entry point for web traffic and is wired to our servers that do the filtering.
-Depending on filtering decision a visitor may be directed to your actual page or to a "white page",
+We support several types of integration that differ in technical details but all provide equally high levels of protection:
+
+* PHP integration via standalone `index.php` file;
+* JavaScript integration via `<script>` HTML tag:
+  * Passive mode without cloaking, like Google Analytics--perfect for collecting bot statistics;
+  * Cloaking via JavaScript redirect to content page using the `location.replace()` method;
+  * Cloaking via iframe overlay without redirecting.
+
+## PHP Integration
+
+In PHP integration filtering is done by a special `index.php` file that you place in your landing page directory
+or elsewhere accessible via HTTP. This file acts as an entry point for web traffic and is wired to our servers that
+do the actual filtering. Depending on filtering decision a visitor may be directed to your actual page or to a "white page",
 that is, a page that contains no sensitive content. In other words, Adspect acts as an intermediary stage in your
 traffic flow, actively filtering unwanted traffic from legitimate visitors.
 
-![Traffic flow chart](_static/flow-en.png "Traffic flow chart")
+![Traffic flow chart](_static/flow-en.png "Operation diagram for PHP integration")
 
 Several copies of the same `index.php` file may be used for protecting several offers or landing pages without
 interfering with each other.
 
-## index.php
+## JavaScript integration
+
+JavaScript integration is meant to be used with third party services like Shopify, Tilda, or OpenCart, where you cannot
+upload our `index.php` file for PHP integration. It may also come handy if you want to direct visitors to your
+white page first and keep them there if they are flagged by Adspect, for extra protection and authenticity, which
+is especially desirable when working with Facebook and Google Ads in particular.
+
+![Traffic flow chart](_static/flow-js-en.png "Operation diagram for JavaScript integration")
+
+You will also need to download and host our PHP file `adspect.php` anywhere, but its final location does not
+matter as it will be linked into the white page via `<script>` HTML tag. When a visitor comes to the white page,
+the `<script>` tag accesses the remote `adspect.php` file which produces JavaScript code that will do the job.
+What happens next depends on the mode of operation that you choose during integration:
+
+* In passive mode our statistics will be updated, but no further action will be taken--the visitor will remain
+  on the page. This mode is like Google Analytics meant for collecting passive insights and blacklists of bot-ridden
+  sources in cases that do not require cloaking.
+
+* In JavaScript redirect mode, legitimate visitors as determined by our filters will be directed to the content page
+  via JavaScript redirect using the `location.replace()` method, i.e. **the URL in the address bar will change**.
+
+* In iframe overlay mode, legitimate visitors will be shown the content page via an [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames)
+  overlay without redirecting them anywhere, i.e. the content iframe will be placed over the current page.
+
+## index.php and adspect.php
 
 `index.php` is a PHP script that serves the purpose of a bridge between your premises and our backend servers.
 The file name `index.php` is just a convention that we use throughout the system, however, you may rename it as
@@ -70,15 +104,17 @@ The only requirement is that PHP has to be built with [cURL support](https://www
 You may check if cURL is supported by examining [phpinfo](https://www.php.net/manual/en/function.phpinfo.php),
 but cURL is supported by almost every PHP build out there.
 
+The `adspect.php` file is just a different version of the `index.php` file, so everything described above applies.
+
 ## Workflow
 
 The common workflow with Adspect for affiliate marketing campaigns consists of the following steps:
 
 1. [Create an Adspect stream](streams.md) for your campaign and place it in "On Review" mode.
-2. Download an `index.php` file associated with that stream.
-3. Place `index.php` into the root directory of your landing page or host it standalone.
-4. Create an ad campaign using the link to the `index.php` file.
-5. Wait for campaign approval to switch the stream into "Filtering" mode.
+2. Choose an appropriate integration method and follow instructions on the integration page.
+4. Create an ad campaign using the link to the `index.php` file if using PHP integration,
+   or to your white page where you put our `<script>` tag for JavaScript integration.
+5. Wait for campaign approval and switch the stream into "Filtering" mode.
 6. Run traffic and explore statistics in the [Reporting section](reporting.md).
 
 We will describe caveats of these steps in detail in the next chapters.
