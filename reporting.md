@@ -37,6 +37,7 @@ Raw reports consist of the following columns:
 * cost -- cost of the click, if passed via URL parameter;
 * sub_id -- [sub ID](streams.md#sub-id) of the click, if passed via URL parameter;
 * click_id -- [unique ID](streams.md#click-id) of the click, if passed via URL parameter;
+* mode -- stream mode at the moment of the event;
 * sequence -- click processing stage: 0 for fingerprint collecting, 1 for fingerprint scan;
 * valid -- 1 if the click has been allowed through, 0 otherwise (meaningful only if sequence = 1);
 * tags -- list of mnemonic tags, mostly for internal use, that represent particular filtering reasons.
@@ -52,8 +53,9 @@ networks) or for debug purposes:
 * `IPSLB`, `IPSB` -- IP address blacklisted by the stream blacklist;
 * `TOR` -- visitors that come from known [Tor](https://www.torproject.org/) exit nodes;
 * `GOOGLE` -- visitors with user agents that belong to Google or their affiliates;
-* `BOT` -- visitors with user agents that identify them as bots;
+* `BOT`, `GENBOT` -- visitors with user agents that identify them as bots;
 * `EMU` -- clicks from known device emulators and virtualized environments;
+* `GEO`, `OS`, `BROWSER`, `LANG`, `TZ` -- visitors blocked by manual stream filters;
 * `UARE` -- visitors whose user agent matched customer-supplied regular expression;
 * `REF` -- visitors whose referer matched customer-supplied regular expression.
 
