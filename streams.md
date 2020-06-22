@@ -255,10 +255,10 @@ One common use case is filtering empty or non-existent referers. This can be ach
 **Please be careful! Improperly formed regular expression can lead to erroneous matching and filtering of
 vast amounts of legitimate traffic. Use this setting only if you know what you are doing.**
 
-## IP Blacklist
+## IP/ASN Blacklist
 
-This is the list of IP addresses and/or IP address ranges that should always be shown the white page. Both IPv4 and IPv6
-addresses are supported, as well as CIDR and range notations. Examples:
+This is the list of IP addresses, IP address ranges, and/or [autonomous system numbers (ASN)](https://en.wikipedia.org/wiki/Autonomous_system_(Internet))
+that should always be shown the white page. Both IPv4 and IPv6 addresses are supported, as well as CIDR and range notations. Examples:
 
 * 192.0.2.1
 * 192.0.2.0/24
