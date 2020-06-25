@@ -194,6 +194,13 @@ no check will be made for that setting.
 Note: time zone settings are restricted to full hour offsets from UTC. If a visitor's time zone is not offset by
 full hours, then the offset will be rounded.
 
+## Match Browser Time Zone to Location Time Zone
+
+If this setting is enabled, then Adspect will check whether the time zone reported by visitor's browser matches
+the time zone of the visitor as determined by our geolocation. This check may slightly increase the rate of false
+positives, but it significantly boosts protection against moderators and bots that use VPN or proxy services.
+If enabled, the manual time zone list described above is ignored. It is recommended to enable this setting.
+
 ## User Agent Filter
 
 This setting allows you to specify a custom [Perl-compatible regular expression (PCRE)](https://www.pcre.org/original/doc/html/pcrepattern.html)
