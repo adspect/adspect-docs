@@ -51,11 +51,10 @@ networks) or for debug purposes:
 * `IP`, `IP*` -- IP address blacklisted by us: proxies, VPN and hosting providers, antivirus companies,
   ad scoring companies, security companies, known moderator origins, etc;
 * `IPSLB`, `IPSB` -- IP address blacklisted by the stream blacklist;
-* `TOR` -- visitors that come from known [Tor](https://www.torproject.org/) exit nodes;
 * `GOOGLE` -- visitors with user agents that belong to Google or their affiliates;
 * `BOT`, `GENBOT` -- visitors with user agents that identify them as bots;
 * `EMU` -- clicks from known device emulators and virtualized environments;
-* `GEO`, `OS`, `BROWSER`, `LANG`, `TZ` -- visitors blocked by manual stream filters;
+* `GEO`, `OS`, `BROWSER`, `LANG`, `TZ`, `IPTZ` -- visitors blocked by manual stream filters;
 * `UARE` -- visitors whose user agent matched customer-supplied regular expression;
 * `REF` -- visitors whose referer matched customer-supplied regular expression.
 

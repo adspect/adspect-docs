@@ -97,8 +97,7 @@ is not suited for hosting `index.php` as it lacks PHP support for landing pages.
 
 The script is carefully written to be compatible with a wide variety of web hosting environments, ranging from
 virtual hosting and VPS to dedicated servers and Amazon AWS. Both Windows and Unix-like operating systems are
-supported, to the extent supported by PHP. PHP 7 is recommended, PHP 5 is supported, PHP 4 *may* probably work
-but hasn't been tested and will be left out of this list eventually. Use the latest available version of PHP.
+supported, to the extent supported by PHP. PHP 7 is recommended, PHP 5 is also supported.
 
 The only requirement is that PHP has to be built with [cURL support](https://www.php.net/manual/en/book.curl.php).
 You may check if cURL is supported by examining [phpinfo](https://www.php.net/manual/en/function.phpinfo.php),
