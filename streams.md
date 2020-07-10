@@ -225,6 +225,41 @@ the time zone of the visitor as determined by our geolocation. This check may sl
 positives, but it significantly boosts protection against moderators and bots that use VPN or proxy services.
 If enabled, the manual time zone list described above is ignored. It is recommended to enable this setting.
 
+## URL Rules
+
+This section allows you to create up to 30 custom rules for checking and manipulating URL parameters. Each rule
+consists of:
+
+* Parameter name -- this is the name of the URL parameter that will be checked or altered;
+* Operator -- specific check or operation that will be executed;
+* Argument -- argument of the operator, if applicable (string interpolation macros supported);
+* "On" checkbox -- toggle that allows you to turn rules on or off.
+
+The following rules are supported:
+
+* `EXISTS` -- checks if parameter exists (rule argument ignored);
+* `! EXISTS` -- checks if parameter does not exist (rule argument ignored);
+* `REGEX` -- checks if parameter value matches a
+  [Perl-compatible regular expression (PCRE)](https://www.pcre.org/original/doc/html/pcrepattern.html)
+  in rule argument (case-sensitive);
+* `REGEX (no case)` -- checks if parameter value matches a regular expression in rule argument (case-insensitive);
+* `! REGEX` -- checks if parameter value does not match a regular expression in rule argument (case-sensitive);
+* `! REGEX (no case)` -- checks if parameter value does not match a regular expression in rule argument (case-insensitive);
+* =, ≠, >, ≥, <, ≤ -- compares parameter value with rule argument; integers and real values are compared as numbers,
+  strings are compared according to [lexicographical order](https://en.wikipedia.org/wiki/Lexicographical_order);
+* `ASSIGN` -- assigns rule argument as parameter value;
+* `RENAME` -- renames parameter to rule argument;
+* `DELETE` -- deletes parameter (rule argument ignored).
+
+The order of rule execution is as follows:
+
+1. Checks: `EXISTS` and `REGEX` rules, =, ≠, >, ≥, <, ≤ -- failed check sends to white page;
+2. `ASSIGN` rules;
+3. `RENAME` rules;
+4. `DELETE` rules.
+
+Rule argument supports all the same string interpolation macros available for money/white page settings.
+
 ## User Agent Filter
 
 This setting allows you to specify a custom [Perl-compatible regular expression (PCRE)](https://www.pcre.org/original/doc/html/pcrepattern.html)
