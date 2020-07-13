@@ -121,5 +121,23 @@ The list of statistical columns, explained:
   Especially useful with grouping by sub ID for compiling blacklists of bot-ridden zones, as described in
   a [dedicated parapgraph](use-cases.html#detecting-bot-zones).
 
+* Conversions -- total number of conversions as accounted via the postback mechanism.
+
+* CR -- conversion rate computed as conversions / clicks.
+
+* Revenue -- gross revenue of the funnel as accounted via the postback mechanism.
+
+* Profit -- net profit computed as revenue − cost.
+
+* ROI -- return of investment computed as profit / cost.
+
+* CPC / CPM -- cost per click computed as cost / clicks, and cost per mille computed as CPC × 1000.
+
+* CPA -- cost per action computed as cost / conversions.
+
+* EPL -- earn per lead computed as revenue / conversions.
+
+* eCPM -- effective cost per mille computed as revenue / clicks × 1000.
+
 There's also the "CSV" button in the bottom left corner of the report box. You can use it to download CSV versions
 of aggregate reports for further analysis, printing, or sharing.
