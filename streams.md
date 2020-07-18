@@ -8,7 +8,7 @@ Please be advised that the total number of streams per account is limited to 50.
 then you have reached your streams limit. Please contact us if you need more streams, and we will resolve your issue
 individually.
 
-Each stream has its own `index.php` and `adspect.php` files wired to it that have the stream ID encoded inside.
+Each stream has its own `index.php` and `ajax.php` files wired to it that have the stream ID encoded inside.
 However, you may override that encoded stream ID and send a click to a different stream by putting the destination
 full stream ID into the `__sid` URL parameter, e.g:
 

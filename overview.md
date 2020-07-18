@@ -72,9 +72,9 @@ is especially desirable when working with Facebook and Google Ads in particular.
 
 ![Traffic flow chart](_static/flow-js-en.png "Traffic flow chart for JavaScript integration")
 
-You will also need to download and host our PHP file `adspect.php` anywhere, but its final location does not
+You will also need to download and host our PHP file `ajax.php` anywhere, but its final location does not
 matter as it will be linked into the white page via `<script>` HTML tag. When a visitor comes to the white page,
-the `<script>` tag accesses the remote `adspect.php` file which produces JavaScript code that will do the job.
+the `<script>` tag accesses the remote `ajax.php` file which produces JavaScript code that will do the job.
 What happens next depends on the mode of operation that you choose during integration:
 
 * In passive mode our statistics will be updated, but no further action will be taken--the visitor will remain
@@ -87,7 +87,7 @@ What happens next depends on the mode of operation that you choose during integr
 * In iframe overlay mode, legitimate visitors will be shown the content page via an [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames)
   overlay without redirecting them anywhere, i.e. the content iframe will be placed over the white page.
 
-## index.php and adspect.php
+## index.php and ajax.php
 
 `index.php` is a PHP script that serves the purpose of a bridge between your premises and our backend servers.
 The file name `index.php` is just a convention that we use throughout the system, however, you may rename it as
@@ -103,7 +103,7 @@ The only requirement is that PHP has to be built with [cURL support](https://www
 You may check if cURL is supported by examining [phpinfo](https://www.php.net/manual/en/function.phpinfo.php),
 but cURL is supported by almost every PHP build out there.
 
-The `adspect.php` file is just a different version of the `index.php` file, so everything described above applies.
+The `ajax.php` file is just a different version of the `index.php` file, so everything described above applies.
 
 ## Workflow
 
