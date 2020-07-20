@@ -43,8 +43,8 @@ We highly encourage you to follow them in order to achieve the best results with
        country. This is especially important when working with popunder ad format.
 
 3. Cloaking tips
-   1. **Never reuse** domain names in the same network. If an account is banned, then write down all the domains
-      used by its campaigns and don't use them again. Register new domain names for new accounts.
+   1. **Never reuse** domain names, creatives, or white pages in the same network without modifications.
+      Register new domain names for new accounts and modify your creatives and white pages to be unique.
 
    2. **Always use** the most strict manual filters by country, OS, browser, and languages. Match them to
       targeting settings of your campaigns.
@@ -55,10 +55,10 @@ We highly encourage you to follow them in order to achieve the best results with
    4. **Always make sure** that your white pages are convincing and relevant to your ad campaigns (creatives,
       languages, targeting options.) **Never use** obviously bogus white pages like redirections to Google.
 
-   5. **Use site constructors** like [Shopify](https://www.shopify.com/), [Wix](https://wix.com/), [Tilda](https://tilda.cc/),
-      etc. for white pages when working with Facebook or Google Ads as they come with highly trusted domains.
-      We support JavaScript integration for them. **One exception is Tilda**: Google seems to preemptively
-      flag sites in the `tilda.ws` zone for cloaking, which has been reported several times recently.
+   5. **Use self-hosted white pages** instead of site constructors ([Shopify](https://www.shopify.com/),
+      [Wix](https://wix.com/), [Tilda](https://tilda.cc/), etc.), especially when working with Facebook or
+      Google Ads because both ad networks seem to ban campaigns with site constructors preemptively now
+      due to their widespread use for cloaking purposes.
 
    6. When using site constructors, **check availability** of your site periodically--it is not uncommon
       for such services to ban sites for suspected use in various cloaking schemes.

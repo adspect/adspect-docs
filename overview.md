@@ -92,8 +92,7 @@ What happens next depends on the mode of operation that you choose during integr
 `index.php` is a PHP script that serves the purpose of a bridge between your premises and our backend servers.
 The file name `index.php` is just a convention that we use throughout the system, however, you may rename it as
 you like. The fact that we use a PHP script to filter traffic naturally implies that you need a PHP-enabled web
-hosting or a tracker with support for landing pages written in PHP. For this reason, Keitaro TDS in particular
-is not suited for hosting `index.php` as it lacks PHP support for landing pages.
+hosting or a tracker with support for landing pages written in PHP.
 
 The script is carefully written to be compatible with a wide variety of web hosting environments, ranging from
 virtual hosting and VPS to dedicated servers and Amazon AWS. Both Windows and Unix-like operating systems are
