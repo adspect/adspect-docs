@@ -16,3 +16,4 @@ Adspect Documentation
    tips
    pitfalls
    ref-program
+   api
