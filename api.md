@@ -5,7 +5,7 @@ uses JSON data encoding and supports several methods for basic stream operations
 [HTTP Basic authentication scheme](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Basic_authentication_scheme)
 in which API key is supplied as username and password is left blank. You may find your API key in profile.
 
-Each API request should contain two mandatory headers:
+Each API request must contain two mandatory headers:
 
 1. `Content-Type: application/json` to indicate the use of JSON data encoding;
 2. `Authorization: Basic ###` to authorize access, where `###` is `base64(API key + ":")`.
@@ -41,8 +41,8 @@ Each stream is represented as a JSON object that contains the following properti
 * `countries` -- array of allowed country strings in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format;
 * `os` -- array of allowed OS strings;
 * `browsers` -- array of allowed browser strings;
-* `languages` -- array of allowed browser language strings;
-* `timezones` -- array of allowed time zone strings;
+* `languages` -- array of allowed browser language codes;
+* `timezones` -- array of allowed time zones as integer hour offsets from UTC;
 * `tz_match_ip` -- match browser time zone to IP time zone flag, boolean or integer;
 * `url_rules` -- array of URL rule objects, each having the following format:
   * `param` -- URL parameter name, string;
@@ -110,8 +110,16 @@ Example:
    "browsers" : [
       "Google Chrome"
    ],
-   "languages" : [],
-   "timezones" : [],
+   "languages" : [
+      "en",
+      "fr",
+      "es",
+   ],
+   "timezones" : [
+      -5,
+      -6,
+      -7,
+   ],
    "tz_match_ip" : 1,
    "url_rules" : [
       {

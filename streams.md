@@ -128,29 +128,24 @@ We strongly advise using a landing page file over external URL for white page. T
 increased scrutiny from compliance teams of certain ad networks that discourage or outright prohibit the use of
 redirects in traffic flow.
 
-## Pass URL Parameters to Money/White URL
+## Pass URL Parameters to White URL
 
-These settings are applied only when the corresponding money/white page is specified as an URL. When enabled,
-URL parameters passed to the `index.php` file will be appended to the corresponding money/white URL.
+When enabled, parameters passed in the incoming URL will be appended to white page URL or file.
 
-These settings work the same as similar settings available in most affiliate tracking software. For example,
-consider the stream's money page is configured as follows:
-
+For example, consider the stream's white page is configured as follows:
 ```
-https://cpanetwork.test/offer?id=1234
+https://example.com/?utm_campaign=white
 ```
 
-A good (non-robot) visitor accesses `index.php` of the stream using the following URL:
-
+A visitor accesses `index.php` of the stream using the following URL:
 ```
-https://tracker.test/lander/index.php?utm_medium=cpc&utm_content=mycampaign
+https://tracker.test/lander/index.php?utm_medium=ppc&utm_source=search
 ```
 
-After inspecting the visitor and allowing them through to the money page, they will be redirected to the money URL
-with URL parameters combined from both of the above:
-
+If the visitor is considered dangerous, they will be redirected to the white URL with URL parameters combined
+from both of the above:
 ```
-https://cpanetwork.test/offer?id=1234&utm_medium=cpc&utm_content=mycampaign
+https://example.com/?utm_campaign=white&utm_medium=ppc&utm_content=search
 ```
 
 ## VLA™
