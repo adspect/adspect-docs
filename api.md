@@ -159,5 +159,5 @@ Deletes a stream.
 
 You may obtain `index.php` and `ajax.php` files for any stream via the following requests:
 
-* `index.php` --  `GET https://clients.adspect.net/getindex.php?sid=<id>`
-* `ajax.php` --  `GET https://clients.adspect.net/getindex.php?sid=<id>&js`
+* `index.php` --  `GET https://clients.adspect.ai/getindex.php?sid=<id>`
+* `ajax.php` --  `GET https://clients.adspect.ai/getindex.php?sid=<id>&js`
