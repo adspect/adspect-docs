@@ -39,7 +39,7 @@ Raw reports consist of the following columns:
 * click_id -- [unique ID](streams.md#click-id) of the click, if passed via URL parameter;
 * mode -- stream mode at the moment of the event;
 * sequence -- click processing stage: 0 for fingerprint collecting, 1 for fingerprint scan;
-* valid -- 1 if the click has been allowed through, 0 otherwise (meaningful only if sequence = 1);
+* target -- target page shown to the visitor: 0 for white page, 1 and above for money pages;
 * tags -- list of mnemonic tags, mostly for internal use, that represent particular filtering reasons.
 
 The exact nature of click tags is a trade secret--we do not disclose our filtering techniques. However, we do give
