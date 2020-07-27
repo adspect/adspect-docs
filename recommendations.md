@@ -89,7 +89,7 @@ We highly encourage you to follow them in order to achieve the best results with
 ## Facebook Pixel
 
 If you must use Facebook Pixel to signal conversion events from your money page, then **do not** do so using
-their usual script as it will expose the URL of your money page in its referrer header. However, there are safe
+their usual script as it will expose the URL of your money page in its Referrer header. However, there are safe
 workarounds.
 
 Facebook provides a short version of their pixel for visitors with disabled JavaScript, e.g:
@@ -99,7 +99,7 @@ Facebook provides a short version of their pixel for visitors with disabled Java
 ```
 
 Take the pixel URL out of the `src` attribute and use it in either of the two safe variants below, whichever
-you find more appropriate to your particular use case:
+you find more appropriate for your particular use case:
 
 1. Static HTML iframe method, suitable for firing the pixel immediately when the page is loaded:
 
@@ -107,21 +107,8 @@ you find more appropriate to your particular use case:
    <iframe height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=111111111111111&ev=Lead&noscript=1" referrerpolicy="no-referrer">
    ```
 
-2. Dynamic JavaScript method, suitable for firing the pixel from a script with any kind of additional logic attached. First declare the pixel function:
-
-   ```html
-   <script>
-     function pixel(url) {
-       fetch(url, {
-         mode: "no-cors",
-         referrerPolicy: "no-referrer",
-       });
-     }
-   </script>
-   ```
-
-   Then call the function from some script whenever it is appropriate:
+2. Dynamic JavaScript method, suitable for firing the pixel from a script:
 
    ```js
-   pixel("https://www.facebook.com/tr?id=111111111111111&ev=Lead&noscript=1");
+   fetch("https://www.facebook.com/tr?id=111111111111111&ev=Lead&noscript=1", {mode: "no-cors", referrerPolicy: "no-referrer"});
    ```
