@@ -27,9 +27,9 @@ Each stream is represented as a JSON object that contains the following properti
 * `money_pages` -- array of one or more (up to 254) money page objects, each having the following format:
   * `page` -- target URL or page file name, string;
   * `arg_passthru` -- whether to perform URL parameters passthru, boolean;
-  * `weight` -- relative weight for A/B traffic distribution;
+  * `weight` -- relative weight for A/B traffic distribution, integer;
   * `enabled` -- whether this money page is enabled, boolean;
-* `white_page` -- money page URL or file name, string;
+* `white_page` -- white page URL or file name, string;
 * `white_arg_passthru` -- whether to perform URL parameters passthru to white page, boolean or integer;
 * `ml_precision` -- VLA precision in percents, integer;
 * `cost_parameter` -- parameter name for click cost accounting, string;
@@ -39,12 +39,12 @@ Each stream is represented as a JSON object that contains the following properti
 * `paranoid` -- paranoid mode on flag, boolean or integer;
 * `allow_apps` -- mobile apps allowed flag, boolean or integer;
 * `countries` -- array of allowed country strings in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format;
-* `os` -- array of allowed OS strings;
+* `os` -- array of allowed operating system strings;
 * `browsers` -- array of allowed browser strings;
 * `languages` -- array of allowed browser language codes;
 * `timezones` -- array of allowed time zones as integer hour offsets from UTC;
 * `tz_match_ip` -- match browser time zone to IP time zone flag, boolean or integer;
-* `url_rules` -- array of zero or more (up to 30) URL rule objects, each having the following format:
+* `url_rules` -- array of zero or more (up to 64) URL rule objects, each having the following format:
   * `param` -- URL parameter name, string;
   * `op` -- rule operator, one of:
     * `EXISTS` -- parameter exists;
@@ -72,66 +72,66 @@ Example:
 
 ```json
 {
-   "stream_id" : "1eacc6d0-875f-6f5c-bff8-00162501c2b4",
-   "account_id" : "1eaa2ce5-d4dd-63ec-b8a4-00162501c2b4",
-   "name" : "Example stream",
-   "mode" : "Filter",
-   "money_pages" : [
+   "stream_id": "1eacc6d0-875f-6f5c-bff8-00162501c2b4",
+   "account_id": "1eaa2ce5-d4dd-63ec-b8a4-00162501c2b4",
+   "name": "Example stream",
+   "mode": "Filter",
+   "money_pages": [
       {
-         "page" : "https://example.com/offer1?clid={clickid}",
-         "arg_passthru" : true,
-         "weight" : 10,
-         "enabled" : true
+         "page": "https://example.com/offer1?clid={clickid}",
+         "arg_passthru": true,
+         "weight": 10,
+         "enabled": true
       },
       {
-         "page" : "https://example.com/offer2?clid={clickid}",
-         "arg_passthru" : true,
-         "weight" : 20,
-         "enabled" : true
+         "page": "https://example.com/offer2?clid={clickid}",
+         "arg_passthru": true,
+         "weight": 20,
+         "enabled": true
       }
    ],
-   "white_page" : "white.html",
-   "white_arg_passthru" : 0,
-   "ml_precision" : 95,
-   "cost_parameter" : "cost",
-   "sid_parameter" : "sourceid",
-   "cid_parameter" : "",
-   "enable_fp" : 1,
-   "paranoid" : 0,
-   "allow_apps" : 1,
-   "countries" : [
+   "white_page": "white.html",
+   "white_arg_passthru": 0,
+   "ml_precision": 95,
+   "cost_parameter": "cost",
+   "sid_parameter": "sourceid",
+   "cid_parameter": "",
+   "enable_fp": 1,
+   "paranoid": 0,
+   "allow_apps": 1,
+   "countries": [
       "CA",
       "US"
    ],
-   "os" : [
+   "os": [
       "iOS",
       "macOS"
    ],
-   "browsers" : [
+   "browsers": [
       "Google Chrome"
    ],
-   "languages" : [
+   "languages": [
       "en",
       "fr",
       "es",
    ],
-   "timezones" : [
+   "timezones": [
       -5,
       -6,
       -7,
    ],
-   "tz_match_ip" : 1,
-   "url_rules" : [
+   "tz_match_ip": 1,
+   "url_rules": [
       {
-         "param" : "secretkey",
-         "op" : "EQ",
-         "arg" : "4gHzQvF2IoqeQ",
-         "enabled" : true
+         "param": "secretkey",
+         "op": "EQ",
+         "arg": "4gHzQvF2IoqeQ",
+         "enabled": true
       }
    ],
-   "ua_regex" : "",
-   "referer_regex" : "",
-   "ip_on_review" : 1
+   "ua_regex": "",
+   "referer_regex": "",
+   "ip_on_review": 1
 }
 ```
 
