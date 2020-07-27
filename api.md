@@ -10,7 +10,7 @@ Each API request must contain two mandatory headers:
 1. `Content-Type: application/json` to indicate the use of JSON data encoding;
 2. `Authorization: Basic ###` to authorize access, where `###` is `base64(API key + ":")`.
 
-The base URL for all API methods is `https://api.adspect.net/v1`. Descriptions below specify paths
+The base URL for all API methods is `https://api.adspect.net/v1/`. Descriptions below specify paths
 relative to this base URL. Stream IDs used in API methods should be speficied as full UUIDs, e.g.
 `cbb360ff-5a28-41d0-9ac8-9889a01149fa`.
 
