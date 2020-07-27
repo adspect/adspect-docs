@@ -44,7 +44,7 @@ Each stream is represented as a JSON object that contains the following properti
 * `languages` -- array of allowed browser language codes;
 * `timezones` -- array of allowed time zones as integer hour offsets from UTC;
 * `tz_match_ip` -- match browser time zone to IP time zone flag, boolean or integer;
-* `url_rules` -- array of URL rule objects, each having the following format:
+* `url_rules` -- array of zero or more (up to 30) URL rule objects, each having the following format:
   * `param` -- URL parameter name, string;
   * `op` -- rule operator, one of:
     * `EXISTS` -- parameter exists;
@@ -64,8 +64,8 @@ Each stream is represented as a JSON object that contains the following properti
     * `DELETE` -- delete parameter;
   * `arg` -- rule argument, string;
   * `enabled` -- rule enabled flag, boolean;
-* `ua_regex` -- regular expression for the user agent filter, string;
-* `referer_regex` -- regular expression for the referer filter, string;
+* `ua_regex` **(obsolete, will be removed)** -- regular expression for the user agent filter, string;
+* `referer_regex` **(obsolete, will be removed)** -- regular expression for the referer filter, string;
 * `ip_on_review` -- blacklist IP addresses in "Review" mode flag, boolean or integer.
 
 Example:

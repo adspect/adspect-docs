@@ -53,7 +53,8 @@ before actual traffic starts coming.
 ## Money Page
 
 This is your actual landing page or offer that you are going to advertise. The "money" word is intended
-to indicate that this is the page that makes you money.
+to indicate that this is the page that makes you money. You may specify up to 254 money pages for A/B testing, in which case
+traffic will be distributed across different money pages proportionally to their weights.
 
 There are two types of values that may be specified: page file name or an URL. Page file name is the advised way
 of specifying money page--it is the name of an HTML or PHP file of your real landing page that *must* be
