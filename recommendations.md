@@ -1,4 +1,4 @@
-# Recommendations
+# Best Practices
 
 Below you may find a compiled list of general recommendations that we give to all of our customers.
 We highly encourage you to follow them in order to achieve the best results with Adspect.
@@ -8,6 +8,8 @@ We highly encourage you to follow them in order to achieve the best results with
 1. **Do not use** domain names in cheap zones like `.site`, `.club`, `.world`, etc. as they attract more
    thorough and frequent scrutiny from antivirus and ad scoring companies, effectively being tainted
    from the beginning. **Only use** domains in `.org`, `.net`, and `.com` zones, in the order of priority.
+
+   **Tip:** you may check domain ban status in Facebook using [Developer Tools](https://developers.facebook.com/tools/debug/sharing/?q=example.com).
 
 2. **Do not use** domain names that contain questionable or stop words: "sex", "xxx", "win", "diet",
    "health", "meet", "date", and so forth. Be creative and choose domain names that look and sound like brands.
@@ -85,6 +87,9 @@ We highly encourage you to follow them in order to achieve the best results with
 
 13. **Do not use** landing pages of supposedly "white" offers as white pages--advertising networks tend to
     have a wildly different idea of "white". **Never use** direct affiliate links as white pages.
+
+14. **Do not alter** white pages of running campaigns in any way. The more strict ad networks may detect
+    even small changes like additions of extra `<script>` tags and initiate campaign or account review.
 
 ## Facebook Pixel
 
