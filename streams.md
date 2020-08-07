@@ -85,6 +85,40 @@ Some of the more common examples:
 
 This is particularly useful with the so called "deep links" that link to mobile in-app content.
 
+### Param Setting
+
+Param stands for "URL parameters passthrough." When enabled, parameters passed in the incoming URL will be
+appended to money page URL or file.
+
+For example, consider the stream's money page is configured as follows:
+```
+https://example.com/?utm_campaign=sweeps
+```
+
+A visitor accesses `index.php` of the stream using the following URL:
+```
+https://tracker.test/lander/index.php?utm_medium=ppc&utm_source=search
+```
+
+If the visitor is considered legitimate, they will be redirected to the money URL with URL parameters combined
+from both of the above:
+```
+https://example.com/?utm_campaign=sweeps&utm_medium=ppc&utm_content=search
+```
+
+### Weight Setting
+
+Each money page has associated abstract "weight" that defaults to 10. This setting is taken into account when
+you have more than one money page in A/B testing. The more the weight is, the more traffic that money page will
+receive, proportionally.
+
+For example, if you have three money pages with weights 10, 15, and 25, then the first page will receieve about
+20% of all human traffic, the second page will receieve 30%, and the third page will get around 50%.
+
+### On Setting
+
+The On checkbox allows you to turn individual money pages on or off.
+
 ### URL Macros
 
 Adspect supports several URL macros that you can use in money and white page fields:
@@ -131,23 +165,8 @@ redirects in traffic flow.
 
 ## Pass URL Parameters to White URL
 
-When enabled, parameters passed in the incoming URL will be appended to white page URL or file.
-
-For example, consider the stream's white page is configured as follows:
-```
-https://example.com/?utm_campaign=white
-```
-
-A visitor accesses `index.php` of the stream using the following URL:
-```
-https://tracker.test/lander/index.php?utm_medium=ppc&utm_source=search
-```
-
-If the visitor is considered dangerous, they will be redirected to the white URL with URL parameters combined
-from both of the above:
-```
-https://example.com/?utm_campaign=white&utm_medium=ppc&utm_content=search
-```
+When enabled, parameters passed in the incoming URL will be appended to white page URL or file. This setting works
+the same way like the Param setting of money pages.
 
 ## VLA™
 
