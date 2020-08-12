@@ -27,7 +27,7 @@ idea to match stream names with ad campaigns on one-to-one basis to maintain con
 traffic sources and Adspect. We also recommend that you create one stream per GEO (country) to make obtaining per-GEO
 statistics easier.
 
-## Filter Mode
+## Mode
 
 This is the mode that streams currently operates in. There are four modes:
 
@@ -53,8 +53,8 @@ before actual traffic starts coming.
 ## Money Page
 
 This is your actual landing page or offer that you are going to advertise. The "money" word is intended
-to indicate that this is the page that makes you money. You may specify up to 254 money pages for A/B testing, in which case
-traffic will be distributed across different money pages proportionally to their weights.
+to indicate that this is the page that makes you money. You may specify up to 254 money pages for A/B testing.
+Traffic will be distributed across them according to rules of a particular rotator; see the [Rotator paragraph](#rotator) below.
 
 There are two types of values that may be specified: page file name or an URL. Page file name is the advised way
 of specifying money page--it is the name of an HTML or PHP file of your real landing page that *must* be
@@ -109,11 +109,8 @@ https://example.com/?utm_campaign=sweeps&utm_medium=ppc&utm_content=search
 ### Weight Setting
 
 Each money page has associated abstract "weight" that defaults to 10. This setting is taken into account when
-you have more than one money page in A/B testing. The more the weight is, the more traffic that money page will
-receive, proportionally.
-
-For example, if you have three money pages with weights 10, 15, and 25, then the first page will receieve about
-20% of all human traffic, the second page will receieve 30%, and the third page will get around 50%.
+you have more than one money page in A/B testing. Exact meaning of this parameter depends on the rotator used
+by the stream; see the [Rotator paragraph](#rotator) below.
 
 ### On Setting
 
@@ -150,6 +147,33 @@ page.php?clickid={clickid}&geo={country}&os={os}
 <!-- Inside page.php file -->
 <a href="https://example.com/offer?clickid=<?= $_GET['clickid'] ?>">Offer</a>
 ```
+
+## Rotator
+
+Rotator controls how several money pages are rotated, i.e. how the system decides which money page to display to each
+particular visitor. If there is only a single money page specified, then rotator choice does not affect anything.
+Currently Adspect supports two rotators: Split and Timer.
+
+### Split Rotator
+
+This is the default rotator that splits traffic across all enabled money pages according to their weights (A/B testing.)
+The more the weight is, the more traffic that money page will receive, proportionally.
+
+For example, if you have three money pages with weights 10, 15, and 25, then the first page will receieve about
+20% of all human traffic, the second page will receieve 30%, and the third page will get around 50%.
+
+Since this rotator is based on a pseudorandom number generator (PRNG), there may be distribution bias on small scale.
+However, mathematical properties of the PRNG guarantee that distribution will reach target weights on distance.
+
+### Timer Rotator
+
+Timer rotator cycles through enabled money pages, using weight as a number of seconds that a money page is active for.
+
+For instance, if you have three money pages with weights 60, 120, and 180, then the first page will be shown to visitors
+for 1 minute, then the rotator will cycle to the second page and display it to incoming clicks for 2 minutes, then go to
+the third page and use it for 3 minutes, then cycle back to the first one, and so on.
+
+This rotator is useful for automatic time-based switching of domains.
 
 ## White Page
 
