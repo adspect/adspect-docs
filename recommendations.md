@@ -94,8 +94,9 @@ We highly encourage you to follow them in order to achieve the best results with
 ## Facebook Pixel
 
 If you must use Facebook Pixel to signal conversion events from your money page, then **do not** do so using
-their usual script as it will expose the URL of your money page in its Referrer header. However, there are safe
-workarounds.
+their usual script as it will expose the URL of your money page in its
+[Referer header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer).
+However, there are safe workarounds.
 
 Facebook provides a short version of their pixel for visitors with disabled JavaScript, e.g:
 
