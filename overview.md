@@ -108,11 +108,13 @@ The `ajax.php` file is just a different version of the `index.php` file, so ever
 
 The common workflow with Adspect for affiliate marketing campaigns consists of the following steps:
 
-1. [Create an Adspect stream](streams.md) for your campaign and place it in "On Review" mode.
+1. [Create an Adspect stream](streams.md) for your campaign.
 2. Choose an appropriate integration method and follow instructions on the integration page.
-3. Create an ad campaign using the link to the `index.php` file if using PHP integration,
+3. Place the stream in "All money" mode and test the stream to make sure that money page is displayed correctly.
+4. Place the stream in "All white" mode and test the stream to make sure that white page is displayed correctly.
+5. Place the stream in "Filtering" mode and test the stream to make sure that there are no errors.
+6. Place the stream in "On Review" mode.
+7. Create an ad campaign using the link to the `index.php` file if using PHP integration,
    or to your white page where you put our `<script>` tag for JavaScript integration.
-4. Wait for campaign approval and switch the stream into "Filtering" mode.
-5. Run traffic and explore statistics in the [Reporting section](reporting.md).
-
-We will describe caveats of these steps in detail in the next chapters.
+8. Wait for campaign approval and switch the stream into "Filtering" mode.
+9. Run traffic and explore statistics in the [Reporting section](reporting.md).
