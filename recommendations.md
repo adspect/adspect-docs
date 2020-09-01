@@ -98,6 +98,20 @@ their usual script as it will expose the URL of your money page in its
 [Referer header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer).
 However, there are safe workarounds.
 
+**The same techniques may be used to secure pixels of other ad networks.**
+
+### Disable Referrer Globally
+
+One way to prevent referrer information from leaking is to disable referrer globally. In order to do so, add
+the following code into the `<head>` tag of the page that contains your Facebook Pixel:
+
+```html
+<meta name="referrer" content="no-referrer">
+```
+
+### Custom Pixel
+
+Another way to make your Facebook Pixel safe is to use a custom version of it in order to hide referrer information.
 Facebook provides a short version of their pixel for visitors with disabled JavaScript, e.g:
 
 ```html
@@ -115,8 +129,10 @@ you find more appropriate for your particular use case:
 
 2. Dynamic JavaScript method, suitable for firing the pixel from a script:
 
-   ```js
+   ```html
+   <script>
    fetch("https://www.facebook.com/tr?id=111111111111111&ev=Lead&noscript=1", {mode: "no-cors", referrerPolicy: "no-referrer"});
+   </script>
    ```
 
 ### Postback Proxy
