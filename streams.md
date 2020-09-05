@@ -4,10 +4,6 @@ Traffic management in Adspect is organized in terms of streams. A stream is a tr
 as a whole, much like a campaign in an ad network or a scheme in TDS.
 
 Streams are managed in the Streams section of the clients area. Use the New Stream button to create new streams.
-Please be advised that the total number of streams per account is limited to 50. If there's no New Stream button,
-then you have reached your streams limit. Please contact us if you need more streams, and we will resolve your issue
-individually.
-
 Each stream has its own `index.php` and `ajax.php` files wired to it that have the stream ID encoded inside.
 However, you may override that encoded stream ID and send a click to a different stream by putting the destination
 full stream ID into the `__sid` URL parameter, e.g:
