@@ -159,5 +159,11 @@ Deletes a stream.
 
 You may obtain `index.php` and `ajax.php` files for any stream via the following requests:
 
-* `index.php` --  `GET https://clients.adspect.ai/getindex.php?sid=<id>`
-* `ajax.php` --  `GET https://clients.adspect.ai/getindex.php?sid=<id>&js`
+* `index.php` -- `GET https://clients.adspect.ai/getindex.php?sid=<id>&mode=<mode>`
+* `ajax.php` -- `GET https://clients.adspect.ai/getindex.php?sid=<id>&mode=ajax`
+
+Where `<mode>` is one of:
+
+* `redirect` -- redirect to remote URL via HTTP 302 status code;
+* `iframe` -- display remote URL on your domain inside an `<iframe>` tag;
+* `proxy` -- display remote URL on your domain by HTTP request proxying.
