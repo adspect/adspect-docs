@@ -27,33 +27,36 @@ to produce or submit a fingerprint.
 
 Raw reports consist of the following columns:
 
-* timestamp -- date and time of the event;
-* ip_address -- IP address of the visitor in IPv6 format (IPv4 addresses are represented via standard
+* `timestamp` -- date and time of the event;
+* `ip_address` -- IP address of the visitor in IPv6 format (IPv4 addresses are represented via standard
   [IPv4-to-IPv6 mapping](https://en.wikipedia.org/wiki/IPv6#IPv4-mapped_IPv6_addresses));
-* stream_id -- ID of the stream that the event happened in;
-* country_code -- [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the visitor;
-* os -- name and release of the visitor's operating system;
-* browser -- name of the visitor's browser;
-* cost -- cost of the click, if passed via URL parameter;
-* sub_id -- [sub ID](streams.md#sub-id) of the click, if passed via URL parameter;
-* click_id -- [unique ID](streams.md#click-id) of the click, if passed via URL parameter;
-* mode -- stream mode at the moment of the event;
-* sequence -- click processing stage: 0 for fingerprint collecting, 1 for fingerprint scan;
-* target -- target page shown to the visitor: 0 for white page, 1 and above for money pages;
-* tags -- list of mnemonic tags, mostly for internal use, that represent particular filtering reasons.
+* `stream_id` -- ID of the stream that the event happened in;
+* `country_code` -- [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the visitor;
+* `os` -- name and release of the visitor's operating system;
+* `browser` -- name of the visitor's browser;
+* `cost` -- cost of the click, if passed via URL parameter;
+* `sub_id` -- [sub ID](streams.md#sub-id) of the click, if passed via URL parameter;
+* `click_id` -- [unique ID](streams.md#click-id) of the click, if passed via URL parameter;
+* `mode` -- stream mode at the moment of the event;
+* `sequence` -- click processing stage: 0 for fingerprint collecting, 1 for fingerprint scan;
+* `target` -- target page shown to the visitor: 0 for white page, 1 and above for money pages;
+* `tags` -- list of mnemonic tags, mostly for internal use, that represent particular filtering reasons.
+
+### Tags
 
 The exact nature of click tags is a trade secret--we do not disclose our filtering techniques. However, we do give
 out information about some of them that can be used as proofs of bot traffic (e.g. for demanding refunds from ad
 networks) or for debug purposes:
 
 * `REVIEW`, `MONEY`, `WHITE` -- decision made by customer via stream mode;
-* `IP`, `IP*` -- IP address blacklisted by us: proxies, VPN and hosting providers, antivirus companies,
+* `IP`, `IP…` -- IP address blacklisted by us: proxies, VPN and hosting providers, antivirus companies,
   ad scoring companies, security companies, known moderator origins, etc;
-* `IPSLB`, `IPSB` -- IP address blacklisted by the stream blacklist;
-* `GOOGLE` -- visitors with user agents that belong to Google or their affiliates;
-* `BOT`, `GENBOT` -- visitors with user agents that identify them as bots;
-* `EMU` -- clicks from known device emulators and virtualized environments;
+* `BL` -- IP address blacklisted by the stream IP blacklist;
+* `BOT` -- visitors with user agents that identify them as bots, including known device emulators
+  and virtualized environments;
+* `PARANOID` -- visitors blocked by paranoid mode;
 * `GEO`, `OS`, `BROWSER`, `LANG`, `TZ`, `IPTZ` -- visitors blocked by manual stream filters;
+* `RULE` -- visitors blocked by a user-defined URL rule;
 * `UARE` -- visitors whose user agent matched customer-supplied regular expression;
 * `REF` -- visitors whose referer matched customer-supplied regular expression.
 
