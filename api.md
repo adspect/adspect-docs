@@ -155,11 +155,11 @@ Updates a stream. Send stream object in JSON format in request body.
 
 Deletes a stream.
 
-## index.php and ajax.php
+## index.php, filter.php, and ajax.php
 
-You may obtain `index.php` and `ajax.php` files for any stream via the following requests:
+You may obtain `index.php`, `filter.php`, and `ajax.php` files for any stream via the following requests:
 
-* `index.php` -- `GET https://clients.adspect.ai/getindex.php?sid=<id>&mode=<mode>`
+* `index.php` / `filter.php` -- `GET https://clients.adspect.ai/getindex.php?sid=<id>&mode=<mode>`
 * `ajax.php` -- `GET https://clients.adspect.ai/getindex.php?sid=<id>&mode=ajax`
 
 Where `<mode>` is one of:
@@ -167,3 +167,5 @@ Where `<mode>` is one of:
 * `redirect` -- redirect to remote URL via HTTP 302 status code;
 * `iframe` -- display remote URL on your domain inside an `<iframe>` tag;
 * `proxy` -- display remote URL on your domain by HTTP request proxying.
+
+`index.php` and `filter.php` files are identical.

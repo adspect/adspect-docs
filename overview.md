@@ -15,42 +15,57 @@ We work with all traffic sources, both existing and those that will appear in fu
 are perfectly universal and equally efficient across all possible origins of traffic. We support all the largest
 advertising networks, including:
 
-* Google Ads
-* Microsoft Advertising (Bing Ads)
-* Facebook
-* Instagram
-* VK
+* **Facebook and Instagram**
+* **Google Ads**
+* **TikTok**
+* **Microsoft Advertising (Bing Ads)**
 * Yandex.Direct
 * myTarget
+* VK
 * ZeroPark
 * ExoClick
 * Taboola
 * MGID
 * PropellerAds
 * TrafficStars
-* and hundreds of others
+* **and hundreds of others**
 
 We protect your landing pages and offers from various antivirus, security, and ad scoring companies, including:
 
-* GeoEdge
-* Adscore
+* **GeoEdge**
+* Integral Ad Science
 * Google Safe Browsing
 * Kaspersky Labs
 * Avast
 * Forcepoint
+* Residential and mobile proxies, **including Luminati and GeoSurf**
 * and many others
 
 You may find additional information in our [FAQ](https://www.adspect.dev/faq).
 
 We support several types of integration that differ in technical details but all provide equally high levels of protection:
 
-* PHP integration via standalone `index.php` file;
+* Forward PHP integration via standalone `index.php` file;
+* Reverse PHP integration via standalone `filter.php` file;
 * JavaScript integration via `<script>` HTML tag:
   * Passive mode without cloaking, like Google Analytics--perfect for collecting bot statistics;
   * Cloaking via JavaScript redirect to content page using the `location.replace()` method;
   * Cloaking via iframe overlay without redirecting.
 
 ## PHP Integration
+
+PHP integration comes in two flavors: forward and reverse. They differ in how our filtering files are combined with your
+locally hosted landing pages. Links to external sites may be displayed using several available methods, which are the same
+for both forward and reverse PHP integration:
+
+* HTTP redirect -- regular redirection to remote URL via HTTP 302 status code;
+* HTML iframe -- display remote URL on your domain inside an `<iframe>` tag;
+* Reverse proxy -- display remote URL on your domain by HTTP request proxying.
+
+Forward PHP integration is the most common way of using Adspect. However, if you need to integrate Adspect into a complex
+CMS like WordPress, then you should choose reverse PHP integration.
+
+### Forward PHP Integration
 
 In PHP integration filtering is done by a special `index.php` file that you place in your landing page directory
 or elsewhere accessible via HTTP. This file acts as an entry point for web traffic and is wired to our servers that
@@ -62,6 +77,21 @@ traffic flow, actively filtering unwanted traffic from legitimate visitors.
 
 Several copies of the same `index.php` file may be used for protecting several offers or landing pages without
 interfering with each other.
+
+### Reverse PHP Integration
+
+There's also a slightly different reverse PHP integration that uses a `filter.php` file (exactly the same as `index.php`,
+just with a different name to avoid confusion) which is included directly into your PHP page file. In order to do so,
+first download the `filter.php` file on the Reverse PHP Integration tab and put it into the folder of your landing page.
+Then add the following code as the first line of your landing page file (it must be a PHP file):
+
+```php
+<?php require __DIR__ . '/filter.php' ?>
+```
+
+Then simply direct traffic the page you added the code into. If you added the code into your white page, then leave
+the White Page field empty in the stream settings; conversely, if you added the code into your money page, then leave
+the Money Page field empty.
 
 ## JavaScript integration
 
@@ -87,7 +117,7 @@ What happens next depends on the mode of operation that you choose during integr
 * In iframe overlay mode, legitimate visitors will be shown the content page via an [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames)
   overlay without redirecting them anywhere, i.e. the content iframe will be placed over the white page.
 
-## index.php and ajax.php
+## index.php, filter.php, and ajax.php
 
 `index.php` is a PHP script that serves the purpose of a bridge between your premises and our backend servers.
 The file name `index.php` is just a convention that we use throughout the system, however, you may rename it as
@@ -102,7 +132,8 @@ The only requirement is that PHP has to be built with [cURL support](https://www
 You may check if cURL is supported by examining [phpinfo](https://www.php.net/manual/en/function.phpinfo.php),
 but cURL is supported by almost every PHP build out there.
 
-The `ajax.php` file is just a different version of the `index.php` file, so everything described above applies.
+The `filter.php` and `ajax.php` files are just different versions of the `index.php` file, so everything described
+above applies to them as well.
 
 ## Workflow
 
