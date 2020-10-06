@@ -1,20 +1,8 @@
 # Configuring Streams
 
 Traffic management in Adspect is organized in terms of streams. A stream is a traffic channel that is managed
-as a whole, much like a campaign in an ad network or a scheme in TDS.
-
-Streams are managed in the Streams section of the clients area. Use the New Stream button to create new streams.
-Each stream has its own `index.php` and `ajax.php` files wired to it that have the stream ID encoded inside.
-However, you may override that encoded stream ID and send a click to a different stream by putting the destination
-full stream ID into the `__sid` URL parameter, e.g:
-
-```
-https://example.com/index.php?__sid=1ea85c7c-b977-6804-8e69-00162501c2b4
-```
-
-Click the short stream ID in the streams list to copy the full stream ID into clipboard.
-
-Below we will visit each stream setting in detail.
+as a whole, much like a campaign in an ad network or a scheme in TDS. Streams are managed in the Streams section
+of the clients area. Use the New Stream button to create new streams. Below we will visit each stream setting in detail.
 
 ## Name
 
