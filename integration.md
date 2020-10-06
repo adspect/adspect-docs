@@ -109,8 +109,7 @@ Like PHP integration, JavaScript integration also supports several modes of oper
 
 * In iframe overlay mode, legitimate visitors will be shown the money page via an [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames)
   overlay without redirecting them anywhere, i.e. the money page iframe will be placed over the white page. Please note that websites may forbid
-  displaying their content inside an [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames) by using the
-  [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) response header.
+  displaying their content inside an iframe by using the [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) response header.
 
 * In passive mode our statistics will be updated, but no further action will be taken--the visitor will remain
   on the page. This mode is like Google Analytics--perfect for collecting passive insights and blacklists of bot-ridden

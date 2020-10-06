@@ -35,8 +35,8 @@ Raw reports consist of the following columns:
 * `os` -- name and release of the visitor's operating system;
 * `browser` -- name of the visitor's browser;
 * `cost` -- cost of the click, if passed via URL parameter;
-* `sub_id` -- [sub ID](streams.md#sub-id) of the click, if passed via URL parameter;
-* `click_id` -- [unique ID](streams.md#click-id) of the click, if passed via URL parameter;
+* `sub_id` -- [sub ID](streams.html#sub-id) of the click, if passed via URL parameter;
+* `click_id` -- [unique ID](streams.html#click-id) of the click, if passed via URL parameter;
 * `mode` -- stream mode at the moment of the event;
 * `sequence` -- click processing stage: 0 for fingerprint collecting, 1 for fingerprint scan;
 * `target` -- target page shown to the visitor: 0 for white page, 1 and above for money pages;

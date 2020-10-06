@@ -57,11 +57,11 @@ The process is as follows:
    it in the “Review” mode and enable the “Blacklist all IP addresses in “Review” mode” setting. Effectively,
    this means that the stream will blacklist IP addresses of every visitor.
 
-2. Use the stream's `index.php` file as a white page for other streams as described in [Stream Chaining](tips.md#stream-chaining) above.
+2. Use the stream's `index.php` file as a white page for other streams as described in [Stream Chaining](tips.html#stream-chaining) above.
    This will direct all bad visitors to the blacklisting stream, making it collect their IP addresses.
    Alternatively, you may use the stream as a white page only during the “Review” phase of other streams to
    exclude IP addresses of regular bots from the blacklist as it may possibly lead to false positives
-   (please read [this chapter](filtering.md#blacklisting) for an explanation of why this may happen.)
+   (please read [this chapter](filtering.html#blacklisting) for an explanation of why this may happen.)
 
 3. Watch the IP blacklist of your dedicated stream being collected and copy-paste it into other streams
    every once in a while (yes, this isn't very convenient, we are working on a solution for blacklist sharing.)
