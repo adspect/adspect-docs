@@ -32,7 +32,6 @@ advertising networks, including:
 * ExoClick
 * Taboola
 * MGID
-* PropellerAds
 * TrafficStars
 * **and hundreds of others**
 
