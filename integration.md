@@ -101,6 +101,11 @@ the white page first, then legitimate ones are displayed the money page whereas 
 You will also need to download a PHP file called `ajax.php` and host it somewhere, but its final location does not
 matter as it will be linked into the white page using a `<script>` HTML tag.
 
+**It is important** to link `ajax.php` via HTTPS if the website you are integrating Adspect into also uses HTTPS (which is
+almost always the case.) Trying to link `ajax.php` to an HTTPS site via plain HTTP will result in
+[mixed content](https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content) error in most modern browsers,
+and cloaking will not work.
+
 Like PHP integration, JavaScript integration also supports several modes of operation:
 
 * In JavaScript redirect mode, legitimate visitors as determined by our filters will be directed to the money page
@@ -117,3 +122,6 @@ Like PHP integration, JavaScript integration also supports several modes of oper
 
 Several copies of the same `ajax.php` file may be used for protecting several pages without interfering with each other
 except for shared statistics.
+
+**Please note** that white page setting is ignored in JavaScript integration because visitors initially land on the white page,
+which is the page that our `<script>` tag is placed on.
