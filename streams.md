@@ -348,10 +348,26 @@ One common use case is filtering empty or non-existent referers. This can be ach
 **Please be careful! Improperly formed regular expression can lead to erroneous matching and filtering of
 vast amounts of legitimate traffic. Use this setting only if you know what you are doing.**
 
+## IP/ASN List Mode
+
+Adspect supports traffic filtering using lists of IP addresses, IP address ranges, and/or
+[autonomous system numbers (ASN)](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)). Two such lists
+exist: blacklist and whitelist.
+
+The IP/ASN list mode controls how blacklist and whitelist combine to determine whether a particular visitor
+should be blocked. Two modes are supported:
+
+* Black: a visitor will be blocked only if their IP address or ASN is in the blacklist and is not in the whitelist.
+  As such, the whitelist may be used to override the blacklist. This is the default mode.
+
+* White: a visitor will be blocked unless their IP address or ASN is in the whitelist and is not in the blacklist.
+  As such, the blacklist may be used to override the whitelist.
+
+Please note that whitelists do not override IP/ASN blocklists built into the system.
+
 ## IP/ASN Blacklist
 
-This is the list of IP addresses, IP address ranges, and/or [autonomous system numbers (ASN)](https://en.wikipedia.org/wiki/Autonomous_system_(Internet))
-that should always be shown the white page. Both IPv4 and IPv6 addresses are supported, as well as CIDR and range notations. Examples:
+This is the blacklist. Both IPv4 and IPv6 addresses are supported, as well as CIDR and range notations. Examples:
 
 * 192.0.2.1
 * 192.0.2.0/24
@@ -359,6 +375,8 @@ that should always be shown the white page. Both IPv4 and IPv6 addresses are sup
 * 2001:db8::1
 * 2001:db8::/112
 * 2001:db8::-2001:db8::ffff
+* 721
+* AS721
 
 Individual entries should be delimited by newlines or whitespaces. Please note that the system will automatically
 merge adjacent or overlapping ranges in order to optimize storage space and lookup speed.
@@ -371,3 +389,7 @@ review by moderators, it is safe to assume that every visitor in this mode is a 
 We recommend you to always enable this setting, but pay attention to the moment your campaign is approved,
 to switch the stream mode to Filtering in time lest you blacklist IP addresses of legitimate visitors when
 your campaign goes live.
+
+## IP/ASN Whitelist
+
+This is the whitelist. It supports exactly the same input format as the blacklist.
