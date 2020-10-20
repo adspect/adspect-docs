@@ -392,4 +392,4 @@ your campaign goes live.
 
 ## IP/ASN Whitelist
 
-This is the whitelist. It supports exactly the same input format as the blacklist.
+This is the whitelist. It has exactly the same input format as the blacklist.
