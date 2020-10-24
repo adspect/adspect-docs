@@ -38,7 +38,7 @@ Raw reports consist of the following columns:
 * `sub_id` -- [sub ID](streams.html#sub-id) of the click, if passed via URL parameter;
 * `click_id` -- [unique ID](streams.html#click-id) of the click, if passed via URL parameter;
 * `mode` -- stream mode at the moment of the event;
-* `sequence` -- click processing stage: 0 for fingerprint collecting, 1 for fingerprint scan;
+* `sequence` -- click processing stage;
 * `target` -- target page shown to the visitor: 0 for white page, 1 and above for money pages;
 * `tags` -- list of mnemonic tags, mostly for internal use, that represent particular filtering reasons.
 
@@ -53,6 +53,7 @@ networks) or for debug purposes:
   ad scoring companies, security companies, known moderator origins, etc;
 * `BL` -- IP address blacklisted by the stream IP/ASN blacklist;
 * `WL` -- IP address not whitelisted by the stream IP/ASN whitelist;
+* `LIMIT` -- IP address blocked due to exceeding its click limit;
 * `BOT` -- visitors with user agents that identify them as bots, including known device emulators
   and virtualized environments;
 * `PARANOID` -- visitors blocked by paranoid mode;

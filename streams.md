@@ -252,6 +252,17 @@ the time zone of the visitor as determined by our geolocation. This check may sl
 positives, but it significantly boosts protection against moderators and bots that use VPN or proxy services.
 If enabled, the manual time zone list described above is ignored. It is recommended to enable this setting.
 
+## Click Limit
+
+This is the maximum number of clicks per each IP address that will be allowed. Visitors from IP addresses that
+have exceeded the limit will be filtered out. The "Reset" button may be used to reset all click counters for
+the stream.
+
+## Blacklist IP Addresses upon Hitting the Limit
+
+If this setting is enabled, then all IP addresses that exceed the click limit will be added to the IP/ASN blacklist
+(see below.)
+
 ## URL Rules
 
 This section allows you to create up to 30 custom rules for checking and manipulating URL parameters. Each rule
@@ -381,7 +392,7 @@ This is the blacklist. Both IPv4 and IPv6 addresses are supported, as well as CI
 Individual entries should be delimited by newlines or whitespaces. Please note that the system will automatically
 merge adjacent or overlapping ranges in order to optimize storage space and lookup speed.
 
-## Blacklist All IP Addresses In Review Mode
+## Blacklist All IP Addresses in Review Mode
 
 If enabled, this setting instructs Adspect to add IP addresses of all incoming visitors to the IP blacklist if
 the stream is in Review mode. Since the Review mode is meant to be used only when your ad campaigns are under
