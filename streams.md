@@ -254,9 +254,9 @@ If enabled, the manual time zone list described above is ignored. It is recommen
 
 ## Click Limit
 
-This is the maximum number of clicks per each IP address that will be allowed. Visitors from IP addresses that
-have exceeded the limit will be filtered out. The "Reset" button may be used to reset all click counters for
-the stream.
+This is the maximum number of clicks per each IP address that will be allowed. 0 means no limit. Visitors from
+IP addresses that have exceeded the limit will be filtered out. The "Reset" button may be used to reset all click
+counters for the stream.
 
 ## Blacklist IP Addresses upon Hitting the Limit
 
