@@ -125,3 +125,33 @@ except for shared statistics.
 
 **Please note** that white page setting is ignored in JavaScript integration because visitors initially land on the white page,
 which is the page that our `<script>` tag is placed on.
+
+## Debugging
+
+Sometimes integration does not work. The most often observed error is HTTP 500 (internal server error),
+usually caused by either of the following misconfigurations:
+
+1. File specified for zero redirect displaying of money/white page could not be found;
+2. Your PHP installation does not have cURL support&ndash;you need to install the `php-curl` package.
+
+All Adspect PHP files support debug mode. If enabled, any server-side errors will be displayed directly in browser window.
+In order to enable debug mode you need to open our PHP file in a text editor, find the following piece of code in
+the beginning of the file:
+
+```php
+<?php
+ define('ADSPECT_DEBUG', 0);
+```
+
+and replace `0` with `1` in it:
+
+```php
+<?php
+ define('ADSPECT_DEBUG', 1);
+```
+
+If your PHP integration does not work, e.g. you observe an HTTP 500 error, then you will see error details in
+debug mode. When debugging JavaScript integration, you should navigate directly to the URL of the `ajax.php` file.
+If you don't know how to fix a particular error, then please contact us in Telegram about it.
+
+**Do not forget to disable debug mode after all errors are fixed.**
