@@ -46,5 +46,5 @@ For a conversion to be registered and processed it is required that Adspect has 
 click in its statistics database as determined by its click ID. You may either use externally generated
 click IDs passed to Adspect from outside in a link parameter, in which case you should put the name of that
 parameter into the [Click ID](streams.html#click-id) stream setting, or omit the Click ID stream setting
-and let Adspect generate click IDs automatically. The postback URL will accept previously unregistered click
-IDs, but they will be discarded at later stages of conversion processing.
+and let Adspect generate click IDs automatically. Conversions with click IDs not previously registered by
+Adspect will be discarded.
