@@ -136,7 +136,8 @@ networks) or for debug purposes:
 * `IP`, `IP…` -- IP address blacklisted by us: proxies, VPN and hosting providers, antivirus companies,
   ad scoring companies, security companies, known moderator origins, etc;
 * `BL` -- IP address blacklisted by the stream IP/ASN blacklist;
-* `WL` -- IP address not whitelisted by the stream IP/ASN whitelist;
+* `GBL` -- IP address blacklisted by the global IP/ASN blacklist;
+* `WL` -- IP address not whitelisted by the stream or global IP/ASN whitelist;
 * `LIMIT` -- IP address blocked due to exceeding its click limit;
 * `BOT` -- visitors with user agents that identify them as bots, including known device emulators
   and virtualized environments;
