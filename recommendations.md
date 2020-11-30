@@ -66,29 +66,25 @@ We highly encourage you to follow them in order to achieve the best results with
 6. When using site constructors, **check availability** of your site periodically--it is not uncommon
    for such services to ban sites for suspected use in various cloaking schemes.
 
-7. When using site constructors with Facebook, **cloak money pages** of your JS-integrated streams individually
-   via PHP integration (i.e. set `index.php` of another stream as money page) to prevent discovering of your
-   content via WebView history sniffing in Facebook mobile apps.
-
-8. **Put links** to legitimate-looking terms of use, privacy policy, and cookies policy on your white pages
+7. **Put links** to legitimate-looking terms of use, privacy policy, and cookies policy on your white pages
    when working with the more strict ad networks like Facebook, Google Ads, Microsoft Advertising, etc.
    **The EU Cookie Law also requires** websites to obtain informed consent from visitors if using cookies.
 
-9. **Put** `robots.txt` and `sitemap.xml` files into the root of your domain, especially when working with
+8. **Put** `robots.txt` and `sitemap.xml` files into the root of your domain, especially when working with
    search engine-based ad networks (Google Ads, Microsoft Advertising, Verizon Media Native, etc.)
 
-10. **Do not use** copied landing pages as is, always alter them in one way or another to make them overall
+9. **Do not use** copied landing pages as is, always alter them in one way or another to make them overall
    unique. This practice helps with disarming signature-based flagging.
 
-11. **Do not use** copyrighted materials on your white pages, they may be detected and rejected.
+10. **Do not use** copyrighted materials on your white pages, they may be detected and rejected.
 
-12. **Do not use** overly simple, single page, skewed/broken, non-mobile-optimized, or low quality white pages.
+11. **Do not use** overly simple, single page, skewed/broken, non-mobile-optimized, or low quality white pages.
     Always remember that a white page must look like a legitimate, useful website with authentic content.
 
-13. **Do not use** landing pages of supposedly "white" offers as white pages--advertising networks tend to
+12. **Do not use** landing pages of supposedly "white" offers as white pages--advertising networks tend to
     have a wildly different idea of "white". **Never use** direct affiliate links as white pages.
 
-14. **Do not alter** white pages of running campaigns in any way. The more strict ad networks may detect
+13. **Do not alter** white pages of running campaigns in any way. The more strict ad networks may detect
     even small changes like additions of extra `<script>` tags and initiate campaign or account review.
 
 ## Facebook Pixel
