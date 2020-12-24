@@ -39,7 +39,16 @@ modes differ in the mechanism of returning tags to a consumer application.
 Simple mode is selected for requests that lack the `Handover` header.  Tags are
 returned as a JSON-encoded array in response body with MIME type `application/json`.
 
-Example NGINX configuration may be found in the `doc/simple.conf` file.
+Example NGINX configuration:
+
+```
+location = /adspect {
+	proxy_pass http://127.0.0.1:8003/;
+
+	# Cross-origin resource sharing (CORS)
+	add_header Access-Control-Allow-Origin *;
+}
+```
 
 ### Handover Mode
 
@@ -51,7 +60,27 @@ replaces the `<tags>` macro in the URI template with a comma-separated tag list,
 appends request query string to it, and returns in the `X-Accel-Redirect` header
 in a 200 OK response with no response body.
 
-Example NGINX configuration may be found in the `doc/handover.conf` file.
+Example NGINX configuration:
+
+```
+location = /adspect {
+	set $handover /handover;
+
+	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	proxy_set_header Handover $handover?tags=<tags>;
+
+	proxy_intercept_errors on;
+	proxy_pass http://127.0.0.1:8003/;
+
+	error_page 500 502 503 504 $handover;
+}
+
+location = /handover {
+	internal;
+
+	# ... Process $arg_tags here ...
+}
+```
 
 
 ## JavaScript
