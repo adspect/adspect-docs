@@ -4,6 +4,10 @@ Traffic management in Adspect is organized in terms of streams. A stream is a tr
 as a whole, much like a campaign in an ad network or a scheme in TDS. Streams are managed in the Streams section
 of the clients area. Use the New Stream button to create new streams. Below we will visit each stream setting in detail.
 
+**Please note** that default settings are generally adequate for most traffic sources and use cases. You are
+by no means required to fill in all the available fields; normally, it is enough to configure just money and white
+pages and leave the rest to Adspect.
+
 ## Name
 
 Stream name is just a human-readable identifier that lets you distinguish between different streams. It is a good
@@ -251,6 +255,12 @@ If this setting is enabled, then Adspect will check whether the time zone report
 the time zone of the visitor as determined by our geolocation. This check may slightly increase the rate of false
 positives, but it significantly boosts protection against moderators and bots that use VPN or proxy services.
 If enabled, the manual time zone list described above is ignored. It is recommended to enable this setting.
+
+## Schedule
+
+Schedule allows you to specify dayparts and optionally days of week during which traffic filtering is on.
+All visits on time and days not explicitly listed will be blocked. Schedule is active if at least one daypart
+is specified. If a daypart does not specify days of week, then it is applied to all days.
 
 ## Click Limit
 
