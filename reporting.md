@@ -133,15 +133,16 @@ out information about some of them that can be used as proofs of bot traffic (e.
 networks) or for debug purposes:
 
 * `REVIEW`, `MONEY`, `WHITE` -- decision made by customer via stream mode;
-* `IP`, `IP…` -- IP address blacklisted by us: proxies, VPN and hosting providers, antivirus companies,
+* `IP`, `EX` -- IP address blacklisted by us: proxies, VPN and hosting providers, antivirus companies,
   ad scoring companies, security companies, known moderator origins, etc;
 * `BL` -- IP address blacklisted by the stream IP/ASN blacklist;
 * `GBL` -- IP address blacklisted by the global IP/ASN blacklist;
 * `WL` -- IP address not whitelisted by the stream or global IP/ASN whitelist;
 * `LIMIT` -- IP address blocked due to exceeding its click limit;
-* `BOT` -- visitors with user agents that identify them as bots, including known device emulators
+* `BOT` -- visitors that identify themselves as bots, including known device emulators
   and virtualized environments;
 * `PARANOID` -- visitors blocked by paranoid mode;
+* `NOGEO` -- IP address has no officially assigned country code;
 * `GEO`, `OS`, `BROWSER`, `LANG`, `TZ`, `IPTZ` -- visitors blocked by manual stream filters;
 * `RULE` -- visitors blocked by a user-defined URL rule;
 * `UARE` -- visitors whose user agent matched customer-supplied regular expression;
