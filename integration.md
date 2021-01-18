@@ -19,6 +19,9 @@ https://example.com/index.php?__sid=1ea85c7c-b977-6804-8e69-00162501c2b4
 
 You may find stream ID next to its name in the streams list.
 
+If you need use a different parameter name instead of `__sid`, then open Adspect PHP file in a text editor and replace
+the `__sid` string with the desired name (e.g. `utm_campaign`.)
+
 ## PHP Integration
 
 PHP integration comes in two flavors: forward and reverse. They differ only in how our PHP files are wired with your
