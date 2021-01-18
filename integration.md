@@ -17,7 +17,7 @@ full stream ID into the `__sid` URL parameter, e.g:
 https://example.com/index.php?__sid=1ea85c7c-b977-6804-8e69-00162501c2b4
 ```
 
-Click the short stream ID in the streams list to copy the full stream ID into clipboard.
+You may find stream ID next to its name in the streams list.
 
 ## PHP Integration
 
@@ -128,8 +128,8 @@ which is the page that our `<script>` tag is placed on.
 
 ## Debugging
 
-Sometimes integration does not work. The most often observed error is HTTP 500 (internal server error),
-usually caused by either of the following misconfigurations:
+The most often observed error is 500 Internal Server Error, which is usually caused by
+either of the following misconfigurations:
 
 1. File specified for zero redirect displaying of money/white page could not be found;
 2. Your PHP installation does not have cURL support&ndash;you need to install the `php-curl` package.
