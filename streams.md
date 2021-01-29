@@ -221,8 +221,7 @@ recorded in statistics along with other click data. This allows you to find and 
 CSV reports. One use case would be compiling lists of bot clicks as a proof of click fraud.
 
 If the Click ID setting is omitted, then Adspect will generate its own click IDs for use with its [tracker](tracker.md).
-Depending on how your money/white pages are displayed, click IDs may be put into money/white page URLs via the
-`{clickid}` URL macro or embedded into money/white page files via the `$_SERVER["ADSPECT_CLICK_ID"]` PHP variable.
+Then it may be communicated to the money or white page via the `{clickid}` URL macro.
 
 ## Paranoid Mode
 
