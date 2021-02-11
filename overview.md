@@ -114,7 +114,8 @@ Common Adspect workflow for affiliate marketing campaigns consists of the follow
 2. Choose an appropriate integration method and follow instructions on the integration page;
 3. Set the stream to the All Money mode and test it to make sure that money page is displayed correctly;
 4. Set the stream to the All White mode and test it to make sure that white page is displayed correctly;
-5. Set the stream to the Filtering mode and test it to make sure that there are no errors;
+5. Set the stream to the Filtering mode and test it to make sure that **you get forwarded to money page**
+   without any errors (temporarily disable any manual filters that may block you);
 6. Set the stream to the On Review mode;
 7. Create an ad campaign and submit it for review;
 8. Wait for campaign approval and switch the stream into Filtering mode;
