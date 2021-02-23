@@ -3,6 +3,9 @@
 Below you may find a compiled list of general recommendations that we give to all of our customers.
 We highly encourage you to follow them in order to achieve the best results with Adspect.
 
+**WARNING: failure to abide by these recommendations may result in bans and/or dramatic decrease
+in cloaking quality!** Adspect may not be held responsible for any such negative consequences.
+
 ## Domains and hosting
 
 1. **Do not use** domain names in cheap zones like `.site`, `.club`, `.world`, etc. as they attract more
@@ -46,14 +49,14 @@ We highly encourage you to follow them in order to achieve the best results with
 
 ## Cloaking
 
-1. **Never reuse** domain names, creatives, or white pages in the same network without modifications.
+1. **Never reuse** domain names, creatives, or white pages in the same traffic source without modifications.
    Register new domain names for new accounts and modify your creatives and white pages to be unique.
 
 2. **Always use** the most strict manual filters by country, OS, browser, and languages. Match them to
    targeting settings of your campaigns.
 
 3. **Always use** zero redirect (file-based) display mechanism for white pages, if possible. This rule
-   is **mandatory in Facebook and Google Ads** with PHP integration!
+   is **mandatory in Facebook, Google Ads, TikTok, Bing, and Gemini** (among others) with PHP integration!
 
 4. **Always make sure** that your white pages are convincing and relevant to your ad campaigns (creatives,
    languages, targeting options.) **Never use** obviously bogus white pages like redirections to Google.
@@ -86,6 +89,18 @@ We highly encourage you to follow them in order to achieve the best results with
 
 13. **Do not alter** white pages of running campaigns in any way. The more strict ad networks may detect
     even small changes like additions of extra `<script>` tags and initiate campaign or account review.
+
+14. **Use one stream** per ad campaign. This rule lets us detect suspicious visitors better across many
+    streams by statistical means. This also helps us to analyze traffic upon request in case of bans because
+    clicks from different campaigns do not commingle in the same stream. **We will not be able** to inspect
+    your traffic if you mix several campaigns in a single stream!
+
+15. **Always** submit campaigns for review with corresponding streams set to **On Review mode** and with
+    **Blacklist All IP Addresses in Review Mode** setting enabled. **Do not** start campaigns in Filtering mode!
+
+16. **Always** download new PHP files (`index.php`, `filter.php`, or `ajax.php`, depending on integration
+    type) after bans--each time a file is downloaded a new unique JavaScript fingerprinting code is generated
+    for it, ensuring that the code will not be detected as malicious or suspicious.
 
 ## Facebook Pixel
 
