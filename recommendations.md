@@ -107,7 +107,7 @@ in cloaking quality!** Adspect may not be held responsible for any such negative
 If you must use Facebook Pixel to signal conversion events from your money page, then **do not** do so using
 their usual script as it will expose the URL of your money page in its
 [Referer header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer).
-However, there are safe workarounds.
+However, there are relatively safe workarounds.
 
 **The same techniques may be used to secure pixels of other ad networks.**
 
@@ -145,29 +145,3 @@ you find more appropriate for your particular use case:
    fetch("https://www.facebook.com/tr?id=111111111111111&ev=Lead&noscript=1", {mode: "no-cors", referrerPolicy: "no-referrer"});
    </script>
    ```
-
-### Postback Proxy
-
-If you need to use CPA postback to trigger Facebook pixel, then do not just use the pixel URL as is.
-Instead, place a postback proxy somewhere on your own domain and point postback to it:
-
-```php
-<?php
-
-$curl = curl_init();
-
-curl_setopt($curl, CURLOPT_URL, 'https://www.facebook.com/tr?' . $_SERVER['QUERY_STRING']);
-curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36');
-
-curl_exec($curl);
-curl_close($curl);
-```
-
-Use the URL of this script plus Facebook pixel parameters for a CPA postback URL, e.g.:
-
-```
-https://example.com/postback.php?id=111111111111111&ev=Lead&noscript=1
-```
-
-The script will receive postback and relay it to Facebook from your domain and with spoofed user agent string.
