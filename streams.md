@@ -188,6 +188,15 @@ the same way like the Param setting of money pages.
 VLA™ stands for Virtual Learning Appliance, the trademark of the machine learning system at the heart of Adspect.
 It is discussed in detail in the [VLA chapter](vla.md). 95% is a good VLA precision value to begin with.
 
+## HyperLogLog
+
+[HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog) is an advanced algorithm used to estimate cardinality
+of large sets. It is used in the eponymous state of the art filter that we invented to perform pattern-based
+filtering in real time based on our entire operation history.  Lower values result in more aggressive filtering
+and thereby better protection at the expense of higher chances of false positives.
+
+**We recommend to set it to 1 when working with Google Ads and TikTok!**
+
 ## Sub ID
 
 Sub ID refers to an URL parameter that you want to use for per-subaccount reports, available in the Reporting
@@ -232,7 +241,7 @@ The paranoid mode enables additional strict fingerprint checks and vast IP addre
 IPv4 addresses) that are considered "paranoid", that is, with higher false positives chance, but at the same time
 providing equally higher chance of busting moderators.
 
-**We recommend to enable this mode when working with Facebook or Google Ads.**
+**We recommend to enable this mode when working with Google Ads and TikTok!**
 
 ## Allow Traffic From Mobile Apps
 
@@ -370,6 +379,15 @@ One common use case is filtering empty or non-existent referers. This can be ach
 
 **Please be careful! Improperly formed regular expression can lead to erroneous matching and filtering of
 vast amounts of legitimate traffic. Use this setting only if you know what you are doing.**
+
+## IP Extrapolation
+
+IP extrapolation allows you to control fuzzy matching of IP addresses against our internal blocklists.
+Larger values result in banning of more addresses adjacent to already blacklisted addresses, which results in
+better protection at the expense of higher chances of false positives.
+
+**It is recommended to set higher values when working with Google Ads and TikTok!** Start in the 128--255 range
+and lower gradually if you suspect high false positives.
 
 ## IP/ASN List Mode
 

@@ -88,12 +88,8 @@ The list of statistical columns, explained:
 ## Raw Reports
 
 Raw reports are per-click, that is, they contain information on every click that was processed by
-Adspect. They are available for download in the [CSV format](https://en.wikipedia.org/wiki/Comma-separated_values)
-via the Get CSV button menu. There you have several options:
-
-* Aggregate report -- download regular aggregate report (same as displayed in clients area)
-* Full report -- complete click log
-* Filtered only -- only visitors filtered by Adspect because of triggering one or more checks
+Adspect. They are available for download in the [CSV format](https://en.wikipedia.org/wiki/Comma-separated_values).
+You may find the Download .CSV button in the bottom left corner of each report table.
 
 Report will be limited to the selected date range and filters.
 Downloaded CSV files may then be imported into Microsoft Excel or similar spreadsheet software.
