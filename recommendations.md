@@ -26,7 +26,8 @@ in cloaking quality!** Adspect may not be held responsible for any such negative
    particular servers of the hoster.
 
 5. **Do not use** Namecheap virtual hosting because they employ WAF (web application firewall) that by
-   default blocks POST requests that we rely upon, causing 403 Forbidden errors.
+   default blocks POST requests that we rely upon, causing 403 Forbidden errors.  If you use Ukraine.com.ua
+   hosting, then **you must** disable ModSecurity.
 
 6. **Do not name** any of your money or white page files `index.html` because it is likely to take priority
    over our `index.php` if the file name is omitted in the URL after `/`, thus exposing your real pages.
@@ -48,6 +49,9 @@ in cloaking quality!** Adspect may not be held responsible for any such negative
     country. This is especially important when working with popunder ad format.
 
 ## Cloaking
+
+Cloaker is just one gear in the mechanism.  There are plenty of other prerequisites that are needed for
+successful cloaking, the exact list of which may differ depending on particular traffic source.
 
 1. **Never reuse** domain names, creatives, or white pages in the same traffic source without modifications.
    Register new domain names for new accounts and modify your creatives and white pages to be unique.
