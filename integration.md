@@ -148,7 +148,7 @@ upload custom PHP files to do PHP integration. Traffic flow is much like in reve
 the safe page first, then legitimate ones are displayed the money page whereas moderators and bots are left where they are.
 
 You will also need to download a PHP file called `ajax.php` and host it somewhere, but its final location does not
-matter as it will be linked into the safe page using a `<script>` HTML tag.
+matter as it will be linked into the safe page using HTML code.
 
 :::{important}
 Always use HTTPS URL of the `ajax.php` file if the website you are integrating Adspect into also uses HTTPS (which is
@@ -158,8 +158,7 @@ and cloaking will not work.
 :::
 
 :::{note}
-Safe page settings are ignored in JavaScript integration because visitors initially land on the safe page, which is the page
-that the integration `<script>` tag is placed on.
+Safe page settings are ignored in JavaScript integration because visitors initially land on the safe page.
 :::
 
 ## Switching Streams

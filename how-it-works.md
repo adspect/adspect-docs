@@ -72,14 +72,6 @@ unknown dangers. It takes a fingerprint, inspects every feature encoded in it, a
 percentage, as if saying, e.g., "I am 97% sure that this fingerprint belongs to someone you better
 filter out!"
 
-Now, it only remains to determine what confidence is high enough to trigger the filter, and the choice
-is yours where to draw that line. The VLA section of every stream has a "VLA precision" setting that
-serves that very purpose: you specify the minimum confidence that you require VLA to have in order
-to filter out a visitor. For example, if you set VLA precision to 95%, then VLA will filter out all
-visitors for which it yields certainty of 95% and above, but will let through those that it is less
-confident about. This single precision parameter lets you fine-tune the system in accordance to your
-own idea of what is "confident enough". Our tests have shown that 95% is a good value to begin with.
-
 Under the hood, VLA is a self-trained discrete [Bayes classifier](https://en.wikipedia.org/wiki/Bayes_classifier) that maintains
 an extensive global dataset (template) and offspring per-stream datasets (specializations.)  This means that it will accumulate
 stream-specific knowledge over time, adapting to the features of each particular traffic stream in Adspect.
