@@ -700,22 +700,13 @@ This endpoint deletes the stream specified by `<ID>`.
 (integration)=
 ## Integration PHP Files
 
-You may download `index.php`, `filter.php`, and `ajax.php` files for any stream via the following requests:
+```
+GET /streams/<ID>/file?name=index.php
+GET /streams/<ID>/file?name=filter.php
+GET /streams/<ID>/file?name=ajax.php
+```
 
-:::{list-table}
-:header-rows: 1
-
-* - File
-  - Endpoint
-
-* - `index.php` and `filter.php`
-  - `GET https://clients.adspect.io/getindex.php?sid=<ID>`<br>
-    Replace `<ID>` with an actual Adspect stream ID.
-
-* - `ajax.php`
-  - `GET https://clients.adspect.io/getindex.php?sid=<ID>&mode=ajax`<br>
-    Replace `<ID>` with an actual Adspect stream ID.
-:::
+This endpoint returns integration files `index.php`, `filter.php`, and `ajax.php` for the stream specified by `<ID>`.
 
 ## Guest Access to Reporting
 
