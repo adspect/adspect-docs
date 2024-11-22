@@ -450,8 +450,36 @@ It is most useful with [JavaScript integration](integration.md#javascript-integr
 (x-accel-redirect)=
 ### X-Accel-Redirect Header
 
-Returns 200 OK with [X-Accel-Redirect header](https://www.nginx.com/resources/wiki/start/topics/examples/x-accel/) --
-a server-side redirect mechanism supported by NGINX and Cherokee web servers.
+This action allows Adspect to interoperate with non-PHP web applications.  It returns 200 OK with
+[X-Accel-Redirect header](https://www.nginx.com/resources/wiki/start/topics/examples/x-accel/) -- a server-side redirect mechanism
+supported by NGINX and Cherokee web servers.
+
+Usage is best explained by example.  Suppose you have an NGINX `location` block that serves a Node.js web application (or proxies a remote website, delivers static files, anything really) which you want to protect with Adspect as your money page:
+
+```nginx
+location /app {
+  internal;
+  proxy_pass http://127.0.0.1:8080/;
+}
+```
+
+You should add another `location` block to serve the `index.php` file of Adspect which will protect your web application:
+
+```nginx
+location ~ \.php$ {
+  root /var/www/html;
+  include fastcgi.conf;
+  fastcgi_pass unix:/run/php/php-fpm.sock;
+}
+```
+
+Then you configure your stream to use your web application as the money page:
+
+* Money page field: `/app`
+* Money page action: **X-Accel-Redirect**
+
+With this setup, if the visitor is legitimate, then Adspect will transfer control to your web application inside NGINX seamlessly
+for the visitor without any visible redirection.
 
 :::{admonition} JavaScript Integration
 Redirect via `location.replace()`.
