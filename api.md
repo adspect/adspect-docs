@@ -1382,3 +1382,11 @@ GET /reports/log?columns[]=timestamp&columns[]=ip_address&columns[]=country_code
 ["2024-04-01 00:00:00", "95.90.237.130", "DE", 0]
 ["2024-04-01 00:00:00", "176.5.15.114", "DE", 0]
 ```
+
+## Account Information
+
+```
+GET /account
+```
+
+This endpoint returns information about your account.

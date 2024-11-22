@@ -18,13 +18,23 @@ equally secure otherwise.  Choose whichever is more convenient for you.
 
 ## Forward PHP Integration
 
-In forward PHP integration filtering is done by a special `index.php` file that you place in your landing page directory
-or elsewhere accessible via HTTP. This file acts as an entry point for web traffic and is wired to our servers that
-process clicks and make decisions.
+In forward PHP integration, traffic comes to a special PHP file that checks visitors and routes them further to money or safe pages.
+The file is usually named `index.php`, which you upload into the root of your domain on your hosting.  After uploading, the URL of
+that file will be your cloaked link to use in your advertising campaigns.  This is the simplest type of integration.
 
-After uploading the `index.php` file to your hosting its URL will be the cloaked URL suitable for use in advertising campaigns.
-Several copies of the same `index.php` file may be used for protecting several offers or landing pages without interfering
-with each other.
+:::{note}
+If your money or safe page is located in the same directory as our `index.php` file and is named `index.html` (or `index.htm`),
+then you should rename it to something else because `index.html` is likely to take priority over our `index.php` if the file name
+is omitted in the URL after `/`.  This is due to how some web servers are configured by default.
+
+Rename `index.html` to a long, hard to guess name, e.g. `utoynzybquoc3Od.html`, enter that name in your money/safe page field
+in stream settings, and set page action to "Local file (zero redirect.)"
+:::
+
+:::{tip}
+You may rename `index.php` to any other name ending in `.php` and thus have several streams integrated on the same domain under
+different file names, e.g. `https://example.com/stream1.php`, `https://example.com/stream2.php`, and so on.
+:::
 
 ## Reverse PHP Integration
 
