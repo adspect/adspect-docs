@@ -6,6 +6,7 @@ Adspect provides a REST API for automating various tasks:
 * [Downloading integration PHP files](api.md#integration)
 * [Managing guest access to reporting](api.md#guest-access-to-reporting)
 * [Creating reports](api.md#reporting-api): building sales funnels and retrieving click logs
+* [Obtaining account information](api.md#account-information)
 
 The base URL for all API endpoints is `https://api.adspect.net/v1/`.  Endpoint descriptions below specify paths relative to this
 base URL.  HTTP method (verb) comes first, followed by the relative endpoint path, for example:
@@ -187,11 +188,11 @@ A stream is represented as an object with the following properties:
 
 * - `stream_id`
   - String
-  - Stream identifier.
+  - Stream ID.
 
 * - `account_id`
   - String
-  - Account identifier.  Read-only.
+  - Account ID.  Read-only.
 
 * - `name`
   - String
@@ -1390,3 +1391,53 @@ GET /account
 ```
 
 This endpoint returns information about your account.
+
+An account is represented as an object with the following properties:
+
+:::{list-table}
+:header-rows: 1
+
+* - Property
+  - Type
+  - Description
+
+* - `account_id`
+  - String
+  - Account ID.
+
+* - `email`
+  - String
+  - E-mail address.
+
+* - `telegram`
+  - String
+  - Telegram username.
+
+* - `language`
+  - String
+  - Language code of the user interface.
+
+* - `timezone`
+  - String
+  - Time zone used by default.
+
+* - `balance`
+  - Numeric string
+  - Balance in standard units.
+
+* - `expires`
+  - Integer
+  - Unix timestamp of Adspect subscription expiration.
+
+* - `expires_comsign`
+  - Integer
+  - Unix timestamp of Comsign safe page generator subscription expiration.
+
+* - `comsign_limit`
+  - Integer
+  - Comsign plan safe page download limit.
+
+* - `comsign_extra_limit`
+  - Integer
+  - Additionally purchased Comsign safe page download limit.
+:::

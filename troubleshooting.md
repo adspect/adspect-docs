@@ -87,6 +87,7 @@ If you observe clicks stuck in "Acquiring JS fingerprint" status in reports, the
 3.  Your hosting provider interferes with Adspect POST requests by means of a WAF as described above.  Try to bypass
     all filters in Filter mode and get to your money page; if you end up with a 403 Forbidden error, then it is WAF
     in action and you should take this issue to your hosting's technical support.
+4.  No space left on disk on your server.
 
 ## JS Fingerprint Error
 
