@@ -696,38 +696,7 @@ IP extrapolation allows you to control fuzzy matching of IP addresses against ou
 Larger values result in banning of more addresses adjacent to already blacklisted ones, which results in
 better protection at the expense of higher chances of false positives.
 
-## URL Rules
-
-URL rules allow you to check and manipulate URL parameter values.  Each rule consists of:
-
-* **Parameter name** -- this is the name of the URL parameter that will be checked or altered;
-* **Operator** -- specific check or operation that will be executed;
-* **Argument** -- argument of the operator, if applicable ([macros are supported](streams.md#macros));
-* **ON checkbox** -- turns a rule on or off.
-
-:::{table} URL Rule Operators
-
-| Operator | Description |
-|:---------|:------------|
-| `EXISTS` | Checks if parameter exists (rule argument is ignored.) |
-| `! EXISTS` | Checks if parameter does not exist (rule argument is ignored.) |
-| `REGEX` | Checks if parameter value matches a [Perl-compatible regular expression (PCRE)](https://www.pcre.org/original/doc/html/pcrepattern.html) in rule argument (case-sensitive). |
-| `REGEX (no case)` | Checks if parameter value matches a regular expression in rule argument (case-insensitive). |
-| `! REGEX` | Checks if parameter value does not match a regular expression in rule argument (case-sensitive). |
-| `! REGEX (no case)` | Checks if parameter value does not match a regular expression in rule argument (case-insensitive). |
-| =, ≠, >, ≥, <, ≤ | Compare parameter value with rule argument; integers and real values are compared as numbers, strings are compared according to [lexicographical order](https://en.wikipedia.org/wiki/Lexicographical_order). |
-| `ASSIGN` | Assigns rule argument as parameter value. |
-| `RENAME` | Renames parameter to rule argument. |
-| `DELETE` | Deletes parameter (rule argument is ignored.) |
-:::
-
-## Schedule (Dayparting)
-
-Schedule allows you to specify dayparts and optionally days of week during which traffic filtering is on.
-All visits on time and days not explicitly listed will be blocked. Schedule is active if at least one daypart
-is specified. If a daypart does not specify days of week, then it is applied to all days.
-
-## User Agent Lists
+## User Agent and Referrer
 
 This section allows you to specify lists of custom [Perl-compatible regular expressions (PCRE)](https://www.pcre.org/original/doc/html/pcrepattern.html)
 for filtering visitors by their [user agent string](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
@@ -772,6 +741,8 @@ Firefox|Nexus|Miui|^Mozilla/4[.]0|^Mozilla/5[.]0$
 **Warning! Improperly formed regular expression can lead to erroneous matching and filtering of
 vast amounts of legitimate traffic. Use this setting only if you know what you are doing.**
 
+Write regular expressions each on its own line.
+
 ### User Agent List Mode
 
 The user agent list mode controls how blacklist and whitelist combine to determine whether a particular visitor
@@ -786,15 +757,7 @@ should be blocked.  Three modes are supported:
 * **Special**: a visitor will be blocked if their user agent matches the blacklist, and allowed through
   unconditionally if the user agent matches the whitelist.
 
-### User Agent Blacklist
-
-This is the blacklist.  Write regular expressions each on its own line.
-
-### User Agent Whitelist
-
-This is the whitelist.  Write regular expressions each on its own line.
-
-## Referrer Filter
+### Referrer Filter
 
 This setting works similarly to the user agent blacklist described above, but deals with
 [HTTP referrer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) instead.
@@ -814,3 +777,34 @@ Common use cases:
 
 **Warning! Improperly formed regular expression can lead to erroneous matching and filtering of
 vast amounts of legitimate traffic. Use this setting only if you know what you are doing.**
+
+## URL Rules
+
+URL rules allow you to check and manipulate URL parameter values.  Each rule consists of:
+
+* **Parameter name** -- this is the name of the URL parameter that will be checked or altered;
+* **Operator** -- specific check or operation that will be executed;
+* **Argument** -- argument of the operator, if applicable ([macros are supported](streams.md#macros));
+* **ON checkbox** -- turns a rule on or off.
+
+:::{table} URL Rule Operators
+
+| Operator | Description |
+|:---------|:------------|
+| `EXISTS` | Checks if parameter exists (rule argument is ignored.) |
+| `! EXISTS` | Checks if parameter does not exist (rule argument is ignored.) |
+| `REGEX` | Checks if parameter value matches a [Perl-compatible regular expression (PCRE)](https://www.pcre.org/original/doc/html/pcrepattern.html) in rule argument (case-sensitive). |
+| `REGEX (no case)` | Checks if parameter value matches a regular expression in rule argument (case-insensitive). |
+| `! REGEX` | Checks if parameter value does not match a regular expression in rule argument (case-sensitive). |
+| `! REGEX (no case)` | Checks if parameter value does not match a regular expression in rule argument (case-insensitive). |
+| =, ≠, >, ≥, <, ≤ | Compare parameter value with rule argument; integers and real values are compared as numbers, strings are compared according to [lexicographical order](https://en.wikipedia.org/wiki/Lexicographical_order). |
+| `ASSIGN` | Assigns rule argument as parameter value. |
+| `RENAME` | Renames parameter to rule argument. |
+| `DELETE` | Deletes parameter (rule argument is ignored.) |
+:::
+
+## Schedule (Dayparting)
+
+Schedule allows you to specify dayparts and optionally days of week during which traffic filtering is on.
+All visits on time and days not explicitly listed will be blocked. Schedule is active if at least one daypart
+is specified. If a daypart does not specify days of week, then it is applied to all days.
