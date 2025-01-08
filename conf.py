@@ -96,7 +96,7 @@ html_static_path = ['_static']
 
 html_favicon = '_static/icon.png'
 
-html_css_files = ['overrides.css', 'https://fonts.googleapis.com/css2?family=Space+Mono&family=Inter:wght@300;400;500;600;700&display=swap']
+html_css_files = ['overrides.css', 'https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap']
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.

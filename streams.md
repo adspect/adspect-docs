@@ -454,7 +454,8 @@ This action allows Adspect to interoperate with non-PHP web applications.  It re
 [X-Accel-Redirect header](https://www.nginx.com/resources/wiki/start/topics/examples/x-accel/) -- a server-side redirect mechanism
 supported by NGINX and Cherokee web servers.
 
-Usage is best explained by example.  Suppose you have an NGINX `location` block that serves a Node.js web application (or proxies a remote website, delivers static files, anything really) which you want to protect with Adspect as your money page:
+Usage is best explained by example.  Suppose you have an NGINX `location` block that serves a Node.js web application (or proxies
+a remote website, delivers static files, anything really) which you want to protect with Adspect as your money page:
 
 ```nginx
 location /app {
@@ -476,7 +477,7 @@ location ~ \.php$ {
 Then you configure your stream to use your web application as the money page:
 
 * Money page field: `/app`
-* Money page action: **X-Accel-Redirect**
+* Money page action: **X-Accel-Redirect header**
 
 With this setup, if the visitor is legitimate, then Adspect will transfer control to your web application inside NGINX seamlessly
 for the visitor without any visible redirection.
@@ -510,7 +511,7 @@ Filtering level lets you adjust aggressiveness of traffic filtering by selecting
 * - Level
   - Description
 
-* - 0.  Essentially off
+* - 0.  Essentially&nbsp;off
   - All built-in and third-party filtering databases are disabled.  VLA™ machine learning is not used.  Do not use use this level
     unless you have a compelling reason.
 
