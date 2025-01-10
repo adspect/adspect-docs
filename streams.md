@@ -838,7 +838,7 @@ Common use cases:
   ```
 - Blocking visitors that did not come from ads.  Example for Google Ads:
   ```
-  ^(.(?!(google[.])))*$
+  ^(.(?!google[.]))*$
   ```
 
 **Warning! Improperly formed regular expression can lead to erroneous matching and filtering of

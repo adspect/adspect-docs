@@ -247,6 +247,9 @@ Other tags not listed in the table indicate various bot signatures.
 * - Tag
   - Description
 
+* - `PAY`
+  - Subscription has not been purchased or has expired.
+
 * - `L1`, `L2`, `L3`, `L4`
   - Blocked by the corresponding [filtering level](streams.md#filtering-level).
 
@@ -269,10 +272,10 @@ Other tags not listed in the table indicate various bot signatures.
   - Non-unique visitor.
 
 * - `BOT`
-  - Public bot (Googlebot, Facebot, Twitterbot, etc.)
+  - Public bot (Googlebot, Facebot, Twitterbot, etc.) or a suspect.
 
 * - `NOGEO`
-  - IP address has no officially assigned country code.
+  - No country information.
 
 * - `GEO`
   - Country mismatch.
@@ -283,11 +286,14 @@ Other tags not listed in the table indicate various bot signatures.
 * - `BROWSER`
   - Browser mismatch.
 
+* - `NOLANG`
+  - No browser language information.
+
 * - `LANG`
   - Browser language mismatch.
 
-* - `NOLANG`
-  - No browser language information.
+* - `NOTZ`
+  - No time zone information.
 
 * - `TZ`
   - Time zone mismatch.
