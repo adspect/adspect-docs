@@ -47,7 +47,7 @@ tab and put it into the folder of your site or landing page. Several copies of t
 protecting several sites or landing pages without interfering with each other.
 
 Then add the following code as **the first line (before all other code)** of your site or landing page index file (usually
-named `index.php`) above all other code:
+named `index.php`):
 
 ```php
 <?php require __DIR__ . '/filter.php' ?>

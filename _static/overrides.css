@@ -52,7 +52,8 @@ a:hover {
 	white-space: initial !important;
 }
 code, code *, pre, pre * {
-	font-family: "Space Mono", monospace !important;
+	font-family: "Roboto Mono", monospace !important;
+	font-size: 90% !important;
 }
 .rst-content code, .rst-content tt, code {
 	color: #dc3545 !important;
