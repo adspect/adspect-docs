@@ -295,7 +295,7 @@ A stream is represented as an object with the following properties:
   - Boolean
   - Match browser time zone with IP address time zone.
 
-* - `skipClicks`
+* - `skip_clicks`
   - Integer
   - Number of first clicks to block (delayed start.)
 
@@ -417,6 +417,8 @@ Example:
   "sub_id": "{p:utm_campaign}",
   "click_id": "{p:gclid}",
   "click_cost": "0.15",
+  "skip_clicks": 30,
+  "skip_clicks_mode": "all",
   "url_rules": [
     {
       "param": "zoneid",
