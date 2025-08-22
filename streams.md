@@ -61,7 +61,7 @@ You can write down arbitrary notes in this field.  It serves a purely informatio
 Adspect provides a variety of macros (also known as placeholders or tokens) that you can use in different stream fields
 to automatically insert values of various attributes for each click.  Below is a table of available macros with examples:
 
-:::{list-table} Available Macros
+:::{list-table} Adspect Macros
 :header-rows: 1
 
 * - Macro
@@ -176,7 +176,7 @@ to automatically insert values of various attributes for each click.  Below is a
     `{subid}` → `Dating`
 
 * - `{tags}`
-  - Space-separated list of [click tags](reporting.md#tags) (triggered filters).
+  - Space-separated [click tags](reporting.md#tags) (triggered filters).
   - `BOT GEO REF`
 
 * - `{unixtime}`
@@ -347,15 +347,13 @@ the usual behavior of web servers.  This is error-prone, so try to avoid such im
 You can also use a path to any non-HTML local file.  The browser will download that file if it cannot display it.
 For example, you can specify your money page as `downloads/app.apk` to cloak direct APK downloads.
 
-When using the local file action, you can add parameters with macros after the file name of your page, and they will be parsed and
-made available in PHP code in the [`$_GET` superglobal variable](https://www.php.net/manual/en/reserved.variables.get.php).
-For example:
+When using the local file action, you can add parameters with [macros](#macros) after the file name of your page, and they will be parsed and made available in PHP code in the [`$_GET` superglobal variable](https://www.php.net/manual/en/reserved.variables.get.php). For example:
 ```
 page.php?cid={clickid}
 ```
 The value of this macro can be accessed in the `page.php` code like this:
 ```php
-<a href="https://example.com/offer?clickid=<?= htmlspecialchars($_GET['cid']) ?>">
+<a href="https://example.com/offer?clickid=<?= $_GET['cid'] ?>">
   This is a link to the offer
 </a>
 ```
