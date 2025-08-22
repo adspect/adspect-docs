@@ -10,7 +10,7 @@ Adspect is equipped with a lightweight yet efficient tracker built right into th
 The [Reporting](reporting.md) section of the clients area allows you to explore funnels built with
 different groupings and filters. Among others, it calculates and displays such important metrics as
 conversions, cost, revenue, CR (conversion rate), ROI (return of investment), CPA (cost per action),
-and EPC (earn per click) / EPM (earn per thousand clicks.) These are especially useful combined with
+and EPC (earn per click) / EPM (earn per thousand clicks). These are especially useful combined with
 subaccounting by source identifiers as described in the previous chapter in the [paragraph on Sub ID](streams.md#sub-id).
 
 ## Postback
@@ -35,7 +35,7 @@ The postback URL takes three parameters:
 :::
 
 Most affiliate programs and networks support postback and provide various macros that can be used to fill
-variable portions of the URL (`cid` and `sum` parameters.)  If you need to fire postback manually, then
+variable portions of the URL (`cid` and `sum` parameters).  If you need to fire postback manually, then
 you could place a conversion pixel somewhere, e.g. on a "Thank you" page.  For example, assuming that
 click ID is contained in the `clickid` link parameter:
 

@@ -134,16 +134,16 @@ Consult with your web server's access log to get first-hand information on how m
 
 ## Internal Server Error (Error 500)
 
-This error is vague and may be caused by all sorts of server misconfiguration or errors in page code.
-The best you can do is look for hints in your web server error log (often located in `/var/log/apache2/error.log` or
-`/var/log/nginx/error.log`, depending on particular web server software installed.)
+This error is vague and may be caused by all kinds of server misconfiguration or errors in the website source code.
+The best approach is look for hints in your web server error log--often located in `/var/log/apache2/error.log` or
+`/var/log/nginx/error.log`, depending on the particular web server software installed.
 
 ## Google Ads: Compromised Site
 
 The Compromised Site rejection reason in Google Ads is caused by either of the following:
 
-* The advertised domain is new and was not yet indexed by Google search crawlers;
-* The advertised domain was indexed, but its current content (at the time of campaign review) differs from its indexed content.
+* The advertised domain is new and has not been indexed by Google search crawlers yet;
+* The advertised domain was indexed, but its current content differs from its indexed content.
 
 By Google's logic, any advertised website must already be known to Google, i.e. previously indexed by its Googlebot crawlers.
 During campaign review, the website must also have the same content as was shown to the crawlers; otherwise, Google assumes that

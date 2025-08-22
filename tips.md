@@ -62,10 +62,10 @@ The process is as follows:
    This will direct all bad visitors to the blacklisting stream, making it collect their IP addresses.
    Alternatively, you can use the stream as a safe page only during the "Review" phase of other streams to
    exclude IP addresses of regular bots from the blacklist as it may possibly lead to false positives
-   (please read [this chapter](how-it-works.md#blacklisting) for an explanation of why this may happen.)
+   (please read [this chapter](how-it-works.md#blacklisting) for an explanation of why this may happen).
 
 3. Watch the IP blacklist of your dedicated stream being collected and copy-paste it into other streams
-   every once in a while (yes, this isn't very convenient, we are working on a solution for blacklist sharing.)
+   every once in a while (yes, this isn't very convenient, we are working on a solution for blacklist sharing).
 
 ## Combining Cloakers
 

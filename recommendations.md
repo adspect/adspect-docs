@@ -69,7 +69,7 @@ successful cloaking, the exact list of which may differ depending on particular 
    This rule is **mandatory in Facebook, Google Ads, TikTok, Bing, and Gemini** (among others) with PHP integration!
 
 4. **Always make sure** that your safe pages are convincing and relevant to your ad campaigns (creatives,
-   languages, targeting options.) **Never use** obviously bogus safe pages like redirections to Google.
+   languages, targeting options). **Never use** obviously bogus safe pages like redirections to Google.
 
 5. **Use self-hosted safe pages** instead of site constructors ([Shopify](https://www.shopify.com/),
    [Wix](https://wix.com/), [Tilda](https://tilda.cc/), etc.), especially when working with Facebook or
@@ -150,7 +150,7 @@ servers. If you observe high technical loss in the "Reporting" section, then it 
 latency problem.
 
 We highly recommend to keep your redirect chains as short as possible. Host your own landing pages with
-file-based display mechanism instead of redirects to external URLs ([detailed here](streams.md#money-page).)
+file-based display mechanism instead of redirects to external URLs ([detailed here](streams.md#money-page)).
 Put tracker either before or after our `index.php` file in the traffic flow, but not at both sides.
 Place your tracker geographically close to your target country or region, if possible.
 

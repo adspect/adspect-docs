@@ -1,4 +1,4 @@
-# Configuring Streams
+# Streams
 
 Traffic management in Adspect is organized through **streams**. A stream is a traffic channel managed as a whole, similar to a campaign in an ad network or a scheme in a TDS (traffic distribution system). You can manage streams in the Streams section of the clients area. Use the **+ Create Stream** button there to add a new stream. Below, we'll go through each stream setting in detail.
 
@@ -141,7 +141,7 @@ to automatically insert values of various attributes for each click.  Below is a
   - `AE`
 
 * - `{os}`
-  - Operating system of the visitor (with version for Windows and Android.)
+  - Operating system of the visitor (with version for Windows and Android).
   - `iOS`
 
 * - `{browser}`
@@ -278,7 +278,7 @@ If only a single money page is specified, the rotator has no effect.
 
 #### Split Rotator
 
-This is the default rotator that splits traffic across all enabled money pages according to their weights (A/B testing.)
+This is the default rotator that splits traffic across all enabled money pages according to their weights (A/B testing).
 The more the weight is, the more traffic that money page will receive, proportionally.
 
 For example, if you have three money pages with weights 10, 15, and 25, then the first page will receieve about
@@ -769,7 +769,7 @@ This check only works when [JavaScript fingerprinting](#js-fingerprinting) is en
 ## Countries and Devices
 
 These fields allow you to allow visitors only from the specified countries, using specified operating systems, browsers, browser
-engines, and browser language preferences.  If a field is left blank, then no check will be made for that attribute (allows all.)
+engines, and browser language preferences.  If a field is left blank, then no check will be made for that attribute (allows all).
 
 ## Tracking Settings
 
@@ -883,9 +883,9 @@ This section allows you to specify lists of custom [Perl-compatible regular expr
 for filtering visitors by their [user agent string](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
 Regular expression matching is case-sensitive. By default, the search is done in any part of the user agent string;
 you can use [anchors](https://www.pcre.org/original/doc/html/pcrepattern.html#SEC6) to bind matching to the start
-or the end of the string (see examples below.)
+or the end of the string (see examples below).
 
-PCRE syntax is very rich and powerful and is well out of scope of this document. Regular expressions can be combined
+PCRE syntax is very rich and powerful and is out of the scope of this documentation. Regular expressions can be combined
 using various syntax constructs to create arbitrarily complex patterns.
 
 Some examples:
@@ -901,9 +901,7 @@ out visitors that use Mozilla Firefox, Google Nexus, or Xiaomi built-in browser.
 ^Mozilla/4[.]0
 ```
 
-This regex will match any user agent that begins with "Mozilla/4.0", banning shady visitors that report themselves
-to be very old browsers yet support contemporary JavaScript features (implied by being able to run our fingerprint
-collecting code.)
+This regex will block any user agent that begins with "Mozilla/4.0".
 
 ```
 ^Mozilla/5[.]0$
@@ -1018,16 +1016,16 @@ Each rule consists of the following fields:
   - Checks if the parameter does not exist.  The rule argument is not used.
 
 * - matches regex
-  - Checks if the parameter value matches a [Perl-compatible regular expression (PCRE)](https://www.pcre.org/original/doc/html/pcrepattern.html) in the rule argument (case-sensitive.)
+  - Checks if the parameter value matches a [Perl-compatible regular expression (PCRE)](https://www.pcre.org/original/doc/html/pcrepattern.html) in the rule argument (case-sensitive).
 
 * - matches regex (no case)
-  - Checks if the parameter value matches a regular expression in the rule argument (case-insensitive.)
+  - Checks if the parameter value matches a regular expression in the rule argument (case-insensitive).
 
 * - does not match regex
-  - Checks if the parameter value does not match a regular expression in the rule argument (case-sensitive.)
+  - Checks if the parameter value does not match a regular expression in the rule argument (case-sensitive).
 
 * - does not match regex (no case)
-  - Checks if the parameter value does not match a regular expression in the rule argument (case-insensitive.)
+  - Checks if the parameter value does not match a regular expression in the rule argument (case-insensitive).
 
 * - equal to<br>
     not equal to<br>

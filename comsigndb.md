@@ -210,7 +210,7 @@ Response example:
 RANDOM /<database>/{set|fileset}/<key>?n=<number>&seed=<seed>
 ```
 
-This endpoint returns `<number>` of randomly picked set elements (defaults to 1.)  Uniqueness is not guaranteed, i.e. the resulting
+This endpoint returns `<number>` of randomly picked set elements (defaults to 1).  Uniqueness is not guaranteed, i.e. the resulting
 array may contain the same elements multiple times.
 
 Optionally, you can seed the random number generator with an arbitrary string `<seed>`.  If not specified, the RNG will be seeded

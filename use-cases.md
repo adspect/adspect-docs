@@ -118,7 +118,7 @@ quickly build blacklists of bot-ridden publishers/placements/sites/spots (hereaf
     which macro to use);
 3.  In the [Reporting section](reporting.md), select funnel grouping by Sub ID;
 4.  Inspect the Quality column for different zones and decide which zones to blacklist based on that, e.g.
-    zones with quality 75% or lower (that is, zones with at least ¼ of all traffic being bots.)
+    zones with quality 75% or lower (that is, zones with at least ¼ of all traffic being bots).
 
 Blacklist fraudulent zones first (and save a fortune on paying for their bots), then proceed to single out
 best converting zones by CR or ROI as you would normally do.

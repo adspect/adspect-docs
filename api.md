@@ -65,7 +65,7 @@ For convenience, there's a pre-encoded value of `AUTHKEY` available in
 :::
 
 Some HTTP clients offer native support for HTTP Basic authentication scheme which will set the `Authorization` header for you (e.g.
-[Python Requests](https://docs.python-requests.org/en/latest/) provides the `requests.auth.HTTPBasicAuth` class.)  In this case pass
+[Python Requests](https://docs.python-requests.org/en/latest/) provides the `requests.auth.HTTPBasicAuth` class).  In this case pass
 your API key for username and leave password blank.  Example for [php-curl](https://www.php.net/manual/en/book.curl.php):
 
 ```php
@@ -110,7 +110,7 @@ Certain object properties may take values only from concrete finite sets--collec
   - Stream modes.
 
 * - `GET /collections/stream-actions`
-  - Actions for money and safe pages [(see below.)](api.md#stream-actions)
+  - Actions for money and safe pages [(see below).](api.md#stream-actions)
 
 * - `GET /collections/query-group-by`
   - Sales funnel breakdown columns.
@@ -146,13 +146,19 @@ The following table details available actions for money and safe pages:
   - [Display in iframe](streams.md#iframe).
 
 * - `301`
-  - [HTTP 301 redirect](streams.md#redirect-301).
+  - [HTTP 301 Moved Permanently](streams.md#redirect-301).
 
 * - `302`
-  - [HTTP 302 redirect](streams.md#redirect-302).
+  - [HTTP 302 Found](streams.md#redirect-302).
 
 * - `303`
-  - [HTTP 303 redirect](streams.md#redirect-303).
+  - [HTTP 303 See Other](streams.md#redirect-303).
+
+* - `307`
+  - [HTTP 307 Temporary Redirect](streams.md#redirect-307).
+
+* - `308`
+  - [HTTP 308 Permanent Redirect](streams.md#redirect-308).
 
 * - `noop`
   - [No action](streams.md#no-action).
@@ -218,7 +224,7 @@ A stream is represented as an object with the following properties:
 
 * - `tags`
   - Array of strings
-  - Stream tags (up to 32.)
+  - Up to 32 arbitrary mnemonic tags.
 
 * - `mode`
   - String
@@ -250,7 +256,7 @@ A stream is represented as an object with the following properties:
 
 * - `skip_clicks`
   - Integer
-  - Number of first clicks to block (delayed start.)
+  - Number of first clicks to block (delayed start).
 
 * - `skip_clicks_mode`
   - String
@@ -282,7 +288,7 @@ A stream is represented as an object with the following properties:
 
 * - `require_touch`
   - Boolean
-  - Require touchscreen support (needs JS fingerprinting.)
+  - Require touchscreen support (needs JS fingerprinting).
 
 * - `allow_apps`
   - Boolean
@@ -372,7 +378,7 @@ A stream is represented as an object with the following properties:
 
 * - `schedule`
   - Array of objects
-  - Schedule (dayparting.)  See [Schedule rule object structure description](#schedule-rule-object).
+  - Schedule (dayparting).  See [Schedule rule object structure description](#schedule-rule-object).
 
 * - `timezones`
   - Array of integers
@@ -640,7 +646,7 @@ Supported URL parameters:
 * - `name`
   - String
   - None
-  - Output only streams whose names contain the specified substring (case-insensitive.)
+  - Output only streams whose names contain the specified substring (case-insensitive).
 :::
 
 ### Stream List Metadata
@@ -835,7 +841,7 @@ Saved query is represented by an object with the following properties:
 :::
 
 All properties are optional.  If a particular property is not needed, then you can either omit it or set it to `null`
-(or an empty array `[]` where array values are expected.)
+(or an empty array `[]` where array values are expected).
 
 Example:
 

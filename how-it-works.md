@@ -74,7 +74,7 @@ percentage, as if saying, e.g., "I am 97% sure that this fingerprint belongs to 
 filter out!"
 
 Under the hood, VLA is a self-training discrete [Bayes classifier](https://en.wikipedia.org/wiki/Bayes_classifier) that maintains
-an extensive global dataset (template) and offspring per-stream datasets (specializations.)  This means that it will accumulate
+the extensive global dataset (template) and offspring per-stream datasets (specializations).  This means that it will accumulate
 stream-specific knowledge over time, adapting to the features of each particular traffic stream in Adspect.
 
 ## Our Approach

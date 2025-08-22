@@ -27,12 +27,12 @@ If your money or safe page is located in the same directory as our `index.php` f
 then you should rename it to something else because `index.html` is likely to take priority over our `index.php` if the file name
 is omitted in the URL after `/`.  This is due to how some web servers are configured by default.
 
-Rename `index.html` to a long, hard to guess name, e.g. `utoynzybquoc3Od.html`, enter that name in your money/safe page field
-in stream settings, and set page action to "Local file (zero redirect.)"
+Rename `index.html` to a long, hard to guess name like `utoynzybquoc3Od.html`, enter that name in the money/safe page field
+in stream settings, and set the page action to "Local file (zero redirect)."
 :::
 
 :::{tip}
-You can rename `index.php` to any other name ending in `.php` and thus have several streams integrated on the same domain under
+You can rename `index.php` to any other name ending in `.php` to put several streams on the same domain under
 different file names, e.g. `https://example.com/stream1.php`, `https://example.com/stream2.php`, and so on.
 :::
 
@@ -68,7 +68,7 @@ Once set up, direct traffic to the page you added the code into.
 ## WordPress and Other CMS
 
 Reverse PHP integration is useful for integrating Adspect into sites based on WordPress or similar CMS
-([content management systems](https://en.wikipedia.org/wiki/Content_management_system).)
+([content management systems](https://en.wikipedia.org/wiki/Content_management_system)).
 
 WordPress has a file named `index.php` in its
 [root directory](https://www.wpbeginner.com/beginners-guide/beginners-guide-to-wordpress-file-and-directory-structure/).
@@ -130,10 +130,10 @@ The elements are:
 
 | Element  | Description |
 |:---------|:------------|
-| `cid`    | Unique Adspect internal click ID, string (will be the same for both stages of click processing.) |
+| `cid`    | Unique Adspect internal click ID, string (will be the same for both stages of click processing). |
 | `ok`     | Whether the click was determined legitimate, boolean. |
-| `js`     | Whether JS fingerprinting code must be served, boolean (will always be `false` since JS fingerprinting happens before transfer of control to the user's code.) |
-| `action` | Action performed for the visitor, string (will normally be either `local` or `noop`.) |
+| `js`     | Whether JS fingerprinting code must be served, boolean (will always be `false` since JS fingerprinting happens before transfer of control to the user's code). |
+| `action` | Action performed for the visitor, string (will normally be either `local` or `noop`). |
 | `target` | Target for the action performed (URL, file path, code), string. |
 
 ## Hidden URL Parameters
@@ -162,7 +162,7 @@ matter as it will be linked into the safe page using HTML code.
 
 :::{important}
 Always use HTTPS URL of the `ajax.php` file if the website you are integrating Adspect into also uses HTTPS (which is
-almost always the case.)  Trying to link `ajax.php` to an HTTPS site via plan HTTP URL will result in
+almost always the case).  Trying to link `ajax.php` to an HTTPS site using a non-HTTPS URL will result in a
 [mixed content](https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content) error in most modern browsers,
 and cloaking will not work.
 :::
@@ -185,7 +185,7 @@ https://example.com/index.php?__sid=1ea85c7c-b977-6804-8e69-00162501c2b4
 You can find stream ID next to its name in the streams list.
 
 If you need use a different parameter name instead of `__sid`, then open Adspect PHP file in a text editor and replace
-the `__sid` string with the desired name (e.g. `utm_campaign`.)
+the `__sid` string with the desired name (e.g. `utm_campaign`).
 
 If you are using [URL parameter passthrough](streams.md#pt-checkbox) to your money or safe page, then you may want
 to remove the `__sid` parameter from the final URL with a [`DELETE` URL rule](streams.md#url-rules).
