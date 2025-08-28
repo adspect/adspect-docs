@@ -165,12 +165,6 @@ We recommend the following hosting providers:
 Adspect fully supports CDN such as Cloudflare.  We recommend always parking your domains on Cloudflare with
 proxying enabled (yellow cloud icon next to domain's DNS A record); free Cloudflare plan is enough for this.
 
-:::{attention}
-For Adspect to obtain real IP address of a visitor correctly your CDN must transmit it in one of the standard HTTP headers
-(in order of checking): `X-Forwarded-For`, `X-Real-IP`, `Real-IP`, `CF-Connecting-IP`.  Cloudflare does this by default,
-no additional configuration is required.
-:::
-
 ## Workflow
 
 Common Adspect workflow for affiliate marketing campaigns consists of the following steps:
