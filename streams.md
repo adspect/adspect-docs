@@ -507,6 +507,15 @@ Some types of "dumb" bots do not follow these redirects.
 With JavaScript integration, this action performs a [JavaScript replace() redirect](streams.md#js-replace).
 :::
 
+(form-submit)=
+### Form Submit
+
+A redirect triggered by submitting an HTML form using JavaScript.
+
+:::{note}
+"Dumb" bots without JavaScript support will not follow this redirect because of their inability to execute the script.
+:::
+
 (js-assign)=
 ### JavaScript assign() Redirect
 

@@ -169,6 +169,9 @@ The following table details available actions for money and safe pages:
 * - `meta`
   - [HTML meta refresh redirect](streams.md#meta-refresh).
 
+* - `form`
+  - [Form submit](streams.md#form-submit).
+
 * - `assign`
   - [JavaScript assign() redirect](streams.md#js-assign).
 
