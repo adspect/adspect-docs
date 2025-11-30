@@ -14,8 +14,7 @@ The Personal plan is a simplified, trimmed-down version of the Professional plan
 :::
 
 :::{warning}
-Please do not try to cloak with the Anti-fraud plan subscription--it does not include cloaking-specific filters, so you'll only
-waste your time, nerves, and accounts!
+Please do not try to cloak with the Anti-fraud plan subscription--it does not include cloaking-specific filters, so you'll only waste your time, nerves, and accounts!
 :::
 
 All cloaking setups must adhere to all the general [best practices](recommendations.md).
@@ -27,24 +26,22 @@ Cloaking Google Ads is an advanced use case and thereby requires extra preparati
 1.  Create a stream by selecting Google Ads at the use case selection screen;
 2.  Upload your money page into the safe page directory, rename it to a long random file name, and configure the stream to display it via the [local file ("zero redirect") action](streams.md#local-file-zero-redirect);
     :::{important}
-    If your final money page is an external link, then use a locally hosted prelander with a button.  The money page configured in Adspect **must** be displayed without redirect in any case.
+    If your final money page is an external link, then use a locally hosted prelander with a button.  The money page configured in Adspect **must be displayed without redirect** in any case.
     :::
 3.  Keep the safe page field blank, set the safe page action to No Action, and perform [Reverse PHP integration](integration.md#reverse-php-integration) with your safe page on the Integration screen after saving the stream;
 4.  Test your stream as per the [Workflow steps](overview.md#workflow) to make sure it works correctly;
-5.  Disable cloaking by removing the Reverse PHP integration line of code (the one that reads "require") from your safe page file;
-6.  Submit your Google Ads campaign with the safe page URL for approval;
-7.  After approval, warm up the campaign by running it to the safe page on low daily budget for 7--14 days (the longer the better);
-8.  After warm-up, add the Reverse PHP integration line of code back into the safe page file;
-9.  Set the stream mode to Filtering and proceed to run your campaign normally.
+5.  Disable cloaking by removing the Reverse PHP integration line of code (the one that reads `require`) from your safe page file;
+6.  Submit your Google Ads campaign with the safe page URL for review;
+7.  After campaign approval, warm up the campaign by running it to the safe page on low daily budget for 7--14 days (the longer the better);
+8.  After campaign warm-up, add the Reverse PHP integration line of code back into the safe page file;
+9.  Set the stream mode to Filtering and proceed to run your campaign.
 
 ## Cloaking Google (Tracking Template)
 
 1.  Create a stream by selecting the Google Ads (Tracking Template) use case;
 2.  Fill in the money and safe page URLs and set both actions to HTTP 302 Redirect;
-3.  Perform [forward PHP integration](integration.md#forward-php-integration);
-4.  In your campaign's tracking template, add the `url={lpurl}`
-    [ValueTrack parameter](https://support.google.com/google-ads/answer/6305348) to the link, e.g:
-    `https://tracker.link/?url={lpurl}`
+3.  Perform [Forward PHP integration](integration.md#forward-php-integration);
+4.  In your campaign's tracking template, add the `url={lpurl}` [ValueTrack parameter](https://support.google.com/google-ads/answer/6305348) to your tracker link, e.g: `https://tracker.link/?url={lpurl}`
 
 ## Cloaking Facebook
 
