@@ -105,7 +105,9 @@ to automatically insert values of various attributes for each click.  Below is a
   - N-th part of the click URL path, separated by slashes.
   - If click URL is `https://example.com/posts/42`:<br><br>
     `{path:1}` → `posts`<br>
-    `{path:2}` → `42`
+    `{path:2}` → `42`<br>
+    `{path:-1}` → `42`<br>
+    `{path:-2}` → `posts`
 
 * - `{query}`
   - Full URL parameters of the click URL (query string after `?`).
@@ -979,10 +981,11 @@ Rules are applied in order--from top to bottom, as listed in the stream settings
 modified by the previous rules.  For example, if one rule removes a parameter from the link, the following rules won't be able
 to check or change its original value.  If a rule adds a new parameter, the next ones can work with it.
 
-:::{note}
 Rules work with the link the click originally came through--not the final link to your money or safe page.  So any changes to
-parameters (adding, modifying, removing) won't affect the final link unless you enable
-[parameter passthrough](#parameter-passthrough) for it.
+parameters (adding, modifying, deleting) won't affect the final link unless you enable [parameter passthrough](#parameter-passthrough) for it.
+
+:::{note}
+If there are several parameters with the same name, a rule with that parameter name will apply to all of them.
 :::
 
 Each rule consists of the following fields:
@@ -1044,10 +1047,16 @@ Each rule consists of the following fields:
     and strings are compared according to their [lexicographical order](https://en.wikipedia.org/wiki/Lexicographical_order).
 
 * - assign value
-  - Assigns the rule argument as the parameter value.
+  - Sets the parameter's value to the rule argument.  Existing parameters with the same name will be deleted.
+
+* - append value
+  - Appends a new parameter with the rule argument as its value.  Existing parameters with the same name will remain.
 
 * - rename to
-  - Renames the parameter to the name specified as the rule argument.
+  - Renames the parameter to the name specified in the rule argument.  Existing parameters with the same name will remain.
+
+* - replace
+  - Renames the parameter to the name specified in the rule argument.  Existing parameters with the same name will be deleted.
 
 * - delete
   - Deletes the parameter.  The rule argument is not used.

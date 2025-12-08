@@ -519,11 +519,19 @@ An URL rule object has the following structure:
 
 * - `ASSIGN`
   - Optional
-  - Sets parameter to the value supplied in the rule argument.
+  - Sets the parameter's value to the rule argument.  Existing parameters with the same name will be deleted.
+
+* - `APPEND`
+  - Optional
+  - Appends a new parameter with the rule argument as its value.  Existing parameters with the same name will remain.
 
 * - `RENAME`
   - Optional
-  - Renames parameter to the name supplied in the rule argument.
+  - Renames the parameter to the name specified in the rule argument.  Existing parameters with the same name will remain.
+
+* - `REPLACE`
+  - Optional
+  - Renames the parameter to the name specified in the rule argument.  Existing parameters with the same name will be deleted.
 
 * - `DELETE`
   - Ignored
