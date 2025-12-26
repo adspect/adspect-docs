@@ -338,8 +338,8 @@ There are several ways to specify a local file:
 - URLs may also be specified, in which case the domain part will be ignored.  For example, you can specify your page
   as `https://google.com/landing.html`, and Adspect will try to display `/landing.html` in the root of your actual domain.
 
-Usually you'd put a path to an HTML or PHP file of your real landing page.  In this case, it is *highly desired*
-that you place our PHP file into the same directory.  If you use a subdirectory, then it will break all relative links
+Usually you'd put a path to an HTML or PHP file of your real landing page.  In this case, you should put the Adspect PHP file
+in the same directory.  If you use a subdirectory, then it will break all relative links
 in the page because the visitor's browser will not be aware of that subdirectory--there's no redirect to inform it.
 
 You can use a path to a local directory without specifying an explicit file name in it.  In this case, Adspect
@@ -903,20 +903,20 @@ Some examples:
 Firefox|Nexus|Miui
 ```
 
-This regex will match any user agent that contains words "Firefox", "Nexus", or "Miui", and can be used to filter
+This regular expression will match any user agent that contains words "Firefox", "Nexus", or "Miui", and can be used to filter
 out visitors that use Mozilla Firefox, Google Nexus, or Xiaomi built-in browser.
 
 ```
 ^Mozilla/4[.]0
 ```
 
-This regex will block any user agent that begins with "Mozilla/4.0".
+This regular expression will block any user agent that begins with "Mozilla/4.0".
 
 ```
 ^Mozilla/5[.]0$
 ```
 
-This regex will match user agents that are exactly "Mozilla/5.0", blocking visitors without concrete browser,
+This regular expression will match user agents that are exactly "Mozilla/5.0", blocking visitors without concrete browser,
 HTML engine, and platform information, which is very uncommon and suspicious.
 
 All of the expressions above can be combined using logical "or" (i.e. to match the first expression *or* the second
@@ -1025,16 +1025,16 @@ Each rule consists of the following fields:
 * - does not exist
   - Checks if the parameter does not exist.  The rule argument is not used.
 
-* - matches regex
+* - matches regexp
   - Checks if the parameter value matches a [Perl-compatible regular expression (PCRE)](https://www.pcre.org/original/doc/html/pcrepattern.html) in the rule argument (case-sensitive).
 
-* - matches regex (no case)
+* - matches regexp (no case)
   - Checks if the parameter value matches a regular expression in the rule argument (case-insensitive).
 
-* - does not match regex
+* - does not match regexp
   - Checks if the parameter value does not match a regular expression in the rule argument (case-sensitive).
 
-* - does not match regex (no case)
+* - does not match regexp (no case)
   - Checks if the parameter value does not match a regular expression in the rule argument (case-insensitive).
 
 * - equal to<br>

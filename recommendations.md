@@ -108,12 +108,6 @@ successful cloaking, the exact list of which may differ depending on particular 
 15. **Always** submit campaigns for review with corresponding streams set to **On Review mode** and with
     **Blacklist All IP Addresses in Review Mode** setting enabled. **Do not** start campaigns in Filtering mode!
 
-16. **Always** download new PHP files (`index.php`, `filter.php`, or `ajax.php`, depending on integration
-    type) after bans--each time a file is downloaded a new unique JavaScript fingerprinting code is generated
-    for it, ensuring that the code will not be detected as malicious or suspicious.
-
-17. **Always** add all available macros (`__CAMPAIGN_NAME__`, etc.) to campaign URL in TikTok Ads.
-
 ## Do Not Stand Out!
 
 Most ad networks have a routine practice of reviewing all advertising campaigns every once in a while.

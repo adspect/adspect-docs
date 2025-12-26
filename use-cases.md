@@ -26,7 +26,7 @@ Cloaking Google Ads is an advanced use case and thereby requires extra preparati
 1.  Create a stream by selecting Google Ads at the use case selection screen;
 2.  Upload your money page into the safe page directory, rename it to a long random file name, and configure the stream to display it via the [local file ("zero redirect") action](streams.md#local-file-zero-redirect);
     :::{important}
-    If your final money page is an external link, then use a locally hosted prelander with a button.  The money page configured in Adspect **must be displayed without redirect** in any case.
+    If your final money page is an external link, use a locally hosted prelander with a button.  The money page configured in Adspect **must be displayed without redirect** in any case.
     :::
 3.  Keep the safe page field blank, set the safe page action to No Action, and perform [Reverse PHP integration](integration.md#reverse-php-integration) with your safe page on the Integration screen after saving the stream;
 4.  Test your stream as per the [Workflow steps](overview.md#workflow) to make sure it works correctly;
@@ -127,20 +127,18 @@ quickly build blacklists of bot-ridden publishers/placements/sites/spots (hereaf
 4.  Inspect the Quality column for different zones and decide which zones to blacklist based on that, e.g.
     zones with quality 75% or lower (that is, zones with at least ¼ of all traffic being bots).
 
-Blacklist fraudulent zones first (and save a fortune on paying for their bots), then proceed to single out
-best converting zones by CR or ROI as you would normally do.
+Blacklist fraudulent zones first, then proceed to single out best converting zones by CR or ROI as you would normally do.
 
 ## Hide Traffic Source
 
 Traffic source may often be discovered by examining a click's
 [Referer HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer).
-If you'd like to hide it from those who receive your traffic, then add the following code after the `<head>` tag
-inside your Adspect PHP file (`index.php` or `filter.php`):
+If you want to hide it from the receiving party, add the following code after the `<head>` tag in the Adspect PHP file:
 
 ```html
 <meta name="referrer" content="no-referrer">
 ```
 
 :::{note}
-If you are using JavaScript integration, then add this code to your safe page instead.
+If you are using JavaScript integration, add this code to your safe page instead.
 :::

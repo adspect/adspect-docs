@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'Adspect'
-copyright = u'2019‒2024, Adspect'
+copyright = u'2019‒2026, Adspect'
 author = u'Adspect'
 
 # The short X.Y version
@@ -109,7 +109,7 @@ html_css_files = ['overrides.css', 'https://fonts.googleapis.com/css2?family=Rob
 # html_sidebars = {}
 
 # HTML logo path, relative to conf.py directory.
-html_logo = '_static/adspect.svg'
+html_logo = '_static/adspect-docs.png'
 
 
 # -- Options for HTMLHelp output ---------------------------------------------

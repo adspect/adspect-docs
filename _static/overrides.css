@@ -19,9 +19,11 @@ a {
 a:hover {
 	color: #214cbc;
 }
+/*
 .wy-side-nav-search img.logo {
 	max-width: 200px !important;
 }
+*/
 .wy-menu-vertical a {
 	border: none !important;
 }
