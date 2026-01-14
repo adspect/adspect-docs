@@ -103,15 +103,13 @@ universal and equally efficient across all possible origins of traffic.
 
 ## Integration
 
-Adspect supports three integration types that differ in technical details and use cases:
+Adspect supports five integration types that differ in technical details and use cases:
 
-* Forward PHP integration via a standalone `index.php` file
-* Reverse PHP integration via including a `filter.php` file
-* JavaScript integration via `<script>` HTML tag embedding using a remote `ajax.php` file
-
-:::{note}
-See the [Integration](integration.md) chapter for more details.
-:::
+* [Forward PHP integration](integration.md#forward-php-integration): a standalone `index.php` file is used to direct traffic
+* [Reverse PHP integration](integration.md#reverse-php-integration): Adspect is embedded into the PHP code of your landing page
+* [JavaScript integration](integration.md#javascript-integration): Adspect is embedded into your safe page via `<script>` HTML tag
+* [Native integration with Keitaro tracker](keitaro.md)
+* [Native integration with Binom tracker](binom.md)
 
 ## System Requirements
 
