@@ -291,7 +291,11 @@ A stream is represented as an object with the following properties:
 
 * - `require_touch`
   - Boolean
-  - Require touchscreen support (needs JS fingerprinting).
+  - Allow only touchscreen devices.
+
+* - `require_web3`
+  - Boolean
+  - Allow only visitors with in-browser Web3 wallets.
 
 * - `allow_apps`
   - Boolean
@@ -300,6 +304,14 @@ A stream is represented as an object with the following properties:
 * - `allow_embed`
   - Boolean
   - Allow traffic from frames, iframes, and embedded objects.
+
+* - `allow_google_proxy`
+  - Boolean
+  - Allow Google IP Protection traffic (Chrome Privacy Sandbox).
+
+* - `allow_apple_proxy`
+  - Boolean
+  - Allow Apple iCloud Private Relay traffic.
 
 * - `countries`
   - Array of strings
@@ -433,8 +445,11 @@ Example:
   "enable_ua": true,
   "require_unique": true,
   "require_touch": false,
+  "require_web3": false,
   "allow_apps": false,
   "allow_embed": true,
+  "allow_google_proxy": false,
+  "allow_apple_proxy": true,
   "countries": ["AE", "HK"],
   "os": ["iOS", "macOS"],
   "browsers": ["Google Chrome"],
