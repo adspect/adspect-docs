@@ -881,10 +881,10 @@ The IP/ASN list mode controls how blacklist and whitelist work together.
   - Description
 
 * - Black
-  - Block a visitor if their IP addresses or ASN is blacklisted and is not whitelisted.
+  - Block a visitor if their IP addresses or ASN is blacklisted and is not whitelisted.  The whitelist has priority over the blacklist.
 
 * - White
-  - Block a visitor if their IP addresses or ASN is blacklisted **or** is not whitelisted.
+  - Block a visitor if their IP addresses or ASN is blacklisted **or** is not whitelisted.  The blacklist has priority over the whitelist.
 
 * - Special
   - Block a visitor if their IP addresses or ASN is blacklisted.  If their IP address or ASN is whitelisted, allow the visitor to money page immediately.
@@ -907,88 +907,62 @@ IP extrapolation allows you to control fuzzy matching of IP addresses against ou
 Larger values result in banning of more addresses adjacent to already blacklisted ones, which results in
 better protection at the expense of higher chances of false positives.
 
-## User Agent and Referrer
+(user-agent-and-referrer)=
+## User Agent Filtering
 
-This section allows you to specify lists of custom [Perl-compatible regular expressions (PCRE)](https://www.pcre.org/original/doc/html/pcrepattern.html)
-for filtering visitors by their [user agent string](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
-Regular expression matching is case-sensitive. By default, the search is done in any part of the user agent string;
-you can use [anchors](https://www.pcre.org/original/doc/html/pcrepattern.html#SEC6) to bind matching to the start
-or the end of the string (see examples below).
-
-PCRE syntax is very rich and powerful and is out of the scope of this documentation. Regular expressions can be combined
-using various syntax constructs to create arbitrarily complex patterns.
-
-Some examples:
-
-```
-Firefox|Nexus|Miui
-```
-
-This regular expression will match any user agent that contains words "Firefox", "Nexus", or "Miui", and can be used to filter
-out visitors that use Mozilla Firefox, Google Nexus, or Xiaomi built-in browser.
-
-```
-^Mozilla/4[.]0
-```
-
-This regular expression will block any user agent that begins with "Mozilla/4.0".
-
-```
-^Mozilla/5[.]0$
-```
-
-This regular expression will match user agents that are exactly "Mozilla/5.0", blocking visitors without concrete browser,
-HTML engine, and platform information, which is very uncommon and suspicious.
-
-All of the expressions above can be combined using logical "or" (i.e. to match the first expression *or* the second
-*or* the third) this way:
-
-```
-Firefox|Nexus|Miui|^Mozilla/4[.]0|^Mozilla/5[.]0$
-```
-
-:::{warning}
-Warning! Improperly formed regular expression can lead to erroneous matching and filtering of
-vast amounts of legitimate traffic. Use this setting only if you know what you are doing.
-:::
-
-Write regular expressions each on its own line.
+The black and white user agent lists let you filter visitors by their [user agents](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/User-Agent).  The lists should contain [Perl-compatible regular expressions (PCRE)](https://www.pcre.org/original/doc/html/pcrepattern.html) each on its own line.  They are checked in order until the first match.  Regular expression matching is case-sensitive.
 
 ### User Agent List Mode
 
-The user agent list mode controls how blacklist and whitelist combine to determine whether a particular visitor
-should be blocked.  Three modes are supported:
+The user agent list mode controls how blacklist and whitelist work together.
 
-* **Black**: a visitor will be blocked only if their user agent matches the blacklist and does not match the whitelist.
-  As such, the whitelist may be used to override the blacklist.  This is the default mode.
+:::{list-table}
+:header-rows: 1
 
-* **White**: a visitor will be blocked unless their user agent matches the whitelist and does not match the blacklist.
-  As such, the blacklist may be used to override the whitelist.
+* - Mode
+  - Description
 
-* **Special**: a visitor will be blocked if their user agent matches the blacklist, and allowed through
-  unconditionally if the user agent matches the whitelist.
+* - Black
+  - Block a visitor if their user agent is blacklisted and is not whitelisted.  The whitelist has priority over the blacklist.
 
-### Referrer Filter
+* - White
+  - Block a visitor if their user agent is blacklisted **or** is not whitelisted.  The blacklist has priority over the whitelist.
 
-This setting works similarly to the user agent blacklist described above, but deals with
-[HTTP referrer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) instead.
-It also takes a Perl-compatible regular expression and filters out all visitors whose referrers match it.
-Regular expression matching is case-sensitive.
+* - Special
+  - Block a visitor if their user agent is blacklisted.  If their user agent is whitelisted, allow the visitor to money page immediately.
+:::
+
+(referrer-filter)=
+## Referrer Filtering
+
+The black and white referrer lists let you filter visitors by their [referrers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referer).  The lists should contain [Perl-compatible regular expressions (PCRE)](https://www.pcre.org/original/doc/html/pcrepattern.html) each on its own line.  They are checked in order until the first match.  Regular expression matching is case-sensitive.
 
 Common use cases:
 
-- Blocking visitors with empty referrers:
+- Blocking visitors with empty referrers.  Add this line to the blacklist:
   ```
   ^$
   ```
-- Blocking visitors that did not come from ads.  Example for Google Ads:
+- Blocking visitors that did not come from ads.  Set the list mode to *White* and add allowed domains to the whitelist.  Example for Google Ads:
   ```
-  ^(.(?!google[.]))*$
+  google\.com
   ```
 
-:::{warning}
-Warning! Improperly formed regular expression can lead to erroneous matching and filtering of
-vast amounts of legitimate traffic. Use this setting only if you know what you are doing.
+### Referrer List Mode
+
+The referrer list mode controls how blacklist and whitelist work together.
+
+:::{list-table}
+:header-rows: 1
+
+* - Mode
+  - Description
+
+* - Black
+  - Block a visitor if their referrer is blacklisted and is not whitelisted.  The whitelist has priority over the blacklist.
+
+* - White
+  - Block a visitor if their referrer is blacklisted **or** is not whitelisted.  The blacklist has priority over the whitelist.
 :::
 
 (url-rules)=

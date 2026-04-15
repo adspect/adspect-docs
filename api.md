@@ -383,9 +383,19 @@ A stream is represented as an object with the following properties:
   - String or array of strings
   - User agent whitelist.
 
-* - `referer_regex`
+* - `ref_list_mode`
   - String
-  - Regular expression for filtering by referrer.
+  - Referrer list mode, one of:<br><br>
+    `black` -- block referrers in the blacklist except those in the whitelist<br>
+    `white` -- block referrers in the blacklist or not in the whitelist
+
+* - `ref_blacklist`
+  - String or array of strings
+  - Referrer blacklist.
+
+* - `ref_whitelist`
+  - String or array of strings
+  - Referrer whitelist.
 
 * - `url_rules`
   - Array of objects
@@ -467,7 +477,12 @@ Example:
   "ua_blacklist": [
     "^Mozilla/4"
   ],
-  "referer_regex": "^(.(?!google[.]))*$",
+  "ua_whitelist": [],
+  "ref_list_mode": "white",
+  "ref_blacklist": [],
+  "ref_whitelist": [
+    "google\.com"
+  ],
   "url_rules": [
     {
       "param": "gclid",

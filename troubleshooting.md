@@ -18,7 +18,7 @@ It is usually available in your Linux distribution's package manager:
   yum install php-curl
   ```
 
-If your server employs PHP-FPM for executing PHP code, then don't forget to restart it:
+If your server runs PHP-FPM for executing PHP scripts, don't forget to restart it:
 
 ```bash
 systemctl restart php-fpm
@@ -41,9 +41,9 @@ Contact your systems administrator or hosting provider's technical support for r
 The "File not found" message means you are trying to display a non-existent file via the local file action, i.e. the file
 does not exist by the path you've specified in your money/safe page field.
 
-## Page Displays Broken
+## Page Looks Broken
 
-If your page appears broken when using the local file action, then make sure you are not displaying it from a subdirectory.
+If your page looks broken when using the local file action, make sure you are not displaying it from a subdirectory.
 The page must reside in the same directory as Adspect PHP file.  Otherwise all relative links on the page will be broken
 because browser will not be aware of the said subdirectory, trying to load images, styles, and scripts by incorrect paths.
 
@@ -64,11 +64,11 @@ Blank page usually comes up in two cases:
 ## Forbidden (Error 403)
 
 This error is caused by your hosting provider, one notable example being Namecheap shared hosting.
-It employs some sort of WAF ([web application firewall](https://en.wikipedia.org/wiki/Web_application_firewall),
+It uses a WAF ([web application firewall](https://en.wikipedia.org/wiki/Web_application_firewall),
 such as ModSecurity for Apache web server) which erroneously blocks POST requests used by Adspect to transmit
 JS fingerprints.
 
-If you are using Namecheap shared hosting, then disable ModSecurity as explained in [Namecheap knowledgebase](https://www.namecheap.com/support/knowledgebase/article.aspx/10512/12/how-to-work-with-the-modsecurity-plugin/).
+If you are using Namecheap shared hosting, disable ModSecurity as explained in [Namecheap knowledgebase](https://www.namecheap.com/support/knowledgebase/article.aspx/10512/12/how-to-work-with-the-modsecurity-plugin/).
 
 With other hosting providers, you have two options:
 
@@ -85,7 +85,7 @@ If you observe clicks getting stuck in the "Acquiring JS fingerprint" status in 
 2.  High network latency of the whole funnel, resulting in visitors closing the page before its loading completes.
     Relocate your server as close as possible to your target audience.
 3.  Your hosting provider interferes with Adspect POST requests by means of a WAF as described above.  Try to bypass
-    all filters in Filter mode and get to your money page; if you end up with a 403 Forbidden error, then it is WAF
+    all filters in Filter mode and get to your money page; if you end up with a 403 Forbidden error, it is WAF
     in action and you should take this issue to your hosting's technical support.
 4.  No space left on disk on your server.
 
@@ -97,7 +97,7 @@ the **first** line of the `index.php` file.
 
 ## No Clicks In Reports
 
-If clicks are not registered in Adspect reports, then those clicks were never handled by Adspect PHP file, i.e. the script
+If clicks are not registered in Adspect reports, those clicks were never handled by then Adspect PHP file, i.e. the script
 was never run for them.  There are three primary causes:
 
 1.  Incorrect stream integration.  Review all the integration steps and make sure you follow them to the letter.
@@ -109,7 +109,7 @@ was never run for them.  There are three primary causes:
 
 ## Clicks Tagged Cloudflare
 
-If all clicks in a stream are tagged "Cloudflare", then it indicates a server-side misconfiguration of how real IP addresses
+If all clicks in a stream are tagged "Cloudflare", it indicates a server-side misconfiguration of how real IP addresses
 are extracted from proxied Cloudflare requests.
 
 This issue is often seen on Beget hosting: they do extract real IP addresses from `X-Forwarded-For` headers correctly,
@@ -117,7 +117,7 @@ but also gratuitously add erroneous `X-Real-IP` headers with Cloudflare addresse
 present in original Cloudflare requests), thereby confusing Adspect PHP file into using incorrect addresses from `X-Real-IP`
 due to their higher priority.
 
-If you have to use Beget, then contact their technical support about the issue, citing the explanation above.
+If you have to use Beget, contact their technical support about the issue, citing the explanation above.
 
 ## Click Count Mismatch, High Lag
 
