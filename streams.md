@@ -918,7 +918,7 @@ The IP/ASN list mode controls how blacklist and whitelist work together.
 
 * - **Special**
   - Blocked if not whitelisted
-  - Goes to money page
+  - Goes to the money page
   - Checked by other filters
   - Whitelisted visitors skip all checks and go to the money page.
 :::
@@ -953,16 +953,28 @@ The user agent list mode controls how blacklist and whitelist work together.
 :header-rows: 1
 
 * - Mode
-  - Description
+  - Visitor in blacklist
+  - Visitor in whitelist
+  - Visitor not in lists
+  - Notes
 
-* - Black
-  - Block a visitor if their user agent is blacklisted and is not whitelisted.  The whitelist has priority over the blacklist.
+* - **Black**
+  - Blocked if not whitelisted
+  - Checked by other filters
+  - Checked by other filters
+  - The whitelist has priority over the blacklist.
 
-* - White
-  - Block a visitor if their user agent is blacklisted **or** is not whitelisted.  The blacklist has priority over the whitelist.
+* - **White**
+  - Blocked
+  - Checked by other filters if not blacklisted
+  - Blocked
+  - The blacklist has priority over the whitelist.
 
-* - Special
-  - Block a visitor if their user agent is blacklisted.  If their user agent is whitelisted, allow the visitor to money page immediately.
+* - **Special**
+  - Blocked if not whitelisted
+  - Goes to the money page
+  - Checked by other filters
+  - Whitelisted visitors skip all checks and go to the money page.
 :::
 
 (referrer-filter)=
@@ -989,13 +1001,22 @@ The referrer list mode controls how blacklist and whitelist work together.
 :header-rows: 1
 
 * - Mode
-  - Description
+  - Visitor in blacklist
+  - Visitor in whitelist
+  - Visitor not in lists
+  - Notes
 
-* - Black
-  - Block a visitor if their referrer is blacklisted and is not whitelisted.  The whitelist has priority over the blacklist.
+* - **Black**
+  - Blocked if not whitelisted
+  - Checked by other filters
+  - Checked by other filters
+  - The whitelist has priority over the blacklist.
 
-* - White
-  - Block a visitor if their referrer is blacklisted **or** is not whitelisted.  The blacklist has priority over the whitelist.
+* - **White**
+  - Blocked
+  - Checked by other filters if not blacklisted
+  - Blocked
+  - The blacklist has priority over the whitelist.
 :::
 
 (url-rules)=
