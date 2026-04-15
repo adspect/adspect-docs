@@ -17,8 +17,12 @@ Reporting section in your clients area is split into three parts:
 Once report parameters are set, hit the Report button to build a sales funnel report and pull its click log.
 You can delete data by these parameters from Adspect reporting by pressing the Delete button.
 
-Both tables have a Download .CSV button in the bottom left corner, for downloading reports in CSV format.
-You can import them into Microsoft Excel, Apple Numbers, Google Sheets, or similar spreadsheet software.
+Both tables have Download CSV buttons for downloading reports in CSV format.  You can open them in Microsoft Excel,
+Apple Numbers, Google Sheets, or similar spreadsheet software.
+
+:::{tip}
+You can change table column order by dragging column headers with a mouse pointer or your finger on mobile devices.
+:::
 
 :::{important}
 Please do not select overly broad date ranges as it will lead to huge dataset fetching and additional strain

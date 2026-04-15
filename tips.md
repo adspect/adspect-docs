@@ -67,26 +67,6 @@ The process is as follows:
 3. Watch the IP blacklist of your dedicated stream being collected and copy-paste it into other streams
    every once in a while (yes, this isn't very convenient, we are working on a solution for blacklist sharing).
 
-## Combining Cloakers
-
-In case you have access to other cloaking and traffic protection solutions, you can use them together with
-Adspect to attain potentially higher levels of protection at the expense of additional processing latency.
-Since most of our competing solutions have a notion of money and safe pages, you should always put
-Adspect at the rear side of the cloaker chain and create a special setup with two separate streams:
-
-* One stream will be used as a money page of your front-side cloaker, taking the baton from it and inspecting
-  supposedly good visitors that the cloaker has allowed through. The money page of this stream will be your
-  final traffic destination whereas the safe page will be the real safe page that your intend to cloak with.
-  This stream should be set to the "Filtering" mode.
-
-* Another stream will be used as a safe page of your front-side cloaker, accepting traffic from it
-  in order to collect an IP address blacklist of visitors that the front-side cloaker deems dangerous and
-  additionally train our [VLA™ machine learning](how-it-works.md#machine-learning) system on their results. This data lets us absorb
-  their filtering techniques and make Adspect more comprehensive and precise. You should always enable the
-  "Blacklist all IP addresses in "Review" mode" setting as described in the section above in order to populate
-  the IP address blacklist automatically. Set both money and safe pages of the stream to the real safe
-  page that you intend to cloak with. Leave the stream in "Review" mode.
-
 ## Split Money Pages for Different Operating Systems
 
 While Adspect user interface does not yet support proper TDS functionality (which will appear in subsequent platform updates),

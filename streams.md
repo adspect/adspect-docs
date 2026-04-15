@@ -283,7 +283,7 @@ If only a single money page is specified, the rotator has no effect.
 This is the default rotator that splits traffic across all enabled money pages according to their weights (A/B testing).
 The more the weight is, the more traffic that money page will receive, proportionally.
 
-For example, if you have three money pages with weights 10, 15, and 25, then the first page will receieve about
+For example, if you have three money pages with weights 10, 15, and 25, the first page will receieve about
 20% of all human traffic, the second page will receieve 30%, and the third page will get around 50%.
 
 Since this rotator is based on a pseudorandom number generator (PRNG), there may be distribution bias on small scale.
@@ -293,7 +293,7 @@ However, mathematical properties of the PRNG guarantee that distribution will re
 
 Timer rotator cycles through enabled money pages, using weight as a number of seconds that a money page is active for.
 
-For instance, if you have three money pages with weights 60, 120, and 180, then the first page will be shown to visitors
+For instance, if you have three money pages with weights 60, 120, and 180, the first page will be shown to visitors
 for 1 minute, then the rotator will cycle to the second page and display it to incoming clicks for 2 minutes, then go to
 the third page and use it for 3 minutes, then cycle back to the first one, and so on.
 
@@ -339,7 +339,7 @@ There are several ways to specify a local file:
   as `https://google.com/landing.html`, and Adspect will try to display `/landing.html` in the root of your actual domain.
 
 Usually you'd put a path to an HTML or PHP file of your real landing page.  In this case, you should put the Adspect PHP file
-in the same directory.  If you use a subdirectory, then it will break all relative links
+in the same directory.  If you use a subdirectory, it will break all relative links
 in the page because the visitor's browser will not be aware of that subdirectory--there's no redirect to inform it.
 
 You can use a path to a local directory without specifying an explicit file name in it.  In this case, Adspect
@@ -439,7 +439,7 @@ also known as a temporary redirect.  These redirect responses are not cached by 
 cloaked link again will lead to re-scanning the visitor by Adspect.
 
 :::{tip}
-If you don't know which redirect type to choose, then go with HTTP 302 Found redirect.
+If you don't know which redirect type to choose, go with HTTP 302 Found redirect.
 :::
 
 :::{important}
@@ -543,7 +543,7 @@ be able to navigate back to the page they were redirected from.
 
 A JavaScript redirect that opens a link in the parent browser window even if the cloaked link is displayed in a frame or iframe,
 thereby making the browser navigate out ("break out") of the frame.
-If there's no parent frame, then this redirect is equivalent to the [JavaScript `assign()` redirect](streams.md#js-assign).
+If there's no parent frame, this redirect is equivalent to the [JavaScript `assign()` redirect](streams.md#js-assign).
 
 :::{important}
 This feat will not work with [sandboxed iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe#sandbox).
@@ -625,7 +625,7 @@ Then you configure your stream to use your web application as the money page:
 * Money page field: `/app`
 * Money page action: **X-Accel-Redirect header**
 
-With this setup, if the visitor is legitimate, then Adspect will transfer control to your web application inside NGINX seamlessly
+With this setup, if the visitor is legitimate, Adspect will transfer control to your web application inside NGINX seamlessly
 for the visitor without any visible redirection.
 
 :::{important}
@@ -645,9 +645,8 @@ With JavaScript integration, this action performs a [JavaScript replace() redire
 ## Delayed Start
 
 Delayed start allows you to filter out a given number of first clicks in the stream.  For example, if you have observed
-that first 10--15 clicks in each campaign in your ad network belong to ad reviewers and malware checkers, then you can
-want to set your stream to skip first 20 clicks (just a little more to stay on the safe side), i.e. to send them to
-to your safe page unconditionally.
+that the first 10--15 clicks in each campaign in your ad network belong to ad reviewers and malware checkers, you can
+set your stream to send the first 20 clicks to the safe page (just a little more to stay on the safe side).
 
 :::{attention}
 Delayed start works only when the stream is in Filter mode.
@@ -712,7 +711,7 @@ Filtering level lets you adjust aggressiveness of traffic filtering by selecting
 :::
 
 :::{tip}
-If you don't know which filtering level to select, then go with level **High**.
+If you don't know which filtering level to select, go with level **High**.
 :::
 
 (js-fingerprinting)=
@@ -800,7 +799,7 @@ This setting allows visitors that use Apple's [iCloud Private Relay](https://sup
 ## Countries and Devices
 
 These fields allow you to allow visitors only from the specified countries, using specified operating systems, browsers, browser
-engines, and browser language preferences.  If a field is left blank, then no check will be made for that attribute (allows all).
+engines, and browser language preferences.  If a field is empty, no check will be made for that attribute (allows all).
 
 ## Tracking Settings
 
@@ -820,7 +819,7 @@ https://example.com/?subid={zoneid}
 ```
 For each click, the ad network will replace the `{zoneid}` macro with an actual zone ID which can then be taken
 out of the click link and tracked individually. In this example, `subid` is name of the parameter used to track
-zone IDs. If you specify `{p:subid}` for the Sub ID stream setting, then you will be able to pull per-zone reports
+zone IDs. If you specify `{p:subid}` for the Sub ID stream setting, you will be able to pull per-zone reports
 in [Reporting](reporting.md). This may come in very handy for building blacklists of bot-ridden publishers, zones, placements, etc.
 
 ### Click ID
@@ -834,7 +833,7 @@ individual click in Adspect reports. To do this, enter `{p:gclid}` (Google Ads e
 
 Click ID may be added to money or safe page links via the `{clickid}` macro.
 
-If the Click ID field is left blank, then Adspect will generate its own unique click IDs.
+If the Click ID field is empty, Adspect will generate its own unique click IDs.
 
 ### Click Cost
 
@@ -844,10 +843,10 @@ like this:
 ```
 https://example.com/?cost=0.15
 ```
-If you enter `{p:cost}` in the Click Cost field, then Adspect will take 0.15 from the `cost` URL parameter and use that as the cost
+If you enter `{p:cost}` in the Click Cost field, Adspect will take 0.15 from the `cost` URL parameter and use that as the cost
 of that particular click.
 
-If the Click Cost field is left blank, then clicks will have zero cost in reports.
+If the Click Cost field is empty, clicks will have zero cost in reports.
 
 ## IP Address Filtering
 
@@ -888,7 +887,7 @@ The IP/ASN list mode controls how blacklist and whitelist work together.
   - Block a visitor if their IP addresses or ASN is blacklisted **or** is not whitelisted.
 
 * - Special
-  - Block a visitor if their IP addresses or ASN is blacklisted.  If their IP address or ASN is whitelisted, then allow the visitor to money page immediately.
+  - Block a visitor if their IP addresses or ASN is blacklisted.  If their IP address or ASN is whitelisted, allow the visitor to money page immediately.
 :::
 
 ### Blacklist All IP Addresses in Review Mode
@@ -1092,19 +1091,19 @@ This section allows you to filter visitors by time and time zones.
 
 Schedule allows you to specify dayparts and optionally days of week during which traffic filtering is on.
 All visits on time and days not explicitly listed will be blocked. Schedule is active if at least one daypart
-is specified. If a daypart does not specify days of week, then it is applied to all days.
+is specified. If a daypart does not specify days of week, it is applied to all days.
 
 ### Time Zones
 
 This field lets you allow visitors only from the specified time zones.
 
 Time zone settings are restricted to full hour offsets from UTC. If a visitor's time zone is not offset by
-full hours, then the offset will be rounded.
+full hours, the offset will be rounded.
 
 (match-time-zone-to-ip)=
 ### Match Browser Time Zone to Location Time Zone
 
-If this setting is enabled, then Adspect will check whether the time zone reported by visitor's browser matches
+If this setting is enabled, Adspect will check whether the time zone reported by visitor's browser matches
 the time zone of the visitor as determined by our geolocation. This check may slightly increase the rate of false
 positives, but it significantly boosts protection against moderators and bots that use VPN or proxies.
 
