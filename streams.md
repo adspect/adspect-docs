@@ -850,25 +850,46 @@ If the Click Cost field is empty, clicks will have zero cost in reports.
 
 ## IP Address Filtering
 
-This block of settings lets you filter traffic by lists of IP addresses, IP address ranges,
-[CIDR prefixes](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation),
-and/or [autonomous system numbers (ASN)](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)).
-Each stream has two lists: black and white.
+This block of settings lets you filter traffic by lists of IP addresses, IP address ranges, [CIDR prefixes](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation), and/or [autonomous system numbers (ASN)](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)).  Each stream has two lists: black and white.  Individual list entries should be delimited by newlines or whitespace.
 
-```
-192.0.2.1
-192.0.2.0/24
-192.0.2.0–192.0.2.255
-2001:db8::1
-2001:db8::/112
-2001:db8::-2001:db8::ffff
-65536
-AS65536
-1.10
-AS1.10
-```
+Entry format examples:
 
-Individual entries should be delimited by newlines or whitespace.
+:::{list-table}
+:header-rows: 1
+
+* - Format
+  - Description
+
+* - `192.0.2.1`
+  - Single IPv4 address.
+
+* - `192.0.2.0/24`
+  - IPv4 CIDR prefix.
+
+* - `192.0.2.0–192.0.2.255`
+  - IPv4 address range.
+
+* - `2001:db8::1`
+  - Single IPv6 address.
+
+* - `2001:db8::/112`
+  - IPv6 CIDR prefix.
+
+* - `2001:db8::-2001:db8::ffff`
+  - IPv6 address range.
+
+* - `65536`
+  - Autonomous system number.
+
+* - `AS65536`
+  - Autonomous system number.
+
+* - `1.10`
+  - Autonomous system number in dot+ format.
+
+* - `AS1.10`
+  - Autonomous system number in dot+ format.
+:::
 
 ### IP/ASN List Mode
 
@@ -878,16 +899,28 @@ The IP/ASN list mode controls how blacklist and whitelist work together.
 :header-rows: 1
 
 * - Mode
-  - Description
+  - Visitor in blacklist
+  - Visitor in whitelist
+  - Visitor not in lists
+  - Notes
 
-* - Black
-  - Block a visitor if their IP addresses or ASN is blacklisted and is not whitelisted.  The whitelist has priority over the blacklist.
+* - **Black**
+  - Blocked if not whitelisted
+  - Checked by other filters
+  - Checked by other filters
+  - The whitelist has priority over the blacklist.
 
-* - White
-  - Block a visitor if their IP addresses or ASN is blacklisted **or** is not whitelisted.  The blacklist has priority over the whitelist.
+* - **White**
+  - Blocked
+  - Checked by other filters if not blacklisted
+  - Blocked
+  - The blacklist has priority over the whitelist.
 
-* - Special
-  - Block a visitor if their IP addresses or ASN is blacklisted.  If their IP address or ASN is whitelisted, allow the visitor to money page immediately.
+* - **Special**
+  - Blocked if not whitelisted
+  - Goes to money page
+  - Checked by other filters
+  - Whitelisted visitors skip all checks and go to the money page.
 :::
 
 ### Blacklist All IP Addresses in Review Mode
@@ -943,7 +976,7 @@ Common use cases:
   ```
   ^$
   ```
-- Blocking visitors that did not come from ads.  Set the list mode to *White* and add allowed domains to the whitelist.  Example for Google Ads:
+- Blocking visitors that did not come from ads.  Set the list mode to **White** and add allowed domains to the whitelist.  Example for Google Ads:
   ```
   google\.com
   ```
