@@ -322,32 +322,70 @@ is explained in a standalone paragraph after the general description which appli
 (local-file)=
 ### Local File ("Zero Redirect")
 
-The specified local file is displayed without redirect, either by processing it as PHP code or serving as-is.
-**This is the most secure action, and we strongly advise to use it at all times when possible.**
+This action displays the specified local file directly without redirect.
 
 There are several ways to specify a local file:
 
-- Absolute paths are treated relative to the root of the domain where you upload our PHP file.  For example, if you
-  specify your path as `/landers/landing.html` and upload our PHP file as `https://example.com/ads/index.php`,
-  then it will try to display the page at `https://example.com/landers/landing.html`.
+:::{list-table}
+:header-rows: 1
 
-- Relative paths are treated relative to the directory where you upload our PHP file.  For example, if you
-  specify your path as `landers/landing.html` and upload our PHP file as `https://example.com/ads/index.php`,
-  then it will try to display the page at `https://example.com/ads/landers/landing.html`.
+* - Syntax
+  - Examples
+  - Description
 
-- URLs may also be specified, in which case the domain part will be ignored.  For example, you can specify your page
-  as `https://google.com/landing.html`, and Adspect will try to display `/landing.html` in the root of your actual domain.
+* - Relative path
+  - `page.php`<br>
+    `folder/page.html`
+  - A path relative to the location of the Adspect integration PHP file.<br><br>
+    For example, if you specify the path `landers/landing.html` and upload the Adspect PHP file at `https://example.com/ads/index.php`, Adspect will display the page at `https://example.com/ads/landers/landing.html`.
 
-Usually you'd put a path to an HTML or PHP file of your real landing page.  In this case, you should put the Adspect PHP file
-in the same directory.  If you use a subdirectory, it will break all relative links
-in the page because the visitor's browser will not be aware of that subdirectory--there's no redirect to inform it.
+* - Absolute path
+  - `/var/www/html/index.html`
+  - An exact file path specified from the root of the server's file system tree.
 
-You can use a path to a local directory without specifying an explicit file name in it.  In this case, Adspect
-will try to locate and display `index.php`, `index.html`, or `index.htm` file inside, in that order, following
-the usual behavior of web servers.  This is error-prone, so try to avoid such implicities.
+* - URL
+  - `https://example.com/`<br>
+    `https://example.com/folder/page.html`<br>
+    `//example.com/page.php`
+  - The path part of the URL is used relative to the visited domain's root.  The scheme and domain parts of the URL are ignored.<br><br>
+    For example, if you specify the URL `https://dummy.test/landers/landing.html` and upload the Adspect PHP file at `https://example.com/ads/index.php`, Adspect will display the page at `https://example.com/landers/landing.html`.
+:::
 
-You can also use a path to any non-HTML local file.  The browser will download that file if it cannot display it.
-For example, you can specify your money page as `downloads/app.apk` to cloak direct APK downloads.
+:::{important}
+Usually this action is used to display an HTML or PHP file.  In this case, **you should** put the Adspect PHP file in the same directory.  Otherwise all relative links on the page will be broken because the visitor's browser will not be aware that the page's resources (images, styles, scripts) should be loaded from a different directory--there's no redirect to inform it of the actual location of those files.
+:::
+
+What exactly happens depends on the file name suffix (extension):
+
+:::{list-table}
+:header-rows: 1
+
+* - Suffix
+  - Examples
+  - Action
+
+* - `/` (directory)
+  - `folder/`<br>
+    `folder`
+  - Adspect will display the file `index.php`, `index.html`, or `index.htm` inside the directory, in that order.
+
+* - `.php`<br>
+    `.phtml`<br>
+    `.php5`<br>
+    `.php4`<br>
+    `.php3`
+  - `page.php`
+  - The file will be executed as a PHP script using the [`require`](https://www.php.net/manual/en/function.require.php) PHP directive.
+
+* - `.html`<br>
+    `.htm`
+  - `page.html`
+  - The file will be displayed as a static HTML page.
+
+* - Anything else
+  - `app.apk`
+  - The file will be downloaded by the browser.
+:::
 
 When using the local file action, you can add parameters with [macros](#macros) after the file name of your page, and they will be parsed and made available in PHP code in the [`$_GET` superglobal variable](https://www.php.net/manual/en/reserved.variables.get.php). For example:
 ```
@@ -359,6 +397,10 @@ The value of this macro can be accessed in the `page.php` code like this:
   This is a link to the offer
 </a>
 ```
+
+:::{tip}
+This is the most secure action, and we strongly advise to use it wherever possible.
+:::
 
 :::{important}
 With JavaScript integration, this action loads the page via synchronous `XMLHttpRequest` and replaces the safe page content with it
