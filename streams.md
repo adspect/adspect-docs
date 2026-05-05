@@ -222,17 +222,10 @@ PHP or JavaScript code, etc.  The two most common value types are URLs and paths
 
   This is particularly useful with the so called "deep links" that link to mobile in-app content.
 
-* **A path to a local file or directory,** e.g. `page.php` or `/landers/landing.html`.  The word "local" here means
+* **A path to a local file or directory,** e.g. `page.php` or `/landers/page.html`.  The word "local" here means
   that the file or directory the path points to is supposed to reside on the same server where you put our PHP file
   (more on PHP files will be described in the [Intergration](integration.md) chapter), i.e. on the same domain
-  that will be used for your cloaked link.  Paths in turn may be absolute or relative.
-
-  Absolute paths start with `/` and are treated as if they are relative to the website's root directory--the domain's
-  root.  For example, the path `/landers/landing.html` on domain `example.com` will point to
-  `https://example.com/landers/landing.html`.
-
-  Relative paths are paths that *do not* start with `/`, and their meaning depends on particular action and
-  integration type.
+  that will be used for your final link.
 
 (action)=
 #### Action
@@ -324,6 +317,10 @@ is explained in a standalone paragraph after the general description which appli
 
 This action displays the specified local file directly without redirect.
 
+:::{tip}
+This is the most secure action, and we strongly advise to use it wherever possible.
+:::
+
 There are several ways to specify a local file:
 
 :::{list-table}
@@ -337,7 +334,7 @@ There are several ways to specify a local file:
   - `page.php`<br>
     `folder/page.html`
   - A path relative to the location of the Adspect integration PHP file.<br><br>
-    For example, if you specify the path `landers/landing.html` and upload the Adspect PHP file at `https://example.com/ads/index.php`, Adspect will display the page at `https://example.com/ads/landers/landing.html`.
+    For example, if you specify the path `landers/page.html` and upload the Adspect PHP file at `https://example.com/ads/index.php`, Adspect will display the page at `https://example.com/ads/landers/page.html`.
 
 * - Absolute path
   - `/var/www/html/index.html`
@@ -345,10 +342,9 @@ There are several ways to specify a local file:
 
 * - URL
   - `https://example.com/`<br>
-    `https://example.com/folder/page.html`<br>
     `//example.com/page.php`
   - The path part of the URL is used relative to the visited domain's root.  The scheme and domain parts of the URL are ignored.<br><br>
-    For example, if you specify the URL `https://dummy.test/landers/landing.html` and upload the Adspect PHP file at `https://example.com/ads/index.php`, Adspect will display the page at `https://example.com/landers/landing.html`.
+    For example, if you specify the URL `https://dummy.test/landers/page.html` and upload the Adspect PHP file at `https://example.com/ads/index.php`, Adspect will display the page at `https://example.com/landers/page.html`.
 :::
 
 :::{important}
@@ -397,10 +393,6 @@ The value of this macro can be accessed in the `page.php` code like this:
   This is a link to the offer
 </a>
 ```
-
-:::{tip}
-This is the most secure action, and we strongly advise to use it wherever possible.
-:::
 
 :::{important}
 With JavaScript integration, this action loads the page via synchronous `XMLHttpRequest` and replaces the safe page content with it
