@@ -10,8 +10,9 @@ by the filter will fall through into the money page flow.
 In order to use the Adspect filter you must upload its file to your Keitaro tracker's server.  Do the following:
 
 1.  [Download the AdspectFilter.php file](https://clients.adspect.io/static/dist/keitaro/AdspectFilter.php);
-2.  Upload the AdspectFilter.php file to the `/var/www/keitaro/application/filters` directory on the server where your Keitaro
-    tracker is installed.
+2.  Upload the AdspectFilter.php file to the filters directory on your Keitaro server:
+    * Keitaro 11: `/var/www/keitaro/var`
+    * Previous versions: `/var/www/keitaro/application/filters`
 
 :::{note}
 Filter installation should be done just once for a particular Keitaro server, or after reinstalling Keitaro tracker.
