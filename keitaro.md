@@ -11,7 +11,7 @@ In order to use the Adspect filter you must upload its file to your Keitaro trac
 
 1.  [Download the AdspectFilter.php file](https://clients.adspect.io/static/dist/keitaro/AdspectFilter.php);
 2.  Upload the AdspectFilter.php file to the filters directory on your Keitaro server:
-    * Keitaro 11: `/var/www/keitaro/var`
+    * Keitaro 11: `/var/www/keitaro/var/filters`
     * Previous versions: `/var/www/keitaro/application/filters`
 
 :::{note}
