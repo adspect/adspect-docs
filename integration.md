@@ -38,19 +38,26 @@ different file names, e.g. `https://example.com/stream1.php`, `https://example.c
 
 ## Reverse PHP Integration
 
-There's also a slightly different reverse PHP integration that uses a `filter.php` file which is included into your
-PHP page file (normally your safe page) via a single line of PHP code. Traffic lands directly on this page, our code
-in the `filter.php` file inspects it and chooses either to keep the visitor on the page or display a different one.
+Reverse PHP integration is done by including the integration PHP file directly into your landing page via a single line of
+PHP code.  Visitors will arrive directly on this page, Adspect integration code will check them and decide whether to keep
+each particular visitor on the current page or display a different page instead.
 
-In order to perform reverse PHP integration you first need to download the `filter.php` file on the Reverse PHP Integration
-tab and put it into the folder of your site or landing page. Several copies of the same `filter.php` file may be used for
-protecting several sites or landing pages without interfering with each other.
+In order to perform reverse PHP integration you first need to download the integration file on the Reverse PHP Integration
+tab and put it into the folder of your site or landing page.  The file will have a random name.  Several copies of the same
+integration file may be used for protecting several sites without interfering with each other.
 
 Then add the following code as **the first line (before all other code)** of your site or landing page index file (usually
 named `index.php`):
 
-```php
-<?php require __DIR__ . '/filter.php' ?>
+```{code-block} php
+:caption: Adding integration line to the page code
+:emphasize-lines: 1
+:lineno-start: 1
+
+<?php require __DIR__ . '/XXXXXX.php' ?>
+<html>
+<head>
+…
 ```
 
 :::{tip}
@@ -67,7 +74,7 @@ Once set up, direct traffic to the page you added the code into.
 
 ## WordPress and Other CMS
 
-Reverse PHP integration is useful for integrating Adspect into sites based on WordPress or similar CMS
+Reverse PHP integration explained above is useful for integrating Adspect into sites based on WordPress or similar CMS
 ([content management systems](https://en.wikipedia.org/wiki/Content_management_system)).
 
 WordPress has a file named `index.php` in its
@@ -79,7 +86,7 @@ That is the file where you should add that single line of PHP code discussed abo
 :emphasize-lines: 1
 :lineno-start: 1
 
-<?php require __DIR__ . '/filter.php' ?>
+<?php require __DIR__ . '/XXXXXX.php' ?>
 <?php
 /**
  * Front to the WordPress application. This file doesn't do anything, but loads
@@ -90,7 +97,7 @@ That is the file where you should add that single line of PHP code discussed abo
 …
 ```
 
-Place the `filter.php` file into the same folder.
+Put the integration PHP file into the same folder.
 
 Since integration is performed into the root script of WordPress, it means that Adspect code will be executed when any site page
 is visited.
@@ -146,7 +153,7 @@ the desired parameter to the `$_GET` superglobal prior to calling Adspect code:
 ```php
 <?php
 $_GET['subid'] = 'hidden';
-require __DIR__ . '/filter.php';
+require __DIR__ . '/XXXXXX.php';
 ```
 
 In this example, Adspect will see URL parameters as if they actually contained `subid=hidden`.
@@ -174,15 +181,14 @@ is always the page that contains the JavaScript integration code.
 
 ## Switching Streams
 
-Each stream has its own `index.php`, `filter.php`, and `ajax.php` files wired to it that have the stream ID encoded inside.
-However, you can override that encoded stream ID and send a click to a different stream by putting the destination stream ID
-into the `__sid` URL parameter, e.g:
+Every integration PHP file is bound to its own stream.  However, you can reroute a click to a different stream by adding its
+stream ID to the cloaked URL in the `__sid` parameter, e.g:
 
 ```
-https://example.com/index.php?__sid=1ea85c7c-b977-6804-8e69-00162501c2b4
+https://example.com/?__sid=1ea85c7c-b977-6804-8e69-00162501c2b4
 ```
 
-You can find stream ID next to its name in the streams list.
+You can find stream ID next to its name in the stream list.
 
 If you need use a different parameter name instead of `__sid`, then open Adspect PHP file in a text editor and replace
 the `__sid` string with the desired name (e.g. `utm_campaign`).

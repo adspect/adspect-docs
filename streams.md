@@ -17,7 +17,7 @@ to match stream names with ad campaigns on a one-to-one basis to keep your traff
 ### Tags
 
 You can assign up to 32 mnemonic tags to a stream to label it meaningfully, e.g. "gambling", "betting", "nutra", "test", etc.
-These tags also let you quickly search streams using the Search field in the top-right corner of the streams list.
+These tags also let you quickly search streams using the Search field in the left corner of the stream list.
 
 (mode)=
 ### Mode
@@ -1120,12 +1120,12 @@ Each rule consists of the following fields:
 * - does not match regexp (no case)
   - Checks if the parameter value does not match a regular expression in the rule argument (case-insensitive).
 
-* - equal to<br>
-    not equal to<br>
-    greater than<br>
-    greater than or equal to<br>
-    less than<br>
-    less than or equal to
+* - =<br>
+    ≠<br>
+    &gt;<br>
+    ≥<br>
+    &lt;<br>
+    ≤
   - Checks if the parameter value compares with the rule argument accordingly.  Integers and real values are compared as numbers,
     and strings are compared according to their [lexicographical order](https://en.wikipedia.org/wiki/Lexicographical_order).
 

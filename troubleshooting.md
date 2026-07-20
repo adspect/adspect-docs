@@ -18,13 +18,13 @@ It is usually available in your Linux distribution's package manager:
   yum install php-curl
   ```
 
-If your server runs PHP-FPM for executing PHP scripts, don't forget to restart it:
+If your server uses PHP-FPM to run PHP scripts, don't forget to restart it:
 
 ```bash
 systemctl restart php-fpm
 ```
 
-Contact your systems administrator or hosting provider's technical support for further help.
+Contact your systems administrator or your hosting provider's technical support for further help.
 
 ## php-json Extension Is Missing
 
@@ -33,8 +33,8 @@ This message means the same as the previous one, but refers to the `php-json` ex
 ## Curl Error: Couldn't Resolve Host Name
 
 This message indicates a problem with DNS settings on your server: the php-curl extension could not resolve Adspect's
-filtering cloud domain name to an IP-address.  This problem has nothing to do with stream settings or integration type.
-Contact your systems administrator or hosting provider's technical support for resolving DNS issues on your server.
+domain name to an IP address.  This problem is not related to any Adspect settings.  Please contact your systems administrator
+or your hosting provider's technical support for resolving DNS issues on your server.
 
 ## File Not Found
 
@@ -57,9 +57,8 @@ or safe page redirects back to `index.php` of your Adspect stream.  Make sure yo
 Blank page usually comes up in two cases:
 
 1.  "No action" is set for page action, hence nothing is displayed.  Set a meaningful action instead.
-2.  You are trying to display Adspect PHP file (`index.php`, `filter.php`, or the page the latter is injected into) with
-    the local file action.  Either set a meaningful file to display, or set the action to "no action" if using reverse
-    PHP integration.
+2.  You are trying to display the `index.php` integration file or the page with reverse PHP integration via the local file action.
+    Either enter a meaningful file name to display, or set the action to "no action" if using reverse PHP integration.
 
 ## Forbidden (Error 403)
 
@@ -101,8 +100,8 @@ If clicks are not registered in Adspect reports, those clicks were never handled
 was never run for them.  There are three primary causes:
 
 1.  Incorrect stream integration.  Review all the integration steps and make sure you follow them to the letter.
-    For reverse PHP integration, navigate directly to the `filter.php` file of your stream in browser and make sure
-    the click is registered by Adspect in due manner.
+    For reverse PHP integration, navigate directly to the stream's integration PHP file in your browser and make sure
+    the click is registered in stream reports.
 2.  Page cached by your browser.  Always check integration in incognito mode.
 3.  Page cached by server-side cache.  This often happens on WordPress-based websites with WordPress cache plugin enabled.
     Disable the plugin.

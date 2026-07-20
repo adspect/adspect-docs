@@ -78,12 +78,7 @@ Cloaking Google Ads is an advanced use case and thereby requires extra preparati
 
 1.  Create a stream by selecting an appropriate use case.
 2.  It is **advised** to display the safe page without redirect;
-3.  Perform [any type of integration](integration.md), depending on your needs.
-
-:::{important}
-Most native ad networks employ GeoEdge or similar third party ad security services that run highly advanced checker bots.
-It is important to enable [JavaScript fingerprinting](streams.md#js-fingerprinting) in stream settings to detect and block them.
-:::
+3.  Perform [PHP integration](integration.md#php-integration).
 
 ## Cloaking WebView Apps
 
