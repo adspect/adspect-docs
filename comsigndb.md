@@ -1,24 +1,27 @@
 # ComsignDB
 
-ComsginDB is an ad-hoc NoSQL content database software with on-disk persistence and Redis-like access semantics.
+ComsignDB is an ad-hoc NoSQL content database software with on-disk persistence and Redis-like access semantics.
 
-Copyright &copy; 2020&ndash;2025 by [Comsign](https://www.comsign.io/).  All rights reserved.
+Copyright &copy; 2019&ndash;2026 [Comsign](https://www.comsign.io/).  All rights reserved.
 
 ## Usage
 
 Running ComsignDB from command line:
 
 ```
-# comsigndb --config /etc/comsigndb.json
+# comsigndb [--config /etc/comsign/comsigndb.json]
 # comsigndb --help
 ```
+
+## Configuration
+
+By default, ComsignDB will load configuration from the file `/etc/comsign/comsigndb.json`.  You may specify one or more alternative configuration files on the command line via the `-c` (or `--config`) option.  If several configuration files are specified, they will be loaded in the order they appear on the command line.
 
 ## HTTP API
 
 Available HTTP API endpoints are detailed below.
 
-Some endpoints either expect JSON-encoded data in request body, or return JSON-encoded data in response body; in the latter case,
-ComsignDB will set the `Content-Type: application/json` response header.
+Some endpoints either expect JSON-encoded data in request body, or return JSON-encoded data in response body.  In the latter case, ComsignDB will set the `Content-Type: application/json` response header.
 
 ### List Databases
 
@@ -28,36 +31,28 @@ GET /
 
 Response example:
 
-```json
+```
 [
   "database1",
   "database2"
 ]
 ```
 
-### Save All Databases to Disk
-
-```
-SAVE /
-```
-
-### Load All Databases from Disk
-
-```
-LOAD /
-```
-
 ### Save Database to Disk
 
 ```
-SAVE /<database>
+SAVE /[database]
 ```
+
+If the database is not specified, all databases will be saved.
 
 ### Load Database from Disk
 
 ```
-LOAD /<database>
+LOAD /[database]
 ```
+
+If the database is not specified, all databases will be loaded.
 
 ### List Keys
 
@@ -69,13 +64,13 @@ This endpoint returns an object with key types as property names and arrays of k
 
 Response example:
 
-```json
+```
 {
   "set": [
     "key1",
     "key2"
   ],
-  "fileset": [
+  "string": [
     "key1",
     "key2"
   ]
@@ -85,12 +80,12 @@ Response example:
 ### List Keys by Type
 
 ```
-GET /<database>/{set|fileset}
+GET /<database>/set
 ```
 
 Response example:
 
-```json
+```
 [
   "key1",
   "key2"
@@ -102,7 +97,7 @@ Response example:
 Unlike Redis, keys are not implicitly created by insertion operations and must be created manually before they can be used.
 
 ```
-PUT /<database>/{set|fileset}
+PUT /<database>/set
 [
   "key1",
   "key2"
@@ -112,7 +107,7 @@ PUT /<database>/{set|fileset}
 ### Delete Keys
 
 ```
-DELETE /<database>/{set|fileset}
+DELETE /<database>/set
 [
   "key1",
   "key2"
@@ -126,16 +121,24 @@ PUT /<database>/string/<key>
 Hello, world!
 ```
 
+This endpoint stores the whole raw request body as a string.  It does **not** decode the request body as JSON.
+
 ### Get String
 
 ```
 GET /<database>/string/<key>
 ```
 
+### Get String Length
+
+```
+SIZE /<database>/string/<key>
+```
+
 ### Add Set Elements
 
 ```
-PUT /<database>/{set|fileset}/<key>
+PUT /<database>/set/<key>
 [
   "element1",
   "element2"
@@ -145,7 +148,7 @@ PUT /<database>/{set|fileset}/<key>
 ### Remove Set Elements
 
 ```
-DELETE /<database>/{set|fileset}/<key>
+DELETE /<database>/set/<key>
 [
   "element1",
   "element2"
@@ -155,24 +158,20 @@ DELETE /<database>/{set|fileset}/<key>
 ### Get Set Cardinality
 
 ```
-SIZE /<database>/{set|fileset}/<key>
+SIZE /<database>/set/<key>
 ```
 
-Response example:
-
-```json
-42
-```
+This endpoint returns the number of elements in the set (an integer value).
 
 ### Get All Set Elements
 
 ```
-GET /<database>/{set|fileset}/<key>
+GET /<database>/set/<key>
 ```
 
 Response example:
 
-```json
+```
 [
   "element1",
   "element2",
@@ -183,7 +182,7 @@ Response example:
 ### Test Set Membership
 
 ```
-TEST /<database>/{set|fileset}/<key>
+TEST /<database>/set/<key>
 [
   "element1",
   "element2",
@@ -191,13 +190,11 @@ TEST /<database>/{set|fileset}/<key>
 ]
 ```
 
-This endpoint accepts an array of elements and returns an array of those elements that are present in the set.  The output array
-preserves the order of elements in the input array.  If the same element appears several times in the input array, then it will
-appear the same number of times in the ouput array, given that it is present in the set.
+This endpoint accepts an array of elements and returns an array of those elements that are present in the set.  The output array preserves the order of elements in the input array.  If the same element appears several times in the input array, it will appear the same number of times in the ouput array, given that it is present in the set.
 
 Response example:
 
-```json
+```
 [
   "element1",
   "element3"
@@ -207,18 +204,16 @@ Response example:
 ### Get Random Set Elements
 
 ```
-RANDOM /<database>/{set|fileset}/<key>?n=<number>&seed=<seed>
+RANDOM /<database>/set/<key>?n=<number>&seed=<seed>
 ```
 
-This endpoint returns `<number>` of randomly picked set elements (defaults to 1).  Uniqueness is not guaranteed, i.e. the resulting
-array may contain the same elements multiple times.
+This endpoint returns `<number>` of randomly picked set elements (defaults to 1.)  Uniqueness is not guaranteed, i.e. the resulting array may contain the same elements multiple times.
 
-Optionally, you can seed the random number generator with an arbitrary string `<seed>`.  If not specified, the RNG will be seeded
-from the system entropy source.
+Optionally, you may seed the random number generator with an arbitrary string `<seed>`.  If not specified, the RNG will be seeded from the system entropy source.
 
 Response example:
 
-```json
+```
 [
   "element4",
   "element27",

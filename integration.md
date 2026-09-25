@@ -61,14 +61,11 @@ named `index.php`):
 ```
 
 :::{tip}
-If your site is written in pure HTML, then you can safely change the extension of your file from `.html` to `.php`
-before adding our line of code to it.
+If your site is written in pure HTML, you can safely change the extension of the page file from `.html` to `.php` before adding the line of code to it.
 :::
 
-* If you inserted the code into your safe page, then leave the safe page field blank and specify **No Action** for safe page
-  action in stream settings.  Adspect will not take any action, leaving the visitor on their current page which is the safe page.
-* Likewise, if you inserted the code into your money page, then leave the money page field blank and specify **No Action** for
-  money page action in stream settings.
+* If you added the code into your safe page, set the safe page action to **No Action** and leave the safe page field empty;
+* if you added the code into your money page, set the money page action to **No Action** and leave the money page field empty.
 
 Once set up, direct traffic to the page you added the code into.
 
@@ -102,17 +99,16 @@ Put the integration PHP file into the same folder.
 Since integration is performed into the root script of WordPress, it means that Adspect code will be executed when any site page
 is visited.
 
-* If WordPress is your safe page, then set safe page action to No Action and leave page field empty;
-* if WordPress is your money page, then set money page action to No Action and leave page field empty.
+* If WordPress is your safe page, set the safe page action to **No Action** and leave the safe page field empty;
+* if WordPress is your money page, set the money page action to **No Action** and leave the money page field empty.
 
 :::{important}
-Make sure that any WordPress caching plugins are disabled.  If your clicks do not appear in stream's click log, then it often
-indicates that WordPress serves its pages from cache, so you must disable it.
+Make sure that any WordPress caching plugins are disabled.  If your clicks do not appear in stream's click log, it often indicates that WordPress serves its pages from cache, so you must disable and clear it.
 :::
 
 :::{warning}
 WordPress updates will overwrite its `index.php` file, thereby removing our integration code.  If your WordPress-based stream suddenly
-stopped registering clicks in Adspect reporting, then the likely cause is recent WordPress update, and you should redo integration.
+stopped registering clicks in Adspect reporting, the likely cause is recent WordPress update, and you should redo integration.
 We recommend [disabling automatic WordPress updates](https://wordpress.org/documentation/article/configuring-automatic-background-updates/#constant-to-disable-all-updates).
 :::
 
@@ -190,8 +186,8 @@ https://example.com/?__sid=1ea85c7c-b977-6804-8e69-00162501c2b4
 
 You can find stream ID next to its name in the stream list.
 
-If you need use a different parameter name instead of `__sid`, then open Adspect PHP file in a text editor and replace
+If you need use a different parameter name instead of `__sid`, open the Adspect PHP file in a text editor and replace
 the `__sid` string with the desired name (e.g. `utm_campaign`).
 
-If you are using [URL parameter passthrough](streams.md#pt-checkbox) to your money or safe page, then you may want
+If you are using [URL parameter passthrough](streams.md#pt-checkbox) to your money or safe page, you may want
 to remove the `__sid` parameter from the final URL with a [`DELETE` URL rule](streams.md#url-rules).

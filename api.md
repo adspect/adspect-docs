@@ -779,11 +779,11 @@ This endpoint deletes the stream specified by `<ID>`.
 
 ```
 GET /streams/<ID>/file?name=index.php
-GET /streams/<ID>/file?name=filter.php
+GET /streams/<ID>/file?name=XXXXXX.php
 GET /streams/<ID>/file?name=ajax.php
 ```
 
-This endpoint returns integration files `index.php`, `filter.php`, and `ajax.php` for the stream specified by `<ID>`.
+This endpoint returns integration files for the stream specified by `<ID>`.
 
 ## Guest Access to Reporting
 
@@ -881,7 +881,7 @@ Saved query is represented by an object with the following properties:
     1--255 -- money page with the corresponding ordinal number
 :::
 
-All properties are optional.  If a particular property is not needed, then you can either omit it or set it to `null`
+All properties are optional.  If a particular property is not needed, you can either omit it or set it to `null`
 (or an empty array `[]` where array values are expected).
 
 Example:
@@ -1575,7 +1575,7 @@ These endpoints replace a given list entirely with new entries.  Send new entrie
 
 ### Delete IP/ASN List Entries
 
-Deletion of individual IP/ASN list entries is not supported yet.  If you need to do so, then first use the `GET` ednpoint to
+Deletion of individual IP/ASN list entries is not supported yet.  If you need to do so, first use the `GET` endpoint to
 obtain the full list, alter the array manually as needed, and use the `PUT` endpoint to replace the existing list with it.
 
-If you need to delete all list entries, then use the `PUT` endpoint with an empty array `[]`.
+If you need to delete all list entries, use the `PUT` endpoint with an empty array `[]`.
