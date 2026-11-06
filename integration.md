@@ -112,32 +112,51 @@ stopped registering clicks in Adspect reporting, the likely cause is recent Word
 We recommend [disabling automatic WordPress updates](https://wordpress.org/documentation/article/configuring-automatic-background-updates/#constant-to-disable-all-updates).
 :::
 
-## Getting Scan Status
+(getting-scan-status)=
+## Getting Check Result in PHP Code
 
-When transferring control to other PHP files or doing reverse PHP integration into them, you can obtain
-scan status information about each click using the `$_adspect` global PHP variable.  It contains an associative
-array of the following structure:
+When executing PHP files via the Local File action or doing reverse PHP integration, you can get click check result in PHP code from the `$_adspect` global variable:
 
 ```php
 <?php
-array(
-  'cid' => 'fd808d23604d84fbc5e81d7b954c4f9a',
-  'ok' => true,
-  'js' => false,
+global $_adspect = [
+  'cid'    => 'fd808d23604d84fbc5e81d7b954c4f9a',
+  'ok'     => true,
+  'js'     => false,
   'action' => 'local',
-  'target' => 'page.php?utm_campaign=test'
-)
+  'target' => 'example.php?utm_campaign=Example'
+];
 ```
 
 The elements are:
 
-| Element  | Description |
-|:---------|:------------|
-| `cid`    | Unique Adspect internal click ID, string (will be the same for both stages of click processing). |
-| `ok`     | Whether the click was determined legitimate, boolean. |
-| `js`     | Whether JS fingerprinting code must be served, boolean (will always be `false` since JS fingerprinting happens before transfer of control to the user's code). |
-| `action` | Action performed for the visitor, string (will normally be either `local` or `noop`). |
-| `target` | Target for the action performed (URL, file path, code), string. |
+:::{list-table}
+:header-rows: 1
+
+* - Element
+  - Type
+  - Description
+
+* - `cid`
+  - String
+  - Unique internal click ID
+
+* - `ok`
+  - Boolean
+  - Result of the click check
+
+* - `js`
+  - Boolean
+  - Technical field for internal use
+
+* - `action`
+  - String
+  - Code of the performed action (usually either `local` or `noop`)
+
+* - `target`
+  - String
+  - Value of the money / safe page field
+:::
 
 ## Hidden URL Parameters
 

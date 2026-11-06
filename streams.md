@@ -37,13 +37,13 @@ The stream mode is the main setting that turns traffic filtering on or off.
 * - On&nbsp;Review
   - Special mode that you **must use** when your ad campaign is under review--it guarantees that Adspect will have no impact
     on your ad campaign's approval.  All visitors land on the safe page.<br><br>
-    **Do not follow your stream's link while this mode is active, or you may get blocked automatically.**
+    **DO NOT go by your stream's link while this mode is active, or you may get yourself blacklisted!**
 
 * - All&nbsp;Money
-  - Auxiliary mode where all visitors land on the money page.  Useful for testing the money page settings.
+  - Helper mode where all visitors land on the money page.  Useful for testing the money page settings.
 
 * - All&nbsp;Safe
-  - Auxiliary mode where all visitors land on the safe page.  Useful for testing the safe page settings.
+  - Helper mode where all visitors land on the safe page.  Useful for testing the safe page settings.
     Set this mode when your ad campaign is paused.
 :::
 
